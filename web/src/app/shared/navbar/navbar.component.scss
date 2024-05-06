@@ -1,0 +1,143 @@
+@import '../../../styles.scss';
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    padding: 0 2%;
+    justify-content: space-between;
+    background-color: $navbarBackgroundColor;
+    @media(max-width:830px) {
+     height: 10vh;
+    }
+
+    &-left-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+
+        @media(max-width:830px) {
+            width: 40%;
+
+        }
+
+
+        &-restaurant-topic {
+            color: $pizzaTopicColor;
+            font-size: $pizzaTopicFont;
+            font-family: "Metal Mania", system-ui;
+            font-weight: 700;
+
+            @media(max-width:830px) {
+                font-size: $pizzaTopicTabFont;
+                margin-top: -0.3rem;
+             }
+
+            @media(max-width:730px) {
+                font-size: $pizzaTopicMobileFont;
+                margin-top: -0.4rem;
+
+            }
+        }
+
+        &-options {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+            height: 1.7rem;
+            @media(max-width:830px) {
+              margin-top: 0.3rem;
+            }
+           
+        }
+
+        &-option {
+            font-size: $navbarOptionFont;
+            font-family: "Open Sans", sans-serif;
+            font-weight: 600;
+            color: $navbarOptionColor;
+            text-decoration: none;
+            margin-left: 1rem ;
+
+
+
+            @media(max-width:830px) {
+                font-size: $navbarOptionTabFont;
+
+            }
+
+            @media(max-width:730px) {
+                font-size: $navbarOptionMobileFont;
+
+            }
+
+            &:hover {
+                border-bottom: 3px solid;
+            }
+        }
+    }
+
+    &-right-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 25%;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 600;
+        font-size: $navbarOptionFont;
+
+        @media(max-width:830px) {
+            width: 26%;
+        }
+
+        @media(max-width:830px) {
+            width: 24%;
+        }
+
+
+        &-signInBtn {
+            font-family: "Open Sans", sans-serif;
+            font-size: $navbarBtnFont;
+            font-weight: 700;
+            color: $navbarBtnColor;
+            background-color: $navbarBtnBackgroundColor;
+            border-radius: 30px;
+            border: none;
+            padding: 0.75rem 2.5rem;
+            margin: 0 1rem;
+            &:hover{
+                cursor: pointer;
+            }
+
+            @media(max-width:830px) {
+                padding: 0.55rem 1.5rem;
+                font-size: $navbarBtnTabFont;
+                margin: 0 0.5rem;
+            }
+
+            @media(max-width:730px) {
+                padding: 0.35rem 1rem;
+                font-size: $navbarBtnMobileFont;
+                margin: 0 0.5rem;
+            }
+        }
+
+        &-cart-icon {
+            font-size: $navbarCartIcon;
+
+            &:hover{
+                cursor: pointer;
+            }
+
+            @media(max-width:830px) {
+                font-size: $navbarCartMobileIcon;
+
+            }
+        }
+    }
+
+}
