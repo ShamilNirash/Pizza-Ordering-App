@@ -1,21 +1,48 @@
-<mat-toolbar class="navbar">
-    <div class="navbar-left-section">
-        <span class="navbar-left-section-restaurant-topic">AQUA Pizza</span>
-        <div class="navbar-left-section-options">
-            <a href="" class="navbar-left-section-option">Home</a>
-            <a href="" class="navbar-left-section-option">Menu</a>
-            <a href="" class="navbar-left-section-option">About</a>
-            <a href="" class="navbar-left-section-option">Contact</a>
-        </div>
+<mat-toolbar class="navbar container-fluid">
+  <div class="navbar-left-section">
+    <span class="navbar-left-section-restaurant-topic">AQUA Pizza</span>
+    <div class="navbar-left-section-options">
+      <a href="" class="navbar-left-section-option">Home</a>
+      <a href="" class="navbar-left-section-option">Menu</a>
+      <a href="" class="navbar-left-section-option">About</a>
+      <a href="" class="navbar-left-section-option">Contact</a>
     </div>
-    <div class="navbar-right-section">
-         <div *ngIf="false" class="navbar-right-section-person-greeting">
-            Hello,Shamil
-         </div>
-         <button class="navbar-right-section-signInBtn">Sign In</button>
-         <div class="navbar-right-section-cart-icon">
-            <fa-icon [icon]="cartIcon"></fa-icon>
-         </div>
+  </div>
+  <div class="navbar-right-section">
+    <div *ngIf="isPersonHave" class="navbar-right-section-person-greeting">
+      Hello,Shamil
+    </div>
+    <button class="navbar-right-section-signInBtn">Sign In</button>
+    <div *ngIf="isPersonHave" class="navbar-right-section-cart-icon">
+      <fa-icon [icon]="cartIcon"></fa-icon>
+    </div>
+  </div>
+</mat-toolbar>
+
+<!-- mobile view of navbar -->
+<mat-toolbar class="mobile-view-navbar container-fluid">
+  <div class="mobile-view-navbar-leftside">
+    <span class="mobile-view-navbar-topic">AQUA Pizza</span>
+  </div>
+
+  <div class="mobile-view-navbar-right-section">
+    <button class="mobile-view-navbar-right-section-signInBtn">Sign In</button>
+    <div
+      *ngIf="isPersonHave"
+      class="mobile-view-navbar-right-section-cart-icon">
+      <fa-icon [icon]="cartIcon"></fa-icon>
     </div>
 
+    <fa-icon
+      class="mobile-view-navbar-right-section-barIcon"
+      [icon]="barIcon"
+      (click)="onClickBarIcon()">
+    </fa-icon>
+  </div>
 </mat-toolbar>
+<div *ngIf="isClickBarIcon" class="mobile-view-navbar-right-section-options">
+  <a href="" class="mobile-view-navbar-right-section-option">Home</a>
+  <a href="" class="mobile-view-navbar-right-section-option">Menu</a>
+  <a href="" class="mobile-view-navbar-right-section-option">About</a>
+  <a href="" class="mobile-view-navbar-right-section-option">Contact</a>
+</div>
