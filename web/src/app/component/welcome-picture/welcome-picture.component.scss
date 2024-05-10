@@ -1,0 +1,66 @@
+@import '../../../styles.scss';
+
+.welcome-picture {
+  height: 85vh;
+  width: 100%;
+  padding: 2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+
+    &-title {
+      height: 50vh;
+      color: $welcomePictureColor;
+      font-size: $welcomePictureTitleFont;
+      font-weight: 700;
+      font-family: 'Open Sans', sans-serif;
+
+      & span {
+        color: $welcomePicturePizzaColor;
+      }
+    }
+    &-description {
+      margin-top: 1.5rem;
+      font-size: $welcomePictureDescriptionFont;
+      color: $welcomePictureColor;
+      font-weight: 500;
+      font-family: 'Open Sans', sans-serif;
+    }
+    &-orderNowBtn {
+      margin-top: 2rem;
+      width: 15rem;
+      padding: 0.75rem 1rem;
+      background-color: $orderNowBtnBackgroundColor;
+      color: $orderNowBtnColor;
+      font-weight: 600;
+      font-size: $orderNowBtnFont;
+      border-radius: 30px;
+      border: none;
+    }
+  }
+  &-image {
+    display: flex;
+    width: 65%;
+    justify-content: space-between;
+
+    &-first-image {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+
+      & img {
+        height: 400px;
+        width: 350px;
+      }
+    }
+    &-second-image{
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+  }
+}
