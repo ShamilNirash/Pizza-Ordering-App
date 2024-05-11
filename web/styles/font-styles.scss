@@ -1,26 +1,47 @@
-
 //nav bar styles
 //font sizes
 $pizzaTopicFont: 50px;
-$navbarOptionFont:20px;
-$navbarBtnFont:18px;
-$navbarCartIcon:25px;
+$navbarOptionFont: 20px;
+$navbarBtnFont: 18px;
+$navbarCartIcon: 25px;
 
-//max-width- 830px
-$pizzaTopicTabFont: 40px;
-$navbarOptionTabFont:18px;
-$navbarBtnTabFont:17px;
-$navbarCartTabIcon:22px;
+//max-width- 900px
+$pizzaTopicTabFont: 50px;
+$navbarOptionTabFont: 18px;
+$navbarBtnTabFont: 17px;
+$navbarCartTabIcon: 22px;
 
-
-//max-width - 730px
+//max-width - 700px
 $pizzaTopicMobileFont: 35px;
-$navbarOptionMobileFont:17px;
-$navbarBtnMobileFont:16px;
-$navbarCartMobileIcon:21px;
+$navbarOptionMobileFont: 17px;
+$navbarBtnMobileFont: 16px;
+$navbarCartMobileIcon: 21px;
 
+//max-width - 410px
+$navbarOptionMiniMobileFont: 15px;
+$navbarBtnMiniMobileFont: 15px;
 
- //welcome picture component style
- $welcomePictureTitleFont:80px;
- $welcomePictureDescriptionFont:23px;
- $orderNowBtnFont:22px;
+//welcome picture component style
+$welcomePictureTitleFont: 60px;
+$welcomePictureDescriptionFont: 25px;
+$orderNowBtnFont: 22px;
+
+//max-width - 900px
+$welcomePictureTitleTabFont: 50px;
+$welcomePictureDescriptionTabFont: 22px;
+$orderNowBtnTabFont: 20px;
+
+//max-width - 700px
+$welcomePictureTitleMobileFont: 35px;
+$welcomePictureDescriptionMobileFont: 18px;
+$orderNowBtnMobileFont: 17px;
+
+//max-width- 410px
+$welcomePictureTitleMiniMobileFont: 30px;
+$welcomePictureDescriptionMiniMobileFont: 16px;
+$orderNowBtnMiniMobileFont: 15px;
+
+//max-width-350px
+$welcomePictureTitleMiniMiniMobileFont: 25px;
+$welcomePictureDescriptionMiniMiniMobileFont: 15px;
+$orderNowBtnMiniMiniMobileFont: 14px;

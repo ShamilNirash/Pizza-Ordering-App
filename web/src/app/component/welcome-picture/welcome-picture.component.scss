@@ -3,35 +3,83 @@
 .welcome-picture {
   height: 85vh;
   width: 100%;
-  padding: 2rem 2rem;
+  padding: 2rem 2rem 1rem;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 900px) {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  @media (max-width: 700px) {
+    padding-top: 0;
+  }
 
   &-content {
     display: flex;
     flex-direction: column;
-    width: 35%;
+    justify-content: space-around;
+    width: 40%;
+    @media (max-width: 955px) {
+      width: 50%;
+    }
+    @media (max-width: 900px) {
+      align-items: center;
+      width: 100%;
+      height: 40vh;
+      justify-content: space-between;
+    }
 
     &-title {
-      height: 50vh;
       color: $welcomePictureColor;
       font-size: $welcomePictureTitleFont;
       font-weight: 700;
       font-family: 'Open Sans', sans-serif;
+      @media (max-width: 900px) {
+        text-align: center;
+        font-size: $welcomePictureTitleTabFont;
+      }
+      @media (max-width: 700px) {
+        font-size: $welcomePictureTitleMobileFont;
+        margin-top: 1rem;
+      }
+      @media (max-width: 410px) {
+        font-size: $welcomePictureTitleMiniMobileFont;
+        margin-top: 2rem;
+      }
+      @media (max-width: 350px) {
+        font-size: $welcomePictureTitleMiniMiniMobileFont;
+        margin-top: 1rem;
+
+      }
 
       & span {
         color: $welcomePicturePizzaColor;
       }
     }
     &-description {
-      margin-top: 1.5rem;
+      margin: 1rem 0rem;
       font-size: $welcomePictureDescriptionFont;
       color: $welcomePictureColor;
-      font-weight: 500;
-      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+      font-family: 'Poetsen One', sans-serif;
+      @media (max-width: 900px) {
+        margin: 0rem 0rem;
+        text-align: center;
+        font-size: $welcomePictureDescriptionFont;
+      }
+      @media (max-width: 700px) {
+        font-size: $welcomePictureDescriptionMobileFont;
+        margin: 1rem 0rem;
+      }
+      @media (max-width: 410px) {
+        margin: 0.5rem 0rem;
+        font-size: $welcomePictureDescriptionMiniMobileFont;
+      }
+      @media (max-width: 350px) {
+        font-size: $welcomePictureDescriptionMiniMiniMobileFont;
+      }
     }
     &-orderNowBtn {
-      margin-top: 2rem;
       width: 15rem;
       padding: 0.75rem 1rem;
       background-color: $orderNowBtnBackgroundColor;
@@ -40,27 +88,54 @@
       font-size: $orderNowBtnFont;
       border-radius: 30px;
       border: none;
+      @media (max-width: 900px) {
+        font-size: $orderNowBtnTabFont;
+      }
+      @media (max-width: 700px) {
+        font-size: $orderNowBtnMobileFont;
+      }
+      @media (max-width: 410px) {
+        font-size: $orderNowBtnMiniMobileFont;
+        padding: 0.45rem 0.9rem;
+      }
+      @media (max-width: 350px) {
+        font-size: $orderNowBtnMiniMiniMobileFont;
+      }
     }
   }
   &-image {
     display: flex;
-    width: 65%;
-    justify-content: space-between;
-
-    &-first-image {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-
-      & img {
-        height: 400px;
-        width: 350px;
-      }
+    height: 100%;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 900px) {
+      height: 43vh;
+      width: 100%;
+      align-items: flex-end;
     }
-    &-second-image{
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
+    @media (max-width: 700px) {
+      height: 45vh;
+    }
+    @media (max-width: 350px) {
+      height: 40vh;
+    }
+
+
+    & img {
+      height: auto;
+      max-width: 60%;
+
+      @media (max-width: 1300px) {
+        max-width: 70%;
+      }
+      @media (max-width: 955px) {
+        max-width: 90%;
+      }
+      @media (max-width: 900px) {
+        max-height: 80%;
+        width: auto;
+      }
     }
   }
 }
