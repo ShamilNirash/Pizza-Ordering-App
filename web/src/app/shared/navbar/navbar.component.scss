@@ -1,219 +1,157 @@
 @import '../../../styles.scss';
 .navbar {
-    height: 15vh;
-    
-    width: 100%;
+  height: 15vh;
+  width: 100%;
+  display: flex;
+  padding: 0 2%;
+  justify-content: space-between;
+  background-color: $navbarBackgroundColor;
 
+  @media (max-width: 900px) {
+    display: none;
+  }
+
+  &-left-section {
     display: flex;
-    padding: 0 2%;
+    align-items: center;
     justify-content: space-between;
-    background-color: $navbarBackgroundColor;
+    width: 50%;
 
-    @media(max-width:830px) {
-        height: 13vh;
+    &-restaurant-topic {
+      color: $pizzaTopicColor;
+      font-size: $pizzaTopicFont;
+      font-family: 'Metal Mania', system-ui;
+      font-weight: 700;
     }
 
-    @media(max-width:650px) {
-        display: none;
+    &-options {
+      display: flex;
+      justify-content: space-between;
+      width: 50%;
+      height: 1.7rem;
     }
 
-    &-left-section {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 50%;
+    &-option {
+      font-size: $navbarOptionFont;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      color: $navbarOptionColor;
+      text-decoration: none;
+      margin-left: 1rem;
+      &:hover {
+        border-bottom: 3px solid;
+      }
+    }
+  }
 
-        @media(max-width:830px) {
-            width: 40%;
+  &-right-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: $navbarOptionFont;
 
-        }
+    &-signInBtn {
+      font-family: 'Open Sans', sans-serif;
+      font-size: $navbarBtnFont;
+      font-weight: 700;
+      color: $navbarBtnColor;
+      background-color: $navbarBtnBackgroundColor;
+      border-radius: 30px;
+      border: none;
+      padding: 0.75rem 2.5rem;
+      margin: 0 1rem;
 
-
-        &-restaurant-topic {
-            color: $pizzaTopicColor;
-            font-size: $pizzaTopicFont;
-            font-family: "Metal Mania", system-ui;
-            font-weight: 700;
-
-            @media(max-width:830px) {
-                font-size: $pizzaTopicTabFont;
-                margin-top: -0.3rem;
-            }
-
-            @media(max-width:730px) {
-                font-size: $pizzaTopicMobileFont;
-                margin-top: -0.4rem;
-
-            }
-        }
-
-        &-options {
-            display: flex;
-            justify-content: space-between;
-            width: 50%;
-            height: 1.7rem;
-
-            @media(max-width:830px) {
-                margin-top: 0.3rem;
-            }
-
-        }
-
-        &-option {
-            font-size: $navbarOptionFont;
-            font-family: "Open Sans", sans-serif;
-            font-weight: 600;
-            color: $navbarOptionColor;
-            text-decoration: none;
-            margin-left: 1rem;
-
-
-
-            @media(max-width:830px) {
-                font-size: $navbarOptionTabFont;
-
-            }
-
-            @media(max-width:730px) {
-                font-size: $navbarOptionMobileFont;
-
-            }
-
-            &:hover {
-                border-bottom: 3px solid;
-            }
-        }
+      &:hover {
+        cursor: pointer;
+      }
     }
 
-    &-right-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-/*         width: 25%;
- */        font-family: "Open Sans", sans-serif;
-        font-weight: 600;
-        font-size: $navbarOptionFont;
+    &-cart-icon {
+      font-size: $navbarCartIcon;
 
-        @media(max-width:830px) {
-/*             width: 26%;
- */        }
-
-        @media(max-width:830px) {
-/*             width: 24%;
- */        }
-
-
-        &-signInBtn {
-            font-family: "Open Sans", sans-serif;
-            font-size: $navbarBtnFont;
-            font-weight: 700;
-            color: $navbarBtnColor;
-            background-color: $navbarBtnBackgroundColor;
-            border-radius: 30px;
-            border: none;
-            padding: 0.75rem 2.5rem;
-            margin: 0 1rem;
-
-            &:hover {
-                cursor: pointer;
-            }
-
-            @media(max-width:830px) {
-                padding: 0.55rem 1.5rem;
-                font-size: $navbarBtnTabFont;
-                margin: 0 0.5rem;
-            }
-
-            @media(max-width:730px) {
-                padding: 0.45rem 1.45rem;
-                font-size: $navbarBtnMobileFont;
-                margin: 0 0.5rem;
-            }
-        }
-
-        &-cart-icon {
-            font-size: $navbarCartIcon;
-
-            &:hover {
-                cursor: pointer;
-            }
-
-            @media(max-width:830px) {
-                font-size: $navbarCartMobileIcon;
-
-            }
-        }
+      &:hover {
+        cursor: pointer;
+      }
     }
-
+  }
 }
 .mobile-view-navbar {
-    display: none;
-    
+  display: none;
 
-    @media(max-width:650px) {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: $navbarBackgroundColor;
-        height: 15vh;
-        width: 100%;
+  @media (max-width: 900px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $navbarBackgroundColor;
+    height: 15vh;
+    width: 100%;
+  }
+
+  &-topic {
+    color: $pizzaTopicColor;
+    font-size: $pizzaTopicTabFont;
+    font-family: 'Metal Mania', system-ui;
+    font-weight: 700;
+    @media (max-width: 450px) {
+      font-size: $pizzaTopicMobileFont;
+    }
+  
+  }
+  &-right-section {
+    width: 38%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 450px) {
+      width: 40%;
+    }
+    &-barIcon {
+      font-size: 40px;
+      @media (max-width: 450px) {
+        font-size: 30px;
+      }
     }
 
-    &-topic {
-        color: $pizzaTopicColor;
-        font-size: $pizzaTopicMobileFont;
-        font-family: "Metal Mania", system-ui;
-        font-weight: 700;
+    &-options {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      background-color: $navbarBackgroundColor;
+      padding-bottom: 1rem;
     }
-    &-right-section{
-        width:38%;
-        display: flex;
-        justify-content: space-between;
-        @media(max-width:450px){
-            width: 40%;
-        }
-        &-barIcon{
-            font-size: 40px;
-            @media(max-width:450px){
-                font-size: 30px;
-            } 
-        }
-
-        &-options{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            background-color: $navbarBackgroundColor;
-            padding-bottom: 1rem;
-        }
-        &-option{
-            font-size: $navbarOptionMobileFont;
-            font-family: "Open Sans", sans-serif;
-            font-weight: 600;
-            color: $navbarOptionColor;
-            text-decoration: none;
-            margin-left: 1rem;
-            margin-right: 1rem;
-            margin-bottom: 2rem;
-            height: 2rem;
-            border-bottom: 3px solid;
-           
-        }
-        &-signInBtn{
-            padding: 0.1rem 1.3rem;
-            background-color: $navbarBtnBackgroundColor;
-            border-radius: 30px;
-            font-size: $navbarBtnMobileFont;
-            color: $navbarBtnColor;
-            border: none;
-            font-weight: 700;
-            @media(max-width:450px){
-                padding: 0.1rem 0.7rem;
-
-            }
-        }
-       
+    &-option {
+      font-size: $navbarOptionMobileFont;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      color: $navbarOptionColor;
+      text-decoration: none;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 2rem;
+      height: 2rem;
+      border-bottom: 3px solid;
+      @media(max-width:410px){
+        font-size: $navbarOptionMiniMobileFont;
+      }
     }
-   
-    
+    &-signInBtn {
+      padding: 0.1rem 2rem;
+      height: 3rem;
+      background-color: $navbarBtnBackgroundColor;
+      border-radius: 30px;
+      font-size: $navbarBtnMobileFont;
+      color: $navbarBtnColor;
+      border: none;
+      font-weight: 700;
+      @media (max-width: 450px) {
+        padding: 0.1rem 0.7rem;
+        height: 2.5rem;
+      }
+      @media(max-width:410px){
+        font-size: $navbarBtnMiniMobileFont;
+      }
+    }
+  }
 }
