@@ -1,0 +1,75 @@
+@import '../../../styles.scss';
+.about-us-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../assets/images/f036cf37-d102-4447-89bf-95d9a7451e90_hitpaw.com.jpg'); /* Replace 'background.jpg' with the path to your background image */
+    background-size: cover;
+    filter: blur(0px);
+    @media(max-width:900px){
+        filter: blur(7px);
+ 
+    }
+  }
+  &-content {
+   
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+    z-index: 1; 
+    position: relative;
+    @media (max-width: 900px) {
+      width: 70%;
+    }
+    & h2 {
+      text-align: center;
+      color: $aboutUsHeadingColor;
+      font-size: $aboutUsHeadingFont;
+      font-family: 'Open Sans', sans-serif;
+      padding-bottom: 2rem;
+      font-weight: 800;
+      text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.4);
+      @media (max-width: 900px) {
+        font-size: $aboutUsHeadingTabFont;
+        padding-bottom: 2rem;
+      }
+      @media (max-width: 700px) {
+        font-size: $aboutUsHeadingMobileFont;
+
+      }
+      @media (max-width: 350px) {
+        font-size: $aboutUsHeadingMiniMobileFont;
+        padding-bottom: 1rem;
+
+      }
+    }
+    & p {
+      font-size: $aboutUsParagraphFont;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      color: $aboutUsParagraphColor;
+
+      @media (max-width: 900px) {
+        font-size: $aboutUsParagraphTabFont;
+      }
+      @media (max-width: 700px) {
+        font-size: $aboutUsParagraphMobileFont;
+      }
+      @media (max-width: 350px) {
+        font-size: $aboutUsParagraphMiniMobileFont;
+      }
+    }
+  }
+}
