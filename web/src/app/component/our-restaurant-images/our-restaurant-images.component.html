@@ -1,0 +1,22 @@
+<div class="our-restaurant-images container-fluid">
+	<ngb-carousel
+	#carousel
+	[interval]="2000"
+	[pauseOnHover]="pauseOnHover"
+	[pauseOnFocus]="pauseOnFocus"
+	(slide)="onSlide($event)"
+>
+	@for (img of images; track img; let i = $index) {
+		<ng-template ngbSlide>
+			<div class="carousel-caption">
+				<h3>AQUA Pizza Shop Interior</h3>
+			</div>
+
+				<div class="picsum-img-wrapper">
+					<img [src]="img.url" alt="shop view {{i}}" />
+				</div>
+			
+		</ng-template>
+	}
+</ngb-carousel>
+</div>
