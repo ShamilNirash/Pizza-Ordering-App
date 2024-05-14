@@ -1,0 +1,60 @@
+@import '../../../styles.scss';
+.our-restaurant-images {
+  height: 100vh;
+  width: 100%;
+  padding: 2rem ;
+  background-color: $ourRestaurantImagesBgColor;
+
+  & h3{
+    color: $ourRestaurantImagesHeadingColor;
+    font-size: $ourRestaurantImagesHeadingFont;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+
+    @media(max-width:900px){
+        font-size: $ourRestaurantImagesHeadingTabFont;
+    }
+    
+    @media(max-width:700px){
+        font-size: $ourRestaurantImagesHeadingMobileFont;
+    }
+    
+    @media(max-width:350px){
+        font-size: $ourRestaurantImagesHeadingMiniMobileFont;
+    }
+  }
+ & img {
+    height: 90vh;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+    ::ng-deep {
+        .carousel-control-prev {
+          display: none;
+        }
+        .carousel-control-next {
+          display: none;
+        }
+        @media(max-width:900px){
+            .carousel-indicators button{
+                width: 25px;
+            }
+        }
+        @media(max-width:700px){
+            .carousel-indicators button{
+                width: 20px;
+            }
+        }
+        @media(max-width:350px){
+            .carousel-indicators button{
+                width: 15px;
+            }
+        }
+       
+      
+    
+}
+  }
+
+
