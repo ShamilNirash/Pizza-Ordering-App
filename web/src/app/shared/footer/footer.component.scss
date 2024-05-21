@@ -17,26 +17,26 @@
     color: $footerPizzaTopicColor;
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
-    font-size: 35px;
+    font-size: $footerPizzaTopicFont;
     text-shadow: 2px 4px 4px rgba(0,0,0,0.4);
     @media(max-width:900px){
-        font-size:33px;
+        font-size:$footerPizzaTopicTabFont;
     }
     @media(max-width:700px){
-        font-size:30px;
+        font-size:$footerPizzaTopicMobileFont;
     }
 }
 &-reserved-statement{
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+    font-size: $footerReservedStatementFont;
     @media(max-width:900px){
-        font-size:15px;
+        font-size:$footerReservedStatementTabFont;
     }
     @media(max-width:700px){
-        font-size:14px;
+        font-size:$footerReservedStatementMobileFont;
     }
     @media(max-width:410px){
-        font-size:12px;
+        font-size:$footerReservedStatementMiniMobileFont;
         text-align: center;
     }
 }

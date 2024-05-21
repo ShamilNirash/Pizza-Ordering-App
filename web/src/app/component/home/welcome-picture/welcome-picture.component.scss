@@ -1,4 +1,4 @@
-@import '../../../styles.scss';
+@import '../../../../styles.scss';
 
 .welcome-picture {
   height: 85vh;
@@ -33,7 +33,6 @@
       color: $welcomePictureColor;
       font-size: $welcomePictureTitleFont;
       text-shadow: 2px 4px 4px rgba(0,0,0,0.4);
-
       font-weight: 700;
       font-family: 'Open Sans', sans-serif;
       @media (max-width: 900px) {

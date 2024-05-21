@@ -1,0 +1,59 @@
+@import '../../../../styles.scss';
+.signup-header{
+        display: flex;
+        height: 15vh;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        @media(max-width:900px){
+            height: 20vh;
+            padding: 0 10%;
+            flex-direction: column;
+            align-items: flex-start; 
+            margin-bottom: 2rem;
+        }
+        @media(max-width:410px){
+            padding-left: 14%;
+        }
+        @media(max-width:350px){
+            margin-bottom: 0rem;
+            height: 17vh;
+
+        }
+    &-topic{
+        color: $signUpTopicColor;
+      font-size: $signUpTopicFont;
+      font-family: 'Metal Mania', system-ui;
+      font-weight: 700;
+      text-shadow: 8px 8px 8px rgba(0, 0, 0, 0.4);
+      @media(max-width:900px){
+        font-size: $signUpTopicTabFont;
+      }
+      @media(max-width:700px){
+        font-size: $signUpTopicMobileFont;
+      }
+      @media(max-width:350px){
+        font-size: $signUpTopicMiniMobileFont;
+      }
+    }
+&-signin{
+    font-size: $signUpReservedStatementFont;
+    color: $signUpReservedStatementColor;
+    font-weight: 400;
+    @media(max-width:900px){
+        font-size: $signUpReservedStatementTabFont;
+      }
+      @media(max-width:700px){
+        font-size: $signUpReservedStatementMobileFont;
+      }
+      @media(max-width:420px){
+        font-size: $signUpReservedStatementMiniMobileFont;
+      }
+& span{
+    color: $signUpTopicColor;
+    font-weight: 700;
+    &:hover{
+        text-decoration: underline;
+        cursor: pointer;
+    }}
+}}
