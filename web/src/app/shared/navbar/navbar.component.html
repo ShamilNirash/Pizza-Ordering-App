@@ -41,7 +41,7 @@
     </fa-icon>
   </div>
 </mat-toolbar>
-<div *ngIf="isClickBarIcon" class="mobile-view-navbar-right-section-options">
+<div [ngClass]="isClickBarIcon ? 'mobile-navbar-after-animation':'' " class="mobile-view-navbar-right-section-options">
   <a href="" class="mobile-view-navbar-right-section-option">Home</a>
   <a href="" class="mobile-view-navbar-right-section-option">Menu</a>
   <a href="" class="mobile-view-navbar-right-section-option">About</a>
