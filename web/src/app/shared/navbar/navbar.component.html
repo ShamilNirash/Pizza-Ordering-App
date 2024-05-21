@@ -12,9 +12,10 @@
     <div *ngIf="isPersonHave" class="navbar-right-section-person-greeting">
       Hello,Shamil
     </div>
-    <button class="navbar-right-section-signInBtn">Sign In</button>
+    <button class="navbar-right-section-signInBtn" (click)="onClickSignIn()" >Sign In</button>
     <div *ngIf="isPersonHave" class="navbar-right-section-cart-icon">
       <fa-icon [icon]="cartIcon"></fa-icon>
+      <fa-icon [icon]="userIcon"></fa-icon>
     </div>
   </div>
 </mat-toolbar>
@@ -26,11 +27,11 @@
   </div>
 
   <div class="mobile-view-navbar-right-section">
-    <button class="mobile-view-navbar-right-section-signInBtn">Sign In</button>
-    <div
-      *ngIf="isPersonHave"
+    <button class="mobile-view-navbar-right-section-signInBtn" (click)="onClickSignIn()">Sign In</button>
+    <div *ngIf="isPersonHave"
       class="mobile-view-navbar-right-section-cart-icon">
       <fa-icon [icon]="cartIcon"></fa-icon>
+      <fa-icon [icon]="userIcon"></fa-icon>   
     </div>
 
     <fa-icon

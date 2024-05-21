@@ -1,0 +1,39 @@
+    <div class="sign-up">
+    <div class="sign-up-personal-details-form">
+      <h2>Sign in</h2>
+      <div class="sign-up-personal-details-form-content">
+        <div class="sign-up-personal-details-form-content-field">
+          <h3>email</h3>
+          <mat-form-field class="mat-form-field">
+            <mat-label class="mat-label">Enter your email</mat-label>
+            <input matInput
+                   placeholder="pat@example.com"
+                   [formControl]="email"
+                   (blur)="updateErrorMessage()"
+                   required>
+            @if (email.invalid) {
+              <mat-error>{{errorMessage}}</mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="sign-up-personal-details-form-content-field">
+          <h3>password</h3>
+          <mat-form-field class="mat-form-field">
+            <mat-label class="mat-label">Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          
+        </div>
+       
+        <button class="sign-up-personal-details-form-content-signInBtn">SIGN IN</button>
+        <div class="sign-up-personal-details-form-content-footer">
+          <div class="sign-up-personal-details-form-content-footer-item">Forgot password?</div>
+          <div class="sign-up-personal-details-form-content-footer-item">Having any problems?</div>
+        </div>
+      </div>
+        
+    </div>  
+    </div>

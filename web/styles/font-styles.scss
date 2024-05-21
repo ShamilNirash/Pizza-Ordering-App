@@ -21,7 +21,6 @@ $navbarCartMobileIcon: 21px;
 $navbarOptionMiniMobileFont: 15px;
 $navbarBtnMiniMobileFont: 15px;
 
-
 /*********************************************/
 //welcome picture component style
 $welcomePictureTitleFont: 60px;
@@ -50,30 +49,86 @@ $orderNowBtnMiniMiniMobileFont: 14px;
 
 /************************************************************/
 //about us component
-$aboutUsHeadingFont:40px;
-$aboutUsParagraphFont:16px;
+$aboutUsHeadingFont: 40px;
+$aboutUsParagraphFont: 16px;
 
 //max-width-900px
-$aboutUsHeadingTabFont:35px;
-$aboutUsParagraphTabFont:14px;
+$aboutUsHeadingTabFont: 35px;
+$aboutUsParagraphTabFont: 14px;
 
 //max-width-700px
-$aboutUsHeadingMobileFont:32px;
-$aboutUsParagraphMobileFont:13px;
+$aboutUsHeadingMobileFont: 32px;
+$aboutUsParagraphMobileFont: 13px;
 
 //max-width-350px
-$aboutUsHeadingMiniMobileFont:25px;
-$aboutUsParagraphMiniMobileFont:11px;
+$aboutUsHeadingMiniMobileFont: 25px;
+$aboutUsParagraphMiniMobileFont: 11px;
 
 /********************************************************************/
 //our restaurant images component
-$ourRestaurantImagesHeadingFont:40px;
+$ourRestaurantImagesHeadingFont: 40px;
 
 //max-width-900px
-$ourRestaurantImagesHeadingTabFont:35px;
+$ourRestaurantImagesHeadingTabFont: 35px;
 
 //max-width-700px
-$ourRestaurantImagesHeadingMobileFont:30px;
+$ourRestaurantImagesHeadingMobileFont: 30px;
 
 //max-width-350px
-$ourRestaurantImagesHeadingMiniMobileFont:25px;
+$ourRestaurantImagesHeadingMiniMobileFont: 25px;
+
+/*********************************************************************/
+
+//footer component
+$footerPizzaTopicFont: 35px;
+$footerReservedStatementFont: 16px;
+
+//max-width-900px
+$footerPizzaTopicTabFont: 33px;
+$footerReservedStatementTabFont: 15px;
+
+//max-width-700px
+$footerPizzaTopicMobileFont: 30px;
+$footerReservedStatementMobileFont: 14px;
+
+//max-width-410px
+$footerReservedStatementMiniMobileFont: 12px;
+
+/***********************************************************************/
+
+//signUp section
+$signUpTopicFont: 50px;
+$signUpReservedStatementFont: 20px;
+
+//max-width:900px
+$signUpTopicTabFont: 45px;
+$signUpReservedStatementTabFont: 18px;
+
+//max-width:700px
+$signUpTopicMobileFont: 40px;
+$signUpReservedStatementMobileFont: 16px;
+
+//max-width:420px
+$signUpTopicMiniMobileFont: 35px;
+$signUpReservedStatementMiniMobileFont: 13px;
+
+/************************************************************************/ 
+//sign in section
+$signInTopicFont: 30px;
+$signInSubTopicFont: 18px;
+$signInBtnFont: 18px;
+
+//max-width - 900px
+$signInTopicTabFont: 27px;
+$signInSubTopicTabFont: 17px;
+$signInBtnTabFont: 17px;
+
+//max-width - 700px
+$signInTopicMobileFont: 25px;
+$signInSubTopicMobileFont: 16px;
+$signInBtnMobileFont: 15px;
+
+//max-width - 350px
+$signInTopicMiniMobileFont: 23px;
+$signInSubTopicMiniMobileFont: 14px;
+$signInBtnMiniMobileFont: 14px;

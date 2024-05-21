@@ -1,0 +1,172 @@
+@import '../../../../styles.scss';
+.sign-up {
+  height: 65vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-bottom: 2rem;
+  justify-content: center;
+  @media(max-width:900px){
+    height: 55vh;
+  }
+  @media(max-width:350px){
+    height: 60vh;
+  }
+  &-personal-details-form {
+    width: 60%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    @media(max-width:900px){
+        width: 80%;
+    }
+    @media(max-width:410px){
+        padding: 0.5rem 1rem;
+    }
+   
+    & h2 {
+      font-size: $signInTopicFont;
+      font-weight: 700;
+      @media (max-width: 900px) {
+        font-size: $signInTopicTabFont;
+      }
+      @media (max-width: 700px) {
+        font-size: $signInTopicMobileFont;
+      }
+      @media (max-width: 350px) {
+        font-size: $signInTopicMiniMobileFont;
+        margin-bottom: 0px;
+      }
+    }
+    &-content {
+      display: flex;
+      flex-direction: column;
+      height: 60vh;
+      justify-content: space-between;
+      @media(max-width:350px){
+        height: 50vh;
+      }
+      &-field{ 
+                & h3 {
+        font-size: $signInSubTopicFont;
+        font-weight: 500;
+        @media (max-width: 900px) {
+          font-size: $signInSubTopicTabFont;
+        }
+        @media (max-width: 700px) {
+          font-size: $signInSubTopicMobileFont;
+        }
+        @media (max-width: 350px) {
+            font-size: $signInSubTopicMiniMobileFont;
+          }
+          @media(max-width:350px){
+            margin-bottom: 5px;
+          }
+      }}
+      &-signInBtn {
+        margin-top: 1rem;
+        padding: 0.5rem 1.5rem;
+        border-radius: 10px;
+        font-size: $signInBtnFont;
+        background-color: $themeColor;
+        color: $signUpBtnColor;
+        border: none;
+        font-weight: 500;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        @media (max-width: 900px) {
+          font-size: $signInBtnTabFont;
+        }
+        @media (max-width: 700px) {
+          font-size: $signInBtnMobileFont;
+        }
+        @media (max-width: 350px) {
+            font-size: $signInBtnMiniMobileFont;
+            margin-top: 0rem;
+            padding: 0.35rem 1.05rem;
+          }
+      }
+      &-footer {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        color: $themeColor;
+        font-size: $signInSubTopicFont;
+        font-weight: 500;
+        @media (max-width: 900px) {
+          font-size: $signInSubTopicTabFont;
+        }
+        @media (max-width: 700px) {
+          font-size: $signInSubTopicMobileFont;
+        }
+        @media (max-width: 350px) {
+            font-size: $signInSubTopicMiniMobileFont;
+            margin-top: 0.75rem;
+          }
+        &-item {
+          margin-bottom: 1rem;
+          @media(max-width:350px){
+            margin-bottom: 5px;
+
+          }
+          &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .mat-mdc-form-field-flex {
+    width: 98% !important;
+  }
+  .mat-form-field {
+    width: 100%;
+    @media(max-width:350px){
+    }
+  }
+  .mdc-line-ripple::after {
+    border-bottom-color: black !important ;
+  }
+  .mat-label {
+    color: black;
+    @media(max-width:500px){
+        font-size: 15px;
+    }
+    @media(max-width:350px){
+        font-size: 13px;
+    }
+  }
+  .mat-mdc-floating-label.mdc-floating-label {
+    color: black !important;
+  }
+  .material-icons{
+    @media(max-width:500px){
+        font-size: 18px;
+    }
+    @media(max-width:350px){
+        font-size: 15px;
+    }
+  }
+  mat-icon{
+    @media(max-width:500px){
+    height: 18px !important;
+    width: 18px !important;}
+    @media(max-width:500px){
+        height: 15px !important;
+        width: 15px !important;}
+  }
+  input{
+    @media(max-width:500px){
+        font-size: 15px !important;
+    }
+    @media(max-width:350px){
+        font-size: 13px !important;
+    }
+  }
+  }
+
