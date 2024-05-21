@@ -26,7 +26,6 @@ export class NavbarComponent {
   }
   onClickSignIn(){
    this.router.navigateByUrl('sign-up');
-   console.log("he");
    
   }
 }

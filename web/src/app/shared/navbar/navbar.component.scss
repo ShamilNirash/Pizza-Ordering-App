@@ -121,7 +121,10 @@
       flex-direction: column;
       justify-content: space-around;
       background-color: $navbarBackgroundColor;
-      padding-bottom: 1rem;
+      padding: 1rem 0;
+      opacity: 0;
+      height: 0;
+      transition: opacity 0.3s ease, height 0.3s ease;
     }
     &-option {
       font-size: $navbarOptionMobileFont;
@@ -158,4 +161,8 @@
       }
     }
   }
+}
+.mobile-navbar-after-animation{
+  opacity: 1;
+  height: 20rem;
 }
