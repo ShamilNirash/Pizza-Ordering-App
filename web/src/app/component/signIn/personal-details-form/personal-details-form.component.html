@@ -6,7 +6,7 @@
           <h3>email</h3>
           <mat-form-field class="mat-form-field">
             <mat-label class="mat-label">Enter your email</mat-label>
-            <input matInput
+            <input   matInput
                    placeholder="pat@example.com"
                    [formControl]="email"
                    (blur)="updateErrorMessage()"
@@ -20,7 +20,7 @@
           <h3>password</h3>
           <mat-form-field class="mat-form-field">
             <mat-label class="mat-label">Enter your password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'">
+            <input  matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
@@ -28,7 +28,7 @@
           
         </div>
        
-        <button class="sign-up-personal-details-form-content-signInBtn">SIGN IN</button>
+        <button class="sign-up-personal-details-form-content-signInBtn" (click)="onClickSignInBtn()">SIGN IN</button>
         <div class="sign-up-personal-details-form-content-footer">
           <div class="sign-up-personal-details-form-content-footer-item">Forgot password?</div>
           <div class="sign-up-personal-details-form-content-footer-item">Having any problems?</div>
