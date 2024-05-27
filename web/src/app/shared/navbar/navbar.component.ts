@@ -4,7 +4,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCartShopping, faBars,faUser } from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { IsPersonService } from '../../services/isPerson/is-person.service';
+import { UserAuthService } from '../../services/user-auth/user-auth.service';
+import { User } from '../../interfaces/user';
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -16,14 +17,22 @@ export class NavbarComponent implements OnInit{
   cartIcon = faCartShopping;
   barIcon = faBars;
   userIcon = faUser;
-
   isPersonHave = false;
   isClickBarIcon = false;
-  constructor(private router : Router, private isPersonService:IsPersonService){
+  userName:string='';
+  constructor(private router : Router, private userAuthService:UserAuthService){
 
   }
   ngOnInit():void{
-this.isPersonHave=this.isPersonService.getIsPersonValue();
+    const userId=this.userAuthService.getId();
+    if(userId){
+      this.userAuthService.getUserInformation(userId).subscribe({
+       next:(user:User) =>{this.userName=user.firstName;},
+       error:(err)=>{console.log(err)}
+      })
+      this.isPersonHave=true;
+    }
+
   }
   onClickBarIcon() {
     this.isClickBarIcon = !this.isClickBarIcon;

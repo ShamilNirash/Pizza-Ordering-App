@@ -9,7 +9,6 @@ import { merge } from 'rxjs';
 import { UserAuthService } from '../../../services/user-auth/user-auth.service';
 import swal from 'sweetalert';
 import { Router } from '@angular/router';
-import { IsPersonService } from '../../../services/isPerson/is-person.service';
 @Component({
   selector: 'app-personal-details-form',
   standalone: true,
@@ -29,7 +28,7 @@ export class PersonalDetailsFormComponent {
   hide = true;
   emailField: string = '';
   passwordField: string = '';
-  constructor(private userAuthService: UserAuthService, private router:Router,private isPersonService:IsPersonService) {
+  constructor(private userAuthService: UserAuthService, private router:Router) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateErrorMessage());
@@ -54,7 +53,6 @@ export class PersonalDetailsFormComponent {
         .signInPost(this.email.value!, this.password.value!)
         .subscribe({
           next: res => {
-            this.isPersonService.setIsPersonValue(true);
             this.router.navigateByUrl('/');
   },
           error: err => {
