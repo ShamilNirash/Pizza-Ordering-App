@@ -10,9 +10,14 @@
   </div>
   <div class="navbar-right-section">
     <div *ngIf="isPersonHave" class="navbar-right-section-person-greeting">
-      Hello,Shamil
+      Hello,{{ userName }}
     </div>
-    <button *ngIf="!isPersonHave" class="navbar-right-section-signInBtn" (click)="onClickSignIn()" >Sign In</button>
+    <button
+      *ngIf="!isPersonHave"
+      class="navbar-right-section-signInBtn"
+      (click)="onClickSignIn()">
+      Sign In
+    </button>
     <div *ngIf="isPersonHave" class="navbar-right-section-cart-icon">
       <fa-icon [icon]="cartIcon"></fa-icon>
       <fa-icon [icon]="userIcon"></fa-icon>
@@ -27,11 +32,17 @@
   </div>
 
   <div class="mobile-view-navbar-right-section">
-    <button *ngIf="!isPersonHave" class="mobile-view-navbar-right-section-signInBtn" (click)="onClickSignIn()">Sign In</button>
-    <div *ngIf="isPersonHave"
+    <button
+      *ngIf="!isPersonHave"
+      class="mobile-view-navbar-right-section-signInBtn"
+      (click)="onClickSignIn()">
+      Sign In
+    </button>
+    <div
+      *ngIf="isPersonHave"
       class="mobile-view-navbar-right-section-cart-icon">
       <fa-icon [icon]="cartIcon"></fa-icon>
-      <fa-icon [icon]="userIcon"></fa-icon>   
+      <fa-icon [icon]="userIcon"></fa-icon>
     </div>
 
     <fa-icon
@@ -41,7 +52,9 @@
     </fa-icon>
   </div>
 </mat-toolbar>
-<div [ngClass]="isClickBarIcon ? 'mobile-navbar-after-animation':'' " class="mobile-view-navbar-right-section-options">
+<div
+  [ngClass]="isClickBarIcon ? 'mobile-navbar-after-animation' : ''"
+  class="mobile-view-navbar-right-section-options">
   <a href="" class="mobile-view-navbar-right-section-option">Home</a>
   <a href="" class="mobile-view-navbar-right-section-option">Menu</a>
   <a href="" class="mobile-view-navbar-right-section-option">About</a>

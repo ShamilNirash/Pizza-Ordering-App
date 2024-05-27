@@ -3,7 +3,11 @@ const _ = require("lodash");
 const jwt = require("jsonwebtoken");
 const jwtSecret = "lOsDKMXBayayFJQNNmUp5KqbwV1U4QfGIvPt4kTO6BEEJyhZoAhtQBqEa";
 const userSchema = mongoose.Schema({
-  name: {
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
     type: String,
     required: true,
   },
@@ -39,10 +43,7 @@ const userSchema = mongoose.Schema({
 userSchema.methods.toJSON = function () {
   const user = this;
   const userObject = user.toObject();
-  return new _.omit(userObject, [
-   "sessions",
-    "password",
-  ]);
+  return new _.omit(userObject, ["sessions", "password"]);
 };
 
 //refresh token generator
@@ -112,20 +113,20 @@ userSchema.methods.createSession = function () {
 //searching methods
 userSchema.statics.findByEmailAndPassword = async function (email, password) {
   try {
-   const user = await User.findOne({ email });
-      if (!user) {
-        throw new Error("User Not Found");
-      }
-      if (user.password !== password) {
-        //strick equality (check both value and type)
-        throw new Error("User Not Found");
-      }
-      return user;
-    } catch(error) {
+    const user = await User.findOne({ email });
+    if (!user) {
+      throw new Error("User Not Found");
+    }
+    if (user.password !== password) {
+      //strick equality (check both value and type)
+      throw new Error("User Not Found");
+    }
+    return user;
+  } catch (error) {
     console.log("Error in finding user", error);
     throw error;
   }
-}
+};
 userSchema.statics.findByTokenAndId = function (token, id) {
   return User.findOne({ "sessions.refreshToken": token, _id: id });
 };

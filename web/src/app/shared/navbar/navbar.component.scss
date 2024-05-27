@@ -52,7 +52,11 @@
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: $navbarOptionFont;
-
+    width: 30%;
+    &-person-greeting {
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+    }
     &-signInBtn {
       box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.4);
       font-family: 'Open Sans', sans-serif;
@@ -72,7 +76,9 @@
 
     &-cart-icon {
       font-size: $navbarCartIcon;
-
+      width: 30%;
+      display: flex;
+      justify-content: space-between;
       &:hover {
         cursor: pointer;
       }
@@ -102,7 +108,7 @@
     }
   }
   &-right-section {
-    width: 38%;
+    width: 40%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -111,8 +117,25 @@
     }
     &-barIcon {
       font-size: 40px;
+      @media(max-width:700px){
+        font-size: 35px;
+      }
       @media (max-width: 450px) {
         font-size: 30px;
+      }
+    }
+    &-cart-icon {
+      width: 8rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 30px;
+      @media(max-width:700px){
+        font-size: 25px;
+        width: 7rem;
+      }
+      @media (max-width: 450px) {
+        font-size: 20px;
+        width: 5rem;
       }
     }
 
@@ -124,7 +147,9 @@
       padding: 1rem 0;
       opacity: 0;
       height: 0;
-      transition: opacity 0.3s ease, height 0.3s ease;
+      transition:
+        opacity 0.3s ease,
+        height 0.3s ease;
     }
     &-option {
       font-size: $navbarOptionMobileFont;
@@ -162,7 +187,7 @@
     }
   }
 }
-.mobile-navbar-after-animation{
+.mobile-navbar-after-animation {
   opacity: 1;
   height: 20rem;
 }

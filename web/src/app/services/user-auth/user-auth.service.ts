@@ -1,6 +1,7 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { shareReplay, tap } from 'rxjs';
+import { Observable, shareReplay, tap } from 'rxjs';
+import { User } from '../../interfaces/user';
 
 @Injectable({
   providedIn: 'root',
@@ -14,15 +15,26 @@ export class UserAuthService {
   //already user post method
   signInPost(email: string, password: string) {
     return this.http
-      .post(`${this.URL_BASE}/user/signIn`, { email, password },{observe:'response'})
+      .post(
+        `${this.URL_BASE}/user/signIn`,
+        { email, password },
+        { observe: 'response' }
+      )
       .pipe(
         tap((res: HttpResponse<any>) => {
-          localStorage.setItem('token',res.headers.get('token')||'');
-          localStorage.setItem('id',res.body)
+          this.saveCredentials(res.headers.get('token') || '', res.body);
         })
       );
   }
-  get() {
-    this.http.get(`${this.URL_BASE}//signIn/user`);
+  getUserInformation(id: string): Observable<User> {
+    return this.http.get<User>(`${this.URL_BASE}/user/data/${id}`);
+  }
+
+  saveCredentials(token: string, id: string) {
+    localStorage.setItem('token', token);
+    localStorage.setItem('id', id);
+  }
+  getId() {
+    return localStorage.getItem('id');
   }
 }
