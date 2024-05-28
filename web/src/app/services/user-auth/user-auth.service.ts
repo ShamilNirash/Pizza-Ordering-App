@@ -26,6 +26,13 @@ export class UserAuthService {
         })
       );
   }
+  signUpPost(firstName:string,lastName:string,address:string,email:string,contactNo:string,password:string){
+   return this.http.post(`${this.URL_BASE}/user/signUp`,{firstName,lastName,address,email,contactNo,password},{observe:'response'}).pipe(
+      tap((res: HttpResponse<any>)=>{
+        this.saveCredentials(res.headers.get('token') || '', res.body);
+      })
+    )
+  }
   getUserInformation(id: string): Observable<User> {
     return this.http.get<User>(`${this.URL_BASE}/user/data/${id}`);
   }

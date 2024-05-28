@@ -74,40 +74,31 @@ let expireTimeRefreshToken = function () {
 };
 
 //save to database
-let saveSessionToDatabase = function (user, token) {
-  return new Promise((resolve, reject) => {
+let saveSessionToDatabase = async function (user, token) {
+  try {
     user.sessions.push({
       refreshToken: token,
       expireAt: expireTimeRefreshToken(),
     });
-
-    user
-      .save()
-      .then(() => {
-        return resolve(token);
-      })
-      .catch((e) => {
-        return reject("failed to save in database", e);
-      });
-  });
+    await user.save();
+    return token;
+  } catch (err) {
+    console.log("failed to save in database", err);
+    throw new Error("failed to save in database");
+  }
 };
 
 //create a session
-userSchema.methods.createSession = function () {
+userSchema.methods.createSession = async function () {
   const user = this;
-  return new Promise((resolve, reject) => {
-    user
-      .generateRefreshToken()
-      .then((token) => {
-        return saveSessionToDatabase(user, token);
-      })
-      .then((token) => {
-        return resolve(token);
-      })
-      .catch((e) => {
-        return reject("failed the create session", e);
-      });
-  });
+  try {
+    const token = await user.generateRefreshToken();
+    const savedToken = await saveSessionToDatabase(user, token);
+    return savedToken;
+  } catch (err) {
+    console.log("failed to create session", err);
+    throw new Error("failed to create session");
+  }
 };
 /*************************************************************************************** */
 //searching methods

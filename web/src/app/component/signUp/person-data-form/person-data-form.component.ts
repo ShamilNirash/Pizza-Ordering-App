@@ -6,6 +6,9 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { merge } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatIconModule } from '@angular/material/icon';
+import { UserAuthService } from '../../../services/user-auth/user-auth.service';
+import swal from 'sweetalert';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-person-data-form',
@@ -46,10 +49,13 @@ export class PersonDataFormComponent {
   passwordErrorMessage = '';
   addressErrorMessage = '';
   firstNameErrorMessage = '';
-  lastNameErrorMessage='';
+  lastNameErrorMessage = '';
   hide = true;
 
-  constructor() {
+  constructor(
+    private userAuthService: UserAuthService,
+    private router: Router
+  ) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateEmailErrorMessage());
@@ -68,7 +74,7 @@ export class PersonDataFormComponent {
     merge(this.firstName.statusChanges, this.firstName.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateFirstNameErrorMessage());
-      merge(this.lastName.statusChanges, this.lastName.valueChanges)
+    merge(this.lastName.statusChanges, this.lastName.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateLastNameErrorMessage());
   }
@@ -88,8 +94,7 @@ export class PersonDataFormComponent {
       this.contactNo.hasError('minlength') ||
       this.contactNo.hasError('maxlength')
     ) {
-      this.contactNoErrorMessage =
-        'not a valid contact number';
+      this.contactNoErrorMessage = 'not a valid contact number';
     } else if (this.contactNo.hasError('pattern')) {
       this.contactNoErrorMessage = 'Contact number must contain only digits';
     } else {
@@ -128,6 +133,60 @@ export class PersonDataFormComponent {
       this.lastNameErrorMessage = 'Name must contain only letters';
     } else {
       this.lastNameErrorMessage = '';
+    }
+  }
+
+  //sign in btn
+  onClickSignInBtn() {
+    if (
+      !this.firstName.invalid &&
+      !this.lastName.invalid &&
+      !this.email.invalid &&
+      !this.password.invalid &&
+      !this.contactNo.invalid
+    ) {
+      this.userAuthService
+        .signUpPost(
+          this.firstName.value!,
+          this.lastName.value!,
+          this.address.value!,
+          this.email.value!,
+          this.contactNo.value!,
+          this.password.value!
+        )
+        .subscribe({
+          next: res => {
+            if (res.status == 200) {
+              swal({
+                icon: 'success',
+                title: 'Sign up successfully',
+                buttons: [false],
+                timer: 1500,
+              });
+              setTimeout(() => {
+                this.router.navigateByUrl('/');
+              }, 2000);
+            }
+          },
+          error: err => {
+            console.log(err);
+            swal({
+              title: 'Oops...',
+              text: 'Oops! Something went wrong. Please try again later.!',
+              icon: 'error',
+              buttons: [false],
+              timer: 2000,
+            });
+          },
+        });
+    } else {
+      swal({
+        title: 'Oops...',
+        text: 'please correct errors and resubmit!',
+        icon: 'error',
+        buttons: [false],
+        timer: 2000,
+      });
     }
   }
 }

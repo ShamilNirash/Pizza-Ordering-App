@@ -80,7 +80,7 @@
             matInput
             [type]="hide ? 'password' : 'text'"
             [formControl]="password"
-            (blur)="updateContactNoErrorMessage()"
+            (blur)="updatePasswordErrorMessage()"
             required />
           <button
             mat-icon-button
@@ -90,12 +90,12 @@
             [attr.aria-pressed]="hide">
             <mat-icon class="mat-icon">{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
           </button>
-          @if (contactNo.invalid) {
+          @if (password.invalid) {
             <mat-error>{{ passwordErrorMessage }}</mat-error>
           }
         </mat-form-field>
       </div>
-      <button class="sign-up-personal-data-form-body-content-signUpBtn">
+      <button class="sign-up-personal-data-form-body-content-signUpBtn" (click)="onClickSignInBtn()">
         Sign Up
       </button>
     </div>

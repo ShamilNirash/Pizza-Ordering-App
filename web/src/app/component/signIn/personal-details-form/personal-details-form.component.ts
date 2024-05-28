@@ -46,8 +46,7 @@ export class PersonalDetailsFormComponent {
   onClickSignInBtn() {
     if (
       !this.email.invalid &&
-      this.email.value != '' &&
-      this.password.value != ''
+      !this.password.invalid
     ) {
       this.userAuthService
         .signInPost(this.email.value!, this.password.value!)
@@ -81,7 +80,7 @@ export class PersonalDetailsFormComponent {
     } else {
       swal({
         title: 'Oops...',
-        text: 'Both email and password are required!',
+        text: 'sign in failed!',
         icon: 'error',
         buttons: [false],
         timer: 2000,
