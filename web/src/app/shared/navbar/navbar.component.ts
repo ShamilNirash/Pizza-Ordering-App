@@ -38,7 +38,7 @@ export class NavbarComponent implements OnInit{
     this.isClickBarIcon = !this.isClickBarIcon;
   }
   onClickSignIn(){
-   this.router.navigateByUrl('sign-up');
+   this.router.navigateByUrl('sign-in');
    
   }
 }
