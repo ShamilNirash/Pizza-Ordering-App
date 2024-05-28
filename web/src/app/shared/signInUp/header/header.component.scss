@@ -1,5 +1,5 @@
 @import '../../../../styles.scss';
-.signup-header{
+.sign-header{
         display: flex;
         height: 15vh;
         width: 100%;
@@ -21,37 +21,38 @@
 
         }
     &-topic{
-        color: $signUpTopicColor;
-      font-size: $signUpTopicFont;
+        color: $signTopicColor;
+      font-size: $signTopicFont;
       font-family: 'Metal Mania', system-ui;
       font-weight: 700;
       text-shadow: 8px 8px 8px rgba(0, 0, 0, 0.4);
       @media(max-width:900px){
-        font-size: $signUpTopicTabFont;
+        font-size: $signTopicTabFont;
       }
       @media(max-width:700px){
-        font-size: $signUpTopicMobileFont;
+        font-size: $signTopicMobileFont;
       }
       @media(max-width:350px){
-        font-size: $signUpTopicMiniMobileFont;
+        font-size: $signTopicMiniMobileFont;
       }
     }
-&-signin{
-    font-size: $signUpReservedStatementFont;
-    color: $signUpReservedStatementColor;
+&-text{
+    font-size: $signReservedStatementFont;
+    color: $signReservedStatementColor;
     font-weight: 400;
     @media(max-width:900px){
-        font-size: $signUpReservedStatementTabFont;
+        font-size: $signReservedStatementTabFont;
       }
       @media(max-width:700px){
-        font-size: $signUpReservedStatementMobileFont;
+        font-size: $signReservedStatementMobileFont;
       }
       @media(max-width:420px){
-        font-size: $signUpReservedStatementMiniMobileFont;
+        font-size: $signReservedStatementMiniMobileFont;
       }
-& span{
-    color: $signUpTopicColor;
+& a{
+    color: $signTopicColor;
     font-weight: 700;
+    text-decoration: none;
     &:hover{
         text-decoration: underline;
         cursor: pointer;

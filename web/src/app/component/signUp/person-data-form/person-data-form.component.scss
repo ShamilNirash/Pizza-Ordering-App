@@ -1,0 +1,179 @@
+@import '../../../../styles.scss';
+.sign-up-personal-data-form {
+  padding-top: 2rem;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+@media(max-width:900px){
+  padding-top: 0rem;
+}
+  &-picture {
+    width: 40%;
+
+    & img {
+      width: 100%;
+      height: 76vh;
+      object-fit: cover;
+    }
+    @media(max-width:900px){
+      display: none;
+    }
+  }
+  &-body {
+    width: 60%;
+    padding-left: 2rem;
+    height: 76vh;
+    
+ 
+    @media(max-width:900px){
+      width: 100%;
+    }
+    & h2 {
+      font-size: $signUpTopicFont;
+      font-weight: 800;
+      text-align: center;
+      @media(max-width:900px){
+        font-size: $signUpTopicTabFont;
+      }
+      @media(max-width:700px){
+        margin-top: -1rem;
+        font-size: $signUpTopicMobileFont;
+      }
+      @media(max-width:350px){
+        margin-top: 1rem;
+        font-size: $signUpTopicMiniMobileFont;
+      }
+    }
+    &-content {
+      margin-top: 2rem;
+      height: 60vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @media(max-width:900px){
+        height: 70vh;
+        display:block;
+      }
+      @media(max-width:350px){
+        margin-top: 1rem;
+      }
+      &-field {
+        &-single {
+          width: 100%;
+        }
+        &-double {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          @media(max-width:900px){
+            flex-direction: column;
+          }
+        }
+      }
+      &-signUpBtn {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        font-size: $signUpBtnFont;
+        background-color: $themeColor;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        padding: 0.75rem 0rem;
+        border-radius: 10px;
+        font-weight: 700;
+        border: none;
+        @media(max-width:900px){
+          font-size: $signUpBtnTabFont; 
+        }
+        @media(max-width:700px){
+          font-size: $signUpBtnMobileFont; 
+          padding: 0.6rem 0;
+        } 
+        @media(max-width:350px){
+          font-size: $signUpBtnMiniMobileFont; 
+          padding: 0.55rem 0;
+        }
+      }
+    }
+  }
+}
+::ng-deep {
+  .mat-mdc-form-field-flex {
+    width: 98% !important;
+  }
+  .mat-form-field {
+    width: 100%;
+    @media (max-width: 350px) {
+    }
+    &-half {
+      width: 40%;
+      @media(max-width:950px){
+        width: 47%;
+      }
+      @media(max-width:900px){
+        width: 100%;
+      }
+      &-email{
+        @media(max-width:1200px){
+          width: 40%;
+        }
+        @media(max-width:900px){
+          width: 100%;
+        }
+      }
+      &-contactNo{
+        @media(max-width:1200px){
+          width: 53%;
+        }
+        @media(max-width:900px){
+          width: 100%;
+        }
+      }
+      &-password{
+        @media(max-width:1200px){
+          width: 53%;
+        }
+        @media(max-width:900px){
+          width: 100%;
+        }
+      }
+    }
+  }
+  .mdc-line-ripple::after {
+    border-bottom-color: black !important ;
+  }
+  .mat-label {
+    color: black;
+    font-size:16px ;
+    @media (max-width: 500px) {
+      font-size: 15px;
+    }
+    @media (max-width: 350px) {
+      font-size: 13px;
+    }
+  }
+  .mat-mdc-floating-label.mdc-floating-label {
+    color: black !important;
+  }
+  .material-icons {
+    @media (max-width: 500px) {
+      font-size: 18px;
+    }
+    @media (max-width: 350px) {
+      font-size: 15px;
+    }
+  }
+  .mat-icon {
+    @media (max-width: 500px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 18px !important;
+      width: 18px !important;
+    }
+    @media (max-width: 350px) {
+      height: 15px !important;
+      width: 15px !important;
+    }
+  }
+}

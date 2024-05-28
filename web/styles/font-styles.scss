@@ -96,21 +96,21 @@ $footerReservedStatementMiniMobileFont: 12px;
 
 /***********************************************************************/
 
-//signUp section
-$signUpTopicFont: 50px;
-$signUpReservedStatementFont: 20px;
+//sign pages header section
+$signTopicFont: 50px;
+$signReservedStatementFont: 20px;
 
 //max-width:900px
-$signUpTopicTabFont: 45px;
-$signUpReservedStatementTabFont: 18px;
+$signTopicTabFont: 45px;
+$signReservedStatementTabFont: 18px;
 
 //max-width:700px
-$signUpTopicMobileFont: 40px;
-$signUpReservedStatementMobileFont: 16px;
+$signTopicMobileFont: 40px;
+$signReservedStatementMobileFont: 16px;
 
 //max-width:420px
-$signUpTopicMiniMobileFont: 35px;
-$signUpReservedStatementMiniMobileFont: 13px;
+$signTopicMiniMobileFont: 35px;
+$signReservedStatementMiniMobileFont: 13px;
 
 /************************************************************************/ 
 //sign in section
@@ -132,3 +132,24 @@ $signInBtnMobileFont: 15px;
 $signInTopicMiniMobileFont: 23px;
 $signInSubTopicMiniMobileFont: 14px;
 $signInBtnMiniMobileFont: 14px;
+
+/****************************************************************************/
+//sign in section
+$signUpTopicFont: 30px;
+$signUpSubTopicFont: 18px;
+$signUpBtnFont: 18px;
+
+//max-width - 900px
+$signUpTopicTabFont: 27px;
+$signUpSubTopicTabFont: 17px;
+$signUpBtnTabFont: 17px;
+
+//max-width - 700px
+$signUpTopicMobileFont: 25px;
+$signUpSubTopicMobileFont: 16px;
+$signUpBtnMobileFont: 15px;
+
+//max-width - 350px
+$signUpTopicMiniMobileFont: 23px;
+$signUpSubTopicMiniMobileFont: 14px;
+$signUpBtnMiniMobileFont: 14px;
