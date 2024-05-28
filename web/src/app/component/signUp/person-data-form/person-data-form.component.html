@@ -1,0 +1,104 @@
+<div class="sign-up-personal-data-form">
+  <div class="sign-up-personal-data-form-picture">
+    <img src="../../../../assets/images/sign background img.jpg" alt="" />
+  </div>
+  <div class="sign-up-personal-data-form-body">
+    <h2>Sign up</h2>
+    <div class="sign-up-personal-data-form-body-content">
+      <div class="sign-up-personal-data-form-body-content-field-double">
+        <mat-form-field class="mat-form-field-half">
+          <mat-label class="mat-label">Enter your first name</mat-label>
+          <input
+            matInput
+            [formControl]="firstName"
+            placeholder="Ex. Sam"
+            (blur)="updateFirstNameErrorMessage()"
+            required />
+          @if (firstName.invalid) {
+            <mat-error>{{ firstNameErrorMessage }}</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field class="mat-form-field-half">
+          <mat-label class="mat-label">Enter your last name</mat-label>
+          <input
+            matInput
+            [formControl]="lastName"
+            placeholder="Ex. Kamaron"
+            (blur)="updateLastNameErrorMessage()"
+            required />
+          @if (lastName.invalid) {
+            <mat-error>{{ lastNameErrorMessage }}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div class="sign-up-personal-data-form-body-content-field-single">
+        <mat-form-field class="mat-form-field">
+          <mat-label class="mat-label">Enter your address</mat-label>
+          <input
+            matInput
+            placeholder="Ex. 210/A, Samaghi Mawatha, Kelaniya"
+            [formControl]="address"
+            (blur)="updateAddressErrorMessage()"
+            required />
+          @if (address.invalid) {
+            <mat-error>{{ emailErrorMessage }}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div class="sign-up-personal-data-form-body-content-field-double">
+        <mat-form-field class="mat-form-field-half mat-form-field-half-email">
+          <mat-label class="mat-label ">Enter your email</mat-label>
+          <input
+            matInput
+            placeholder="Ex. pat@example.com"
+            [formControl]="email"
+            (blur)="updateEmailErrorMessage()"
+            required />
+          @if (email.invalid) {
+            <mat-error>{{ emailErrorMessage }}</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field class="mat-form-field-half mat-form-field-half-contactNo">
+          <mat-label class="mat-label">Enter your contact number</mat-label>
+          <input
+            matInput
+            placeholder="Ex. 077 XXX XXXX"
+            [formControl]="contactNo"
+            (blur)="updateContactNoErrorMessage()"
+            required />
+          @if (contactNo.invalid) {
+            <mat-error>{{ contactNoErrorMessage }}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div class="sign-up-personal-data-form-body-content-field-single">
+        <mat-form-field class="mat-form-field-half mat-form-field-half-password">
+          <mat-label class="mat-label">Enter your password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            [formControl]="password"
+            (blur)="updateContactNoErrorMessage()"
+            required />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon class="mat-icon">{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          @if (contactNo.invalid) {
+            <mat-error>{{ passwordErrorMessage }}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <button class="sign-up-personal-data-form-body-content-signUpBtn">
+        Sign Up
+      </button>
+    </div>
+    
+  </div>
+</div>
