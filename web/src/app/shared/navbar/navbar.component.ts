@@ -1,44 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCartShopping, faBars,faUser } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCartShopping,
+  faBars,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { UserAuthService } from '../../services/user-auth/user-auth.service';
 import { User } from '../../interfaces/user';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MatToolbarModule, FontAwesomeModule, CommonModule],
+  imports: [MatToolbarModule, FontAwesomeModule, CommonModule, RouterModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent implements OnInit {
   cartIcon = faCartShopping;
   barIcon = faBars;
   userIcon = faUser;
   isPersonHave = false;
   isClickBarIcon = false;
-  userName:string='';
-  constructor(private router : Router, private userAuthService:UserAuthService){
-
-  }
-  ngOnInit():void{
-    const userId=this.userAuthService.getId();
-    if(userId){
+  userName: string = '';
+  constructor(
+    private router: Router,
+    private userAuthService: UserAuthService
+  ) {}
+  ngOnInit(): void {
+    const userId = this.userAuthService.getId();
+    if (userId) {
       this.userAuthService.getUserInformation(userId).subscribe({
-       next:(user:User) =>{this.userName=user.firstName;},
-       error:(err)=>{console.log(err)}
-      })
-      this.isPersonHave=true;
+        next: (user: User) => {
+          this.userName = user.firstName;
+        },
+        error: err => {
+          console.log(err);
+        },
+      });
+      this.isPersonHave = true;
     }
-
   }
   onClickBarIcon() {
     this.isClickBarIcon = !this.isClickBarIcon;
-  }
-  onClickSignIn(){
-   this.router.navigateByUrl('sign-in');
-   
   }
 }
