@@ -1,0 +1,17 @@
+<div class="profile-navbar">
+  <button
+    (click)="onClick('accountInfo')"
+    [ngClass]="{ active: buttonName === 'accountInfo' }">
+    Account Info
+  </button>
+  <button
+    (click)="onClick('security')"
+    [ngClass]="{ active: buttonName === 'security' }">
+    Security
+  </button>
+  <button
+    (click)="onClick('privacy')"
+    [ngClass]="{ active: buttonName === 'privacy' }">
+    Privacy and Data
+  </button>
+</div>

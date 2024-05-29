@@ -1,0 +1,16 @@
+<div class="profile">
+    <app-header></app-header>
+  <div class="profile-body">
+    <div class="left-side">
+      <app-profile-navbar
+        (clickedBtnName)="handleButtonClick($event)"></app-profile-navbar>
+    </div>
+    <div class="right-side">
+      <app-account-info
+        *ngIf="navbarClickedBtn == 'accountInfo'"></app-account-info>
+      <app-security *ngIf="navbarClickedBtn == 'security'"></app-security>
+      <app-privacy-and-data
+        *ngIf="navbarClickedBtn == 'privacy'"></app-privacy-and-data>
+    </div>
+  </div>
+</div>

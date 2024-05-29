@@ -1,0 +1,25 @@
+@import '../../../../styles.scss';
+.profile-header {
+  display: flex;
+  height: 15vh;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  &-topic {
+    color: $signTopicColor;
+    font-size: $signTopicFont;
+    font-family: 'Metal Mania', system-ui;
+    font-weight: 700;
+    text-shadow: 8px 8px 8px rgba(0, 0, 0, 0.4);
+    @media (max-width: 900px) {
+      font-size: $signTopicTabFont;
+    }
+    @media (max-width: 700px) {
+      font-size: $signTopicMobileFont;
+    }
+    @media (max-width: 350px) {
+      font-size: $signTopicMiniMobileFont;
+    }
+  }
+}
