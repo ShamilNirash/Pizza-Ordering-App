@@ -1,0 +1,114 @@
+@import '../../../../styles.scss';
+
+.security {
+  padding: 0rem 2rem;
+  font-family: 'Poppins', sans-serif;
+  @media(max-width:700px){
+    padding: 0;
+  }
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    @media (max-width: 900px) {
+      font-size: 2.2rem;
+    }
+    @media (max-width: 700px) {
+      font-size: 2rem;
+    }
+    @media (max-width: 370px) {
+      font-size: 1.8rem;
+    }
+  }
+  &-first-tab {
+    margin-top: 2rem;
+    h3 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: 0;
+      @media (max-width: 900px) {
+        font-size: 1.5rem;
+      }
+      @media (max-width: 700px) {
+        font-size: 1.25rem;
+      }
+      @media (max-width: 370px) {
+        font-size: 1rem;
+      }
+    }
+    &-password-tab {
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 1rem 2rem 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+      @media (max-width: 900px) {
+        font-size: 15px;
+      }
+      @media (max-width: 700px) {
+        font-size: 13px;
+      }
+      @media (max-width: 370px) {
+        font-size: 11px;
+      }
+      fa-icon {
+        color: gray;
+        font-size: 20px;
+        &:hover {
+            cursor: pointer;
+          }
+          @media(max-width:900px){
+            font-size:  18px;
+          } @media(max-width:700px){
+            font-size:  16px;
+          } @media(max-width:350px){
+            font-size:  14px;
+          }
+      }
+    }
+  }
+  &-second-tab {
+    margin-top: 3rem;
+    h3 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: 0;
+      @media (max-width: 900px) {
+        font-size: 1.5rem;
+      }
+      @media (max-width: 700px) {
+        font-size: 1.25rem;
+      }
+      @media (max-width: 370px) {
+        font-size: 1rem;
+      }
+    }
+    div {
+      font-size: 1rem;
+      color: rgb(75, 75, 75);
+      @media (max-width: 900px) {
+        font-size: 15px;
+      }
+      @media (max-width: 700px) {
+        font-size: 13px;
+      }
+      @media (max-width: 370px) {
+        font-size: 11px;
+      }
+    }
+  }
+  &-logout{
+    margin-top: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $themeColor;
+    border: none;
+    background-color: $orderNowBtnColor;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+  }
+}
