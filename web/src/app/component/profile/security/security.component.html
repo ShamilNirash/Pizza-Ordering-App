@@ -1,1 +1,15 @@
-<p>security works!</p>
+<div class="security">
+  <h1>Security</h1>
+  <div class="security-first-tab">
+    <h3>Logging in to AQUA Pizza</h3>
+    <div class="security-first-tab-password-tab">
+      <label for="Password">Password</label>
+      <fa-icon [icon]="nextIcon"></fa-icon>
+    </div>
+  </div>
+  <div class="security-second-tab">
+    <h3>Connected social apps</h3>
+    <div>You've allowed these social apps to sign in to your Uber account.</div>
+  </div>
+  <button class="security-logout" (click)="onClickLogOut()">Log out</button>
+</div>
