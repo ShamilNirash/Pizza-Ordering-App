@@ -1,6 +1,6 @@
 <div class="sign-up-personal-data-form">
   <div class="sign-up-personal-data-form-picture">
-    <img src="../../../../assets/images/sign background img.jpg" alt="" />
+    <img src="../../../../assets/images/sign/sign background img.jpg" alt="sign in cover image" />
   </div>
   <div class="sign-up-personal-data-form-body">
     <h2>Sign up</h2>
@@ -42,7 +42,7 @@
             (blur)="updateAddressErrorMessage()"
             required />
           @if (address.invalid) {
-            <mat-error>{{ emailErrorMessage }}</mat-error>
+            <mat-error>{{ addressErrorMessage }}</mat-error>
           }
         </mat-form-field>
       </div>

@@ -1,0 +1,59 @@
+<div class="contact-us-form-section">
+  <div class="contact-us-form-section-header">
+    <h1>Send us a message</h1>
+    <h3>
+      Get in touch for any information you would like to know about our products
+      and services.
+    </h3>
+  </div>
+
+  <div class="contact-us-form-section-body">
+    <mat-form-field class="mat-form-field">
+      <mat-label class="mat-label"> Full Name</mat-label>
+      <input matInput [formControl]="fullName" placeholder="Ex. Sam" required />
+      @if (fullName.invalid) {
+        <mat-error>{{ fullNameErrorMessage }}</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field class="mat-form-field">
+      <mat-label class="mat-label"> Contact No</mat-label>
+      <input
+        matInput
+        [formControl]="contactNo"
+        placeholder="Ex. 077 XXX XXXX"
+        required />
+      @if (contactNo.invalid) {
+        <mat-error>{{ contactNoErrorMessage }}</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field class="mat-form-field">
+      <mat-label class="mat-label">Enter your email</mat-label>
+      <input
+        matInput
+        placeholder="Ex. pat@example.com"
+        [formControl]="email"
+        (blur)="updateEmailErrorMessage()"
+        required />
+      @if (email.invalid) {
+        <mat-error>{{ emailErrorMessage }}</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field class="mat-form-field">
+      <mat-label class="mat-label">Write your message</mat-label>
+      <input
+        class="message-input"
+        matInput
+        placeholder=""
+        [formControl]="note"
+        (blur)="updateNoteErrorMessage()"
+        required />
+      @if (note.invalid) {
+        <mat-error>{{ noteErrorMessage }}</mat-error>
+      }
+    </mat-form-field>
+    <div class="contact-us-form-section-body-btn">
+      <button (click)="onClickSubmit()">SEND MESSAGE</button>
+    </div>
+  </div>
+</div>

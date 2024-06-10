@@ -12,7 +12,7 @@ import { NgbCarousel, NgbCarouselModule, NgbSlideEvent, NgbSlideEventSource } fr
 })
 export class OurRestaurantImagesComponent {
 
-  images = [{url:"../../../assets/images/shop img 1.jpg"},{url:"../../../assets/images/shop img 2.jpg"},{url:"../../../assets/images/shop img 3.jpg"},{url:"../../../assets/images/shop img 4.jpg"}];
+  images = [{url:"../../../assets/images/Home/shop img 2.jpg"},{url:"../../../assets/images/Home/shop img 2.jpg"},{url:"../../../assets/images/Home/shop img 3.jpg"},{url:"../../../assets/images/Home/shop img 4.jpg"}];
 
 	paused = false;
 	unpauseOnArrow = false;
