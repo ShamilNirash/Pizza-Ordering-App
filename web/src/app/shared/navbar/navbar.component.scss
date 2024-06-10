@@ -85,6 +85,12 @@
     }
   }
 }
+.navbar-mobile-view{
+  display: none;
+  @media (max-width: 900px) {
+    display: block;
+  } 
+}
 .mobile-view-navbar {
   display: none;
 
@@ -140,11 +146,7 @@
     }
 
     &-options {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      background-color: $navbarBackgroundColor;
-      padding: 1rem 0;
+      display: none;
       opacity: 0;
       height: 0;
       transition:
@@ -188,6 +190,11 @@
   }
 }
 .mobile-navbar-after-animation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: $navbarBackgroundColor;
+  padding: 1rem 0;
   opacity: 1;
   height: 20rem;
 }

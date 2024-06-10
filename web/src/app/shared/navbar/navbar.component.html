@@ -41,17 +41,18 @@
     <button
       *ngIf="!isPersonHave"
       class="navbar-right-section-signInBtn"
-      [routerLink]="'sign-in'">
+      [routerLink]="'/sign-in'">
       Sign In
     </button>
     <div *ngIf="isPersonHave" class="navbar-right-section-cart-icon">
       <fa-icon [icon]="cartIcon"></fa-icon>
-      <fa-icon [icon]="userIcon" [routerLink]="'profile'"></fa-icon>
+      <fa-icon [icon]="userIcon" [routerLink]="'/profile'"></fa-icon>
     </div>
   </div>
 </mat-toolbar>
 
 <!-- mobile view of navbar -->
+<div class="navbar-mobile-view">
 <mat-toolbar class="mobile-view-navbar container-fluid">
   <div class="mobile-view-navbar-leftside">
     <span class="mobile-view-navbar-topic">AQUA Pizza</span>
@@ -61,14 +62,14 @@
     <button
       *ngIf="!isPersonHave"
       class="mobile-view-navbar-right-section-signInBtn"
-      [routerLink]="'sign-in'">
+      [routerLink]="'/sign-in'">
       Sign In
     </button>
     <div
       *ngIf="isPersonHave"
       class="mobile-view-navbar-right-section-cart-icon">
       <fa-icon [icon]="cartIcon"></fa-icon>
-      <fa-icon [icon]="userIcon"></fa-icon>
+      <fa-icon [icon]="userIcon" [routerLink]="'/profile'"></fa-icon>
     </div>
 
     <fa-icon
@@ -113,4 +114,5 @@
     [routerLinkActiveOptions]="{exact:true}"
     >Contact Us</a
   >
+</div>
 </div>

@@ -112,9 +112,9 @@ export class PersonDataFormComponent {
   }
   updateAddressErrorMessage() {
     if (this.address.hasError('required')) {
-      this.emailErrorMessage = 'This field is required';
+      this.addressErrorMessage = 'This field is required';
     } else {
-      this.emailErrorMessage = '';
+      this.addressErrorMessage = '';
     }
   }
   updateFirstNameErrorMessage() {
@@ -143,7 +143,8 @@ export class PersonDataFormComponent {
       !this.lastName.invalid &&
       !this.email.invalid &&
       !this.password.invalid &&
-      !this.contactNo.invalid
+      !this.contactNo.invalid &&
+      !this.address.invalid
     ) {
       this.userAuthService
         .signUpPost(
