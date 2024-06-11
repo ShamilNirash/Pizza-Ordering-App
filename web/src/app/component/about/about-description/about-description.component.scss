@@ -1,0 +1,41 @@
+.about-description-section{
+    padding: 0 6% ;
+    margin-bottom: 2rem;
+    height: 50vh;
+    margin-top: 3rem;
+    @media(max-width:340px){
+        height: 75vh;
+    }
+    &-header{
+        font-size: 40px;
+        text-align: center;
+        color: #DE1F1F;
+        font-weight: 700;
+        margin-bottom: 3rem;
+        @media(max-width:900px){
+            font-size: 37.5px; 
+        }
+        @media(max-width:700px){
+            font-size: 35px; 
+
+        }
+        @media(max-width:350px){
+            font-size: 33.5px; 
+        }
+    }
+    &-content{
+        font-size: 20px;
+        text-align: center;
+        font-weight: 600;
+        @media(max-width:900px){
+            font-size: 18px; 
+        }
+        @media(max-width:700px){
+            font-size: 14px; 
+        }
+        @media(max-width:380px){
+            font-size: 13px; 
+        }
+    }
+
+}
