@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AboutCoverPhotoComponent } from './about-cover-photo.component';
+import { MenuCardComponent } from './menu-card.component';
 
-describe('AboutCoverPhotoComponent', () => {
-  let component: AboutCoverPhotoComponent;
-  let fixture: ComponentFixture<AboutCoverPhotoComponent>;
+describe('MenuCardComponent', () => {
+  let component: MenuCardComponent;
+  let fixture: ComponentFixture<MenuCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AboutCoverPhotoComponent]
+      imports: [MenuCardComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AboutCoverPhotoComponent);
+    fixture = TestBed.createComponent(MenuCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
