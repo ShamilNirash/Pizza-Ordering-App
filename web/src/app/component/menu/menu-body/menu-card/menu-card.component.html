@@ -1,0 +1,50 @@
+<div class="menu-card-section">
+  <img [src]="pizzaDetails.imgUrl" alt="pizza menu" />
+  <div class="menu-card-section-description">
+    <div class="menu-card-section-description-first-row">
+      <div class="menu-card-section-description-first-row-name">
+        {{ pizzaDetails.name }}
+      </div>
+      <div class="menu-card-section-description-first-row-favourite">
+        <fa-icon
+          *ngIf="isFavorite"
+          [icon]="heartSolidIcon"
+          (click)="onClickFavorite()"></fa-icon>
+        <fa-icon
+          *ngIf="!isFavorite"
+          [icon]="heartRegularIcon"
+          (click)="onClickFavorite()"></fa-icon>
+      </div>
+    </div>
+    <div class="menu-card-section-description-second-row">
+      <p-rating [(ngModel)]="value" [cancel]="false" stars="5" [readonly]="true"/>
+    </div>
+    <div class="menu-card-section-description-third-row">
+      <div class="menu-card-section-description-third-row-section">
+        <div
+          class="menu-card-section-description-third-row-section-size"
+          *ngFor="let prizeWithSize of pizzaDetails.prizeWithSize"
+          (click)="onClickSize(prizeWithSize.size, prizeWithSize.price)"
+          [ngClass]="{ active: prizeWithSize.size == sizeVersion }">
+          {{ prizeWithSize.size }}
+        </div>
+      </div>
+
+      <div class="menu-card-section-description-third-row-price">
+        LKR. {{ priceVersion }}
+      </div>
+    </div>
+    <div class="menu-card-section-description-forth-row">
+      <div
+        class="menu-card-section-description-forth-row-tags"
+        *ngFor="let tag of pizzaDetails.tags">
+        {{ tag }}
+      </div>
+    </div>
+    <div class="menu-card-section-description-fifth-row">
+      <button class="menu-card-section-description-forth-row-addCard">
+        ADD TO CART
+      </button>
+    </div>
+  </div>
+</div>
