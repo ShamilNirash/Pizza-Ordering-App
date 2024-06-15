@@ -15,6 +15,9 @@
     width: 220px;
     height: 430px;
   }
+  @media (max-width: 700px) {
+    height: 370px;
+  }
   img {
     height: 200px;
     width: 100%;
@@ -29,6 +32,9 @@
     display: flex;
     flex-direction: column;
     padding: 10px 20px;
+    @media(max-width:700px){
+      padding-top: 5px;
+    }
     &-first-row {
       display: flex;
       justify-content: space-between;
@@ -40,6 +46,9 @@
         @media (max-width: 900px) {
           font-size: 16px;
         }
+        @media (max-width: 900px) {
+          font-size: 14px;
+        }
       }
       fa-icon {
         color: red;
@@ -50,18 +59,28 @@
         @media (max-width: 900px) {
           font-size: 18px;
         }
+        @media (max-width: 700px) {
+          font-size: 15px;
+        }
       }
     }
     &-second-row {
       margin-bottom: 20px;
+      @media (max-width: 700px) {
+        margin-bottom: 10px;
+      }
     }
     &-third-row {
       display: flex;
       justify-content: space-between;
       margin-bottom: 20px;
+      @media (max-width: 700px) {
+        margin-bottom: 10px;
+      }
       &-section {
         width: 43%;
         display: flex;
+        align-items: center;
         justify-content: space-between;
         &-size {
           display: flex;
@@ -81,6 +100,11 @@
             height: 22px;
             width: 22px;
           }
+          @media (max-width: 700px) {
+            font-size: 13px;
+            height: 20px;
+            width: 20px;
+          }
         }
       }
       &-price {
@@ -92,12 +116,18 @@
         @media (max-width: 900px) {
           font-size: 17px;
         }
+        @media (max-width: 700px) {
+          font-size: 15px;
+        }
       }
     }
     &-forth-row {
       display: flex;
       width: 100%;
       margin-bottom: 20px;
+      @media (max-width: 700px) {
+        margin-bottom: 15px;
+      }
       &-tags {
         padding: 3px 3px;
         margin-right: 10px;
@@ -105,6 +135,9 @@
         font-size: 15px;
         @media (max-width: 900px) {
           font-size: 14px;
+        }
+        @media (max-width: 700px) {
+          font-size: 12px;
         }
       }
     }
@@ -119,6 +152,10 @@
         @media (max-width: 900px) {
           font-size: 14px;
           height: 2.2rem;
+        }
+        @media (max-width: 700px) {
+          font-size: 12px;
+          height: 2rem;
         }
       }
     }
