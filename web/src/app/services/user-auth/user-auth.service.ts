@@ -61,4 +61,7 @@ export class UserAuthService {
   getId() {
     return localStorage.getItem('id');
   }
+  getToken() {
+    return localStorage.getItem('token');
+  }
 }

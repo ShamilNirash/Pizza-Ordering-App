@@ -19,12 +19,12 @@ app.use(function (req, res, next) {
     "Origin, X-Requested-With, Content-Type, Accept, token, _id"
   );
   // headers that are exposed to client
-  res.header(
-    "Access-Control-Expose-Headers",
-    "token"
-  );
+  res.header("Access-Control-Expose-Headers", "token");
   next();
 });
+
+
+
 /**************************************************Middle ware end*********************************/
 app.use("/user", require("./routes/userRouter"));
 

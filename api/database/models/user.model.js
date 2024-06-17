@@ -39,6 +39,10 @@ const userSchema = mongoose.Schema({
     },
   ],
 });
+userSchema.statics.getJwtToken= function(){
+  const user =this;
+  return jwtSecret;
+}
 //tojson method
 userSchema.methods.toJSON = function () {
   const user = this;
@@ -53,7 +57,7 @@ userSchema.methods.generateRefreshToken = function () {
     jwt.sign(
       { _id: user._id },
       jwtSecret,
-      { expiresIn: "1h" },
+      { expiresIn: "1m" },
       (err, token) => {
         if (!err) {
           return resolve(token);
