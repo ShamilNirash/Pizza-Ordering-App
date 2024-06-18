@@ -33,7 +33,6 @@ export class MenuCardComponent implements OnInit {
   onClickSize(size: string, price: string) {
     this.sizeVersion = size;
     this.priceVersion = price;
-    console.log(this.sizeVersion);
   }
   onClickFavorite() {
     this.isFavorite = !this.isFavorite;

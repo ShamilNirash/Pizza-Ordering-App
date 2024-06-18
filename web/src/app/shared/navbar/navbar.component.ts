@@ -29,19 +29,19 @@ export class NavbarComponent implements OnInit {
     private userAuthService: UserAuthService
   ) {}
   ngOnInit(): void {
-    const userId = this.userAuthService.getId();
-    if (userId) {
-      this.userAuthService.getUserInformation(userId).subscribe({
-        next: (user: User) => {
-          this.userName = user.firstName;
-        },
-        error: err => {
-          console.log(err);
-        },
-      });
+    if (this.userAuthService.getId()) {
       this.isPersonHave = true;
     }
+    this.userAuthService.getUserInformation().subscribe({
+      next: (user: User) => {
+        this.userName = user.firstName;
+      },
+      error: err => {
+        console.log(err);
+      },
+    });
   }
+
   onClickBarIcon() {
     this.isClickBarIcon = !this.isClickBarIcon;
   }

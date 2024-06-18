@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuCardComponent } from './menu-card/menu-card.component';
 import { Pizza } from '../../../interfaces/pizza';
 import { NgFor } from '@angular/common';
+import { PizzaService } from '../../../services/pizza/pizza.service';
 
 @Component({
   selector: 'app-menu-body',
@@ -10,124 +11,17 @@ import { NgFor } from '@angular/common';
   templateUrl: './menu-body.component.html',
   styleUrl: './menu-body.component.scss',
 })
-export class MenuBodyComponent {
-  pizzaList: Pizza[] = [
-    {
-      id: '1',
-      name: 'Chicken pizza',
-      prizeWithSize: [
-        { price: '1000', size: 'S' },
-        { price: '1500', size: 'M' },
-        { price: '2000', size: 'L' },
-      ],
-      tags: ['Vegetarian', 'Cheese'],
-      favorite: true,
-      stars: 3,
-      imgUrl: '../../../../assets/images/MenuSection/coverPhoto.jpg',
-    },
-    {
-      id: '1',
-      name: 'Pani Bacon Chilli Pizza',
-      prizeWithSize: [
-        { price: '1000', size: 'S' },
-        { price: '1500', size: 'M' },
-        { price: '2000', size: 'L' },
-      ],
-      tags: ['Vegetarian', 'Cheese'],
-      favorite: true,
-      stars: 4.5,
-      imgUrl: '../../../../assets/images/MenuSection/coverPhoto.jpg',
-    },
-    {
-      id: '1',
-      name: 'Chicken pizza',
-      prizeWithSize: [
-        { price: '1000', size: 'S' },
-        { price: '1500', size: 'M' },
-        { price: '2000', size: 'L' },
-      ],
-      tags: ['Vegetarian', 'Cheese'],
-      favorite: true,
-      stars: 3,
-      imgUrl: '../../../../assets/images/MenuSection/coverPhoto.jpg',
-    },
-    {
-      id: '1',
-      name: 'Chicken pizza',
-      prizeWithSize: [
-        { price: '1000', size: 'S' },
-        { price: '1500', size: 'M' },
-        { price: '2000', size: 'L' },
-      ],
-      tags: ['Vegetarian', 'Cheese'],
-      favorite: true,
-      stars: 3,
-      imgUrl: '../../../../assets/images/MenuSection/coverPhoto.jpg',
-    },
-    {
-      id: '1',
-      name: 'Chicken pizza',
-      prizeWithSize: [
-        { price: '1000', size: 'S' },
-        { price: '1500', size: 'M' },
-        { price: '2000', size: 'L' },
-      ],
-      tags: ['Vegetarian', 'Cheese'],
-      favorite: true,
-      stars: 3,
-      imgUrl: '../../../../assets/images/MenuSection/coverPhoto.jpg',
-    },
-    {
-      id: '1',
-      name: 'Chicken pizza',
-      prizeWithSize: [
-        { price: '1000', size: 'S' },
-        { price: '1500', size: 'M' },
-        { price: '2000', size: 'L' },
-      ],
-      tags: ['Vegetarian', 'Cheese'],
-      favorite: true,
-      stars: 3,
-      imgUrl: '../../../../assets/images/MenuSection/coverPhoto.jpg',
-    },
-    {
-      id: '1',
-      name: 'Chicken pizza',
-      prizeWithSize: [
-        { price: '1000', size: 'S' },
-        { price: '1500', size: 'M' },
-        { price: '2000', size: 'L' },
-      ],
-      tags: ['Vegetarian', 'Cheese'],
-      favorite: true,
-      stars: 3,
-      imgUrl: '../../../../assets/images/MenuSection/coverPhoto.jpg',
-    },
-    {
-      id: '1',
-      name: 'Chicken pizza',
-      prizeWithSize: [
-        { price: '1000', size: 'S' },
-        { price: '1500', size: 'M' },
-        { price: '2000', size: 'L' },
-      ],
-      tags: ['Vegetarian', 'Cheese'],
-      favorite: true,
-      stars: 3,
-      imgUrl: '../../../../assets/images/MenuSection/coverPhoto.jpg',
-    },
-    {
-      id: '1',
-      name: 'Chicken pizza',
-      prizeWithSize: [
-        { price: '1000', size: 'S' },
-        { price: '1500', size: 'M' },
-        { price: '2000', size: 'L' },
-      ],
-      tags: ['Vegetarian', 'Cheese'],
-      favorite: true,
-      stars: 3,
-      imgUrl: '../../../../assets/images/MenuSection/coverPhoto.jpg',
-    },
-  ];
+export class MenuBodyComponent implements OnInit {
+  pizzaList!: Pizza[];
+  constructor(private pizzaService: PizzaService) {}
+  ngOnInit(): void {
+    this.pizzaService.getPizzaList().subscribe({
+      next: (res: Pizza[]) => {
+        this.pizzaList = res;
+      },
+      error: err => {
+        console.log(err);
+      },
+    });
+  }
 }
