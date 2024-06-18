@@ -29,7 +29,7 @@ const userSignUp = async (req, res) => {
 };
 const getUserData = async (req, res) => {
   try {
-    const id = req.params.userId;
+    const id = req._id;
     const user = await User.findOne({ _id: id });
     if (!user) {
       return res.sendStatus(404);

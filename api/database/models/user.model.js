@@ -40,7 +40,6 @@ const userSchema = mongoose.Schema({
   ],
 });
 userSchema.statics.getJwtToken= function(){
-  const user =this;
   return jwtSecret;
 }
 //tojson method

@@ -46,8 +46,9 @@ export class UserAuthService {
         })
       );
   }
-  getUserInformation(id: string): Observable<User> {
-    return this.http.get<User>(`${this.URL_BASE}/user/data/${id}`);
+  getUserInformation(): Observable<User> {
+    return this.http.get<User>(`${this.URL_BASE}/user/data`);
+    
   }
 
   saveCredentials(token: string, id: string) {

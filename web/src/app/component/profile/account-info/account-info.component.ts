@@ -25,7 +25,7 @@ export class AccountInfoComponent implements OnInit {
   ngOnInit(): void {
     if (this.userAuthService.getId()) {
       this.userAuthService
-        .getUserInformation(this.userAuthService.getId()!)
+        .getUserInformation()
         .subscribe({
           next: (user: User) => {
             this.userObject.firstName = user.firstName;
