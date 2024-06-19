@@ -1,10 +1,51 @@
 .menu-body-section {
   padding: 3% 6%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  @media(max-width:700px){
-    flex-direction: column;
-    align-items: center;
+  &-searchbar {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    input {
+      display: block;
+      height: 3rem;
+      padding-left: 20px;
+      width: 40rem;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      background-color: #e0e0e0;
+      border: 1px solid white;
+      outline: none;
+      @media(max-width:1100px){
+        width: 20rem;
+      }
+      @media(max-width:700px){
+        width: 16rem;
+      }
+    }
+    button {
+      height: 3rem;
+      width: 6rem;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      background-color: #de1f1f;
+      border: 1px solid white;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      @media(max-width:700px){
+        width: 4.5rem;
+        font-size: 14px;
+      }
+    }
+  }
+  &-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @media (max-width: 700px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }

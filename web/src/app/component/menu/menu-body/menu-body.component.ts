@@ -13,15 +13,26 @@ import { PizzaService } from '../../../services/pizza/pizza.service';
 })
 export class MenuBodyComponent implements OnInit {
   pizzaList!: Pizza[];
+  pizzaListUpdate!: Pizza[];
   constructor(private pizzaService: PizzaService) {}
   ngOnInit(): void {
     this.pizzaService.getPizzaList().subscribe({
       next: (res: Pizza[]) => {
         this.pizzaList = res;
+        this.pizzaListUpdate = res;
       },
       error: err => {
         console.log(err);
       },
     });
+  }
+  onClickSearch(name: string) {
+    if (name) {
+      this.pizzaListUpdate = this.pizzaList.filter(pizza =>
+        pizza.name.toLowerCase().includes(name.toLowerCase())
+      );
+    } else {
+      this.pizzaListUpdate = this.pizzaList;
+    }
   }
 }
