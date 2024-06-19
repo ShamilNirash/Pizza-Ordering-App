@@ -1,5 +1,11 @@
 <div class="menu-body-section">
-  <div class="menu-body-section-cart" *ngFor="let pizza of pizzaList">
-    <app-menu-card [pizzaDetails]="pizza"> </app-menu-card>
+  <div class="menu-body-section-searchbar">
+    <input placeholder="Search for foods" type="text" #itemName/>
+    <button (click)="onClickSearch(itemName.value)">Search</button>
+  </div>
+  <div class="menu-body-section-cards">
+    <div class="menu-body-section-cart" *ngFor="let pizza of pizzaListUpdate">
+      <app-menu-card [pizzaDetails]="pizza"> </app-menu-card>
+    </div>
   </div>
 </div>
