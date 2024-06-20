@@ -1,5 +1,5 @@
 export interface Pizza {
-  id: string;
+  _id: string;
   name: string;
   prizeWithSize: { price: string; size: string }[];
   tags?: string[];

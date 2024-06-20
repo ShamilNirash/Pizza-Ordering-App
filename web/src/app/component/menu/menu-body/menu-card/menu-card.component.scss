@@ -8,6 +8,9 @@
   margin: 10px;
   box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.4);
   padding-bottom: 20px;
+  :hover{
+    cursor: pointer;
+  }
   @media (max-width: 1100px) {
     width: 250px;
   }
@@ -32,7 +35,7 @@
     display: flex;
     flex-direction: column;
     padding: 10px 20px;
-    @media(max-width:700px){
+    @media (max-width: 700px) {
       padding-top: 5px;
     }
     &-first-row {
@@ -51,7 +54,7 @@
         }
       }
       fa-icon {
-        color: red;
+        color: #DE1F1F;
         font-size: 20px;
         &:hover {
           cursor: pointer;
@@ -166,7 +169,7 @@
   transition: 0.3s ease;
   color: white;
 }
-::ng-deep {
+:host ::ng-deep {
   input {
     display: none;
   }

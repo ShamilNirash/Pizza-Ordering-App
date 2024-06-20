@@ -5,7 +5,7 @@
   </div>
   <div class="menu-body-section-cards">
     <div class="menu-body-section-cart" *ngFor="let pizza of pizzaListUpdate">
-      <app-menu-card [pizzaDetails]="pizza"> </app-menu-card>
+      <app-menu-card [pizzaDetails]="pizza"[routerLink]="pizza._id" routerLinkActive="active"> </app-menu-card>
     </div>
   </div>
 </div>
