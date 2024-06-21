@@ -201,3 +201,6 @@
 .active{
   color: $themeColor;
 }
+@Input('matBadgeColor'){
+  color: aqua !important;
+}
