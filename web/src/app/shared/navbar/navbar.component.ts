@@ -10,10 +10,15 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { UserAuthService } from '../../services/user-auth/user-auth.service';
 import { User } from '../../interfaces/user';
+import { CartService } from '../../services/cart/cart.service';
+import { Cart } from '../../interfaces/cart';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatBadgeModule} from '@angular/material/badge';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MatToolbarModule, FontAwesomeModule, CommonModule, RouterModule],
+  imports: [MatToolbarModule, FontAwesomeModule, CommonModule, RouterModule,MatBadgeModule,MatButtonModule,MatIconModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
@@ -24,9 +29,11 @@ export class NavbarComponent implements OnInit {
   isPersonHave = false;
   isClickBarIcon = false;
   userName: string = '';
+  noOfOrdersInCart!: number;
   constructor(
     private router: Router,
-    private userAuthService: UserAuthService
+    private userAuthService: UserAuthService,
+    private cartService: CartService
   ) {}
   ngOnInit(): void {
     if (this.userAuthService.getId()) {
@@ -35,6 +42,14 @@ export class NavbarComponent implements OnInit {
     this.userAuthService.getUserInformation().subscribe({
       next: (user: User) => {
         this.userName = user.firstName;
+      },
+      error: err => {
+        console.log(err);
+      },
+    });
+    this.cartService.getUserCart().subscribe({
+      next: (cart: Cart[]) => {
+        this.noOfOrdersInCart = cart.length;
       },
       error: err => {
         console.log(err);

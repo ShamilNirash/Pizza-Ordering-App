@@ -56,7 +56,7 @@ userSchema.methods.generateRefreshToken = function () {
     jwt.sign(
       { _id: user._id },
       jwtSecret,
-      { expiresIn: "1m" },
+      { expiresIn: "1h" },
       (err, token) => {
         if (!err) {
           return resolve(token);

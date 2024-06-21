@@ -7,7 +7,7 @@ let authenticate = (req, res, next) => {
     if (err) {
       res.sendStatus(401);
     } else {
-      req._id = decode._id;
+      req.user_id = decode._id;
       next();
     }
   });

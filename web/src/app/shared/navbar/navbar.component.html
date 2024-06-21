@@ -7,7 +7,7 @@
         class="navbar-left-section-option"
         [routerLink]="'/'"
         [routerLinkActive]="['active']"
-        [routerLinkActiveOptions]="{exact:true}"
+        [routerLinkActiveOptions]="{ exact: true }"
         >Home</a
       >
       <a
@@ -29,7 +29,7 @@
         class="navbar-left-section-option"
         [routerLink]="'/contact-us'"
         [routerLinkActive]="['active']"
-        [routerLinkActiveOptions]="{exact:true}"
+        [routerLinkActiveOptions]="{ exact: true }"
         >Contact Us</a
       >
     </div>
@@ -45,7 +45,10 @@
       Sign In
     </button>
     <div *ngIf="isPersonHave" class="navbar-right-section-cart-icon">
-      <fa-icon [icon]="cartIcon"></fa-icon>
+      <span
+        ><div [matBadge]="noOfOrdersInCart" matBadgeOverlap="false" [matBadgeHidden]="noOfOrdersInCart==0" class="demo-section">
+          <fa-icon [icon]="cartIcon"></fa-icon></div
+      ></span>
       <fa-icon [icon]="userIcon" [routerLink]="'/profile'"></fa-icon>
     </div>
   </div>
@@ -53,66 +56,66 @@
 
 <!-- mobile view of navbar -->
 <div class="navbar-mobile-view">
-<mat-toolbar class="mobile-view-navbar container-fluid">
-  <div class="mobile-view-navbar-leftside">
-    <span class="mobile-view-navbar-topic">AQUA Pizza</span>
-  </div>
-
-  <div class="mobile-view-navbar-right-section">
-    <button
-      *ngIf="!isPersonHave"
-      class="mobile-view-navbar-right-section-signInBtn"
-      [routerLink]="'/sign-in'">
-      Sign In
-    </button>
-    <div
-      *ngIf="isPersonHave"
-      class="mobile-view-navbar-right-section-cart-icon">
-      <fa-icon [icon]="cartIcon"></fa-icon>
-      <fa-icon [icon]="userIcon" [routerLink]="'/profile'"></fa-icon>
+  <mat-toolbar class="mobile-view-navbar container-fluid">
+    <div class="mobile-view-navbar-leftside">
+      <span class="mobile-view-navbar-topic">AQUA Pizza</span>
     </div>
 
-    <fa-icon
-      class="mobile-view-navbar-right-section-barIcon"
-      [icon]="barIcon"
-      (click)="onClickBarIcon()">
-    </fa-icon>
+    <div class="mobile-view-navbar-right-section">
+      <button
+        *ngIf="!isPersonHave"
+        class="mobile-view-navbar-right-section-signInBtn"
+        [routerLink]="'/sign-in'">
+        Sign In
+      </button>
+      <div
+        *ngIf="isPersonHave"
+        class="mobile-view-navbar-right-section-cart-icon">
+        <fa-icon [icon]="cartIcon"></fa-icon>
+        <fa-icon [icon]="userIcon" [routerLink]="'/profile'"></fa-icon>
+      </div>
+
+      <fa-icon
+        class="mobile-view-navbar-right-section-barIcon"
+        [icon]="barIcon"
+        (click)="onClickBarIcon()">
+      </fa-icon>
+    </div>
+  </mat-toolbar>
+  <div
+    [ngClass]="isClickBarIcon ? 'mobile-navbar-after-animation' : ''"
+    class="mobile-view-navbar-right-section-options">
+    <a
+      href=""
+      class="mobile-view-navbar-right-section-option"
+      [routerLink]="'/'"
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+    <a
+      href=""
+      class="mobile-view-navbar-right-section-option"
+      [routerLink]="'/menu'"
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Menu</a
+    >
+    <a
+      href=""
+      class="mobile-view-navbar-right-section-option"
+      [routerLink]="'/about'"
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >About</a
+    >
+    <a
+      href=""
+      class="mobile-view-navbar-right-section-option"
+      [routerLink]="'/contact-us'"
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Contact Us</a
+    >
   </div>
-</mat-toolbar>
-<div
-  [ngClass]="isClickBarIcon ? 'mobile-navbar-after-animation' : ''"
-  class="mobile-view-navbar-right-section-options">
-  <a
-    href=""
-    class="mobile-view-navbar-right-section-option"
-    [routerLink]="'/'"
-    [routerLinkActive]="['active']"
-    [routerLinkActiveOptions]="{exact:true}"
-    >Home</a
-  >
-  <a
-    href=""
-    class="mobile-view-navbar-right-section-option"
-    [routerLink]="'/menu'"
-    [routerLinkActive]="['active']"
-    [routerLinkActiveOptions]="{exact:true}"
-    >Menu</a
-  >
-  <a
-    href=""
-    class="mobile-view-navbar-right-section-option"
-    [routerLink]="'/about'"
-    [routerLinkActive]="['active']"
-    [routerLinkActiveOptions]="{exact:true}"
-    >About</a
-  >
-  <a
-    href=""
-    class="mobile-view-navbar-right-section-option"
-    [routerLink]="'/contact-us'"
-    [routerLinkActive]="['active']"
-    [routerLinkActiveOptions]="{exact:true}"
-    >Contact Us</a
-  >
-</div>
 </div>

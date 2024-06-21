@@ -6,17 +6,18 @@ import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-menu-card',
   standalone: true,
-  imports: [FontAwesomeModule, NgFor, NgIf, NgClass, RatingModule, FormsModule],
+  imports: [FontAwesomeModule, NgFor, NgIf, NgClass, RatingModule, FormsModule,RouterModule],
   templateUrl: './menu-card.component.html',
   styleUrl: './menu-card.component.scss',
 })
 export class MenuCardComponent implements OnInit {
   @Input() pizzaDetails!: Pizza;
   sizeVersion: string = 'M';
-  priceVersion: string = '';
+  priceVersion!: number ;
   heartSolidIcon = faSolidHeart;
   heartRegularIcon = faRegularHeart;
   isFavorite = false;
@@ -30,7 +31,7 @@ export class MenuCardComponent implements OnInit {
     });
     this.value = this.pizzaDetails.stars;
   }
-  onClickSize(size: string, price: string) {
+  onClickSize(size: string, price: number) {
     this.sizeVersion = size;
     this.priceVersion = price;
   }
