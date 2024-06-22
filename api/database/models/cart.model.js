@@ -8,6 +8,10 @@ const cartSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  pizza_name: {
+    type: String,
+    required: true,
+  },
   quantity: {
     type: Number,
     required: true,

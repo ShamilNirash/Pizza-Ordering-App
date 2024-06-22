@@ -7,6 +7,7 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { AboutComponent } from './pages/about/about.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { MenuCardPageComponent } from './pages/menu-card-page/menu-card-page.component';
+import { MenuCartComponent } from './pages/menu-cart/menu-cart.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,4 +18,5 @@ export const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'menu/:cardId', component: MenuCardPageComponent },
+  {path:'menu-cart',component:MenuCartComponent}
 ];

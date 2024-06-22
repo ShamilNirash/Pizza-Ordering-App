@@ -1,0 +1,89 @@
+<div class="menu-cart-content-section">
+  <div class="menu-cart-content-section-content">
+    <div class="menu-cart-content-section-content-introduction">
+      <div class="menu-cart-content-section-content-introduction-icon">
+        <fa-icon [icon]="noteIcon"></fa-icon>
+      </div>
+      <div class="menu-cart-content-section-content-introduction-description">
+        <div
+          class="menu-cart-content-section-content-introduction-description-firstline">
+          Please be noticed that we deliver only within the following city
+          limits.
+        </div>
+        <div
+          class="menu-cart-content-section-content-introduction-description-otherline">
+          <span>Horton Branch -</span> Horton, Rajagiriya, Kollupitiya, Borella,
+          Nawala, Narahenpita, Maradana, Dematagoda, Welikada, Union place,
+          Townhall, Kiriwathuduwa
+        </div>
+        <div
+          class="menu-cart-content-section-content-introduction-description-otherline">
+          <span>Havelock Branch -</span> Colombo 1, 2, 3, 4, 5, 6, 7, 8,
+          Nugegoda, Nawala, Mirihana, Kalubowila, Kohuwala
+        </div>
+        <div
+          class="menu-cart-content-section-content-introduction-description-otherline">
+          <span> Mount Branch -</span>Mount Lavinia, Rathmalana, Dehiwala,
+          Attidiya, Kalubowila, Bellanwila
+        </div>
+        <div
+          class="menu-cart-content-section-content-introduction-description-lastline">
+          Orders outside to these city limits will be canceled and refunded.
+        </div>
+      </div>
+    </div>
+    <div class="menu-cart-content-section-content-table">
+      <table>
+        <tr>
+          <th>Product</th>
+          <th>Size</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Sub Total</th>
+        </tr>
+
+        <tr *ngFor="let unit of cartOrder">
+          <td class="pizza-name">{{ unit.pizza_name }}</td>
+          <td class="pizza-size">
+            <select id="sizes" [(ngModel)]="unit.sizeAndPrice.size">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+            </select>
+          </td>
+          <td>LKR. {{ unit.sizeAndPrice.price | number: '1.2-2' }}</td>
+          <td>
+            <input type="number" step="1" min="0" [(ngModel)]="unit.quantity" />
+          </td>
+          <td>
+            LKR. {{ unit.sizeAndPrice.price * unit.quantity | number: '1.2-2' }}
+          </td>
+        </tr>
+        <tr><td *ngFor="let num of N"></td>
+            <td> <button
+                class="menu-cart-content-section-content-table-updateButton-btn">
+                Update Cart
+              </button></td>
+        </tr>
+       
+      </table>
+      <div class="menu-cart-content-section-cart-totals">
+        <div class="menu-cart-content-section-cart-totals-heading">
+          Cart Totals
+        </div>
+        <div class="menu-cart-content-section-cart-totals-table">
+          <table>
+            <tr>
+              <th>Sub Total</th>
+              <td>LKR. {{ fullAmount | number: '1.2-2' }}</td>
+            </tr>
+            <tr>
+              <th>Shipping</th>
+              <td>{{ userAddress }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

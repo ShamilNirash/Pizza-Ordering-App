@@ -46,10 +46,22 @@
     </button>
     <div *ngIf="isPersonHave" class="navbar-right-section-cart-icon">
       <span
-        ><div [matBadge]="noOfOrdersInCart" matBadgeOverlap="false" [matBadgeHidden]="noOfOrdersInCart==0" class="demo-section">
-          <fa-icon [icon]="cartIcon"></fa-icon></div
+        ><div
+          [matBadge]="noOfOrdersInCart"
+          matBadgeColor="warn"
+          matBadgeOverlap="false"
+          [matBadgeHidden]="noOfOrdersInCart == 0"
+          class="demo-section">
+          <fa-icon
+            class="cartIconClass"
+            [icon]="cartIcon"
+            [routerLink]="'/menu-cart'"
+            [ngClass]="{ active: routerUrl == '/menu-cart' }"></fa-icon></div
       ></span>
-      <fa-icon [icon]="userIcon" [routerLink]="'/profile'"></fa-icon>
+      <fa-icon
+        class="profileIconClass"
+        [icon]="userIcon"
+        [routerLink]="'/profile'"></fa-icon>
     </div>
   </div>
 </mat-toolbar>
@@ -71,8 +83,24 @@
       <div
         *ngIf="isPersonHave"
         class="mobile-view-navbar-right-section-cart-icon">
-        <fa-icon [icon]="cartIcon"></fa-icon>
-        <fa-icon [icon]="userIcon" [routerLink]="'/profile'"></fa-icon>
+        <span
+          ><div
+            [matBadge]="noOfOrdersInCart"
+            matBadgeColor="warn"
+            matBadgeSize="small"
+            matBadgeOverlap="false"
+            [matBadgeHidden]="noOfOrdersInCart == 0"
+            class="demo-section">
+            <fa-icon
+              class="cartIconClass"
+              [icon]="cartIcon"
+              [routerLink]="'/menu-cart'"
+              [ngClass]="{ active: routerUrl == '/menu-cart' }"></fa-icon></div
+        ></span>
+        <fa-icon
+          class="profileIconClass"
+          [icon]="userIcon"
+          [routerLink]="'/profile'"></fa-icon>
       </div>
 
       <fa-icon
