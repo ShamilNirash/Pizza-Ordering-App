@@ -7,18 +7,26 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { UserAuthService } from '../../services/user-auth/user-auth.service';
 import { User } from '../../interfaces/user';
 import { CartService } from '../../services/cart/cart.service';
 import { Cart } from '../../interfaces/cart';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MatToolbarModule, FontAwesomeModule, CommonModule, RouterModule,MatBadgeModule,MatButtonModule,MatIconModule],
+  imports: [
+    MatToolbarModule,
+    FontAwesomeModule,
+    CommonModule,
+    RouterModule,
+    MatBadgeModule,
+    MatButtonModule,
+    MatIconModule,
+  ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
@@ -30,11 +38,14 @@ export class NavbarComponent implements OnInit {
   isClickBarIcon = false;
   userName: string = '';
   noOfOrdersInCart!: number;
+  routerUrl!: string;
   constructor(
     private router: Router,
     private userAuthService: UserAuthService,
     private cartService: CartService
-  ) {}
+  ) {
+    this.routerUrl = this.router.url;
+  }
   ngOnInit(): void {
     if (this.userAuthService.getId()) {
       this.isPersonHave = true;

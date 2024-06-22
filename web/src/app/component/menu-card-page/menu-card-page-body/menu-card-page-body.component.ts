@@ -65,6 +65,7 @@ export class MenuCardPageBodyComponent implements OnInit {
     this.cartService
       .createNewCart({
         pizza_id: this.pizza._id,
+        pizza_name: this.pizza.name,
         quantity: 1,
         sizeAndPrice: {
           size: 'M',

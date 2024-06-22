@@ -1,0 +1,96 @@
+.menu-cart-content-section {
+  margin-top: 5rem;
+  width: 100%;
+  padding: 0 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &-content {
+    width: 80%;
+    border: 1px solid #dee2e6;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    &-introduction {
+      background-color: #f7f6f7;
+      border-top: 3px solid #de1f1f;
+      padding: 1rem 2rem;
+      display: flex;
+      &-icon {
+        margin-right: 20px;
+        fa-icon {
+          color: #de1f1f;
+          font-size: 20px;
+        }
+      }
+      &-description {
+        &-firstline {
+          color: #de1f1f;
+          font-weight: 700;
+          margin-bottom: 10px;
+        }
+        &-otherline {
+          span {
+            font-weight: 700;
+          }
+        }
+        &-lastline {
+          margin-top: 10px;
+        }
+      }
+    }
+    &-table {
+      padding-top: 2rem;
+      table {
+        width: 100%;
+        padding: 2rem;
+        tr {
+          border: solid 1px #dee2e6;
+        }
+        th {
+          padding: 1rem;
+        }
+        td {
+          padding: 0.5rem 1rem;
+          input {
+            text-align: center;
+            width: 4rem;
+          }
+        }
+      }
+      &-updateButton {
+        &-btn {
+            float: inline-end;
+          padding: 0.4rem 2rem;
+          border-radius: 10px;
+          background-color: #de1f1f;
+          border: none;
+          color: white;
+          font-weight: 700;
+          margin: 1rem 0;
+        }
+      }
+    }
+  }
+  &-cart-totals {
+    float: inline-end;
+    width: 25rem;
+    margin-top: 4rem;
+    &-heading {
+      font-family: 'Libre Baskerville', serif;
+      font-weight: 700;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+  }
+}
+.pizza-name {
+  color: #de1f1f;
+  font-weight: 600;
+  font-style: italic;
+}
+.pizza-size select {
+  width: 4rem;
+  text-align: center;
+}

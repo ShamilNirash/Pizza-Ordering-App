@@ -54,7 +54,7 @@
     font-size: $navbarOptionFont;
     width: 30%;
     &-person-greeting {
-      font-family: "Poppins", sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
     }
     &-signInBtn {
@@ -85,11 +85,11 @@
     }
   }
 }
-.navbar-mobile-view{
+.navbar-mobile-view {
   display: none;
   @media (max-width: 900px) {
     display: block;
-  } 
+  }
 }
 .mobile-view-navbar {
   display: none;
@@ -123,7 +123,7 @@
     }
     &-barIcon {
       font-size: 40px;
-      @media(max-width:700px){
+      @media (max-width: 700px) {
         font-size: 35px;
       }
       @media (max-width: 450px) {
@@ -135,7 +135,8 @@
       display: flex;
       justify-content: space-between;
       font-size: 30px;
-      @media(max-width:700px){
+     
+      @media (max-width: 700px) {
         font-size: 25px;
         width: 7rem;
       }
@@ -198,9 +199,12 @@
   opacity: 1;
   height: 20rem;
 }
-.active{
+.active {
   color: $themeColor;
 }
-@Input('matBadgeColor'){
-  color: aqua !important;
+.cartIconClass:hover {
+  color: #de1f1f;
+}
+.profileIconClass:hover {
+  color: #de1f1f;
 }
