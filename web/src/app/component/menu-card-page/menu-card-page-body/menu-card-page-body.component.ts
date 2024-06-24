@@ -71,6 +71,9 @@ export class MenuCardPageBodyComponent implements OnInit {
           size: 'M',
           price: this.relatedPriceForMediumPizza.price,
         },
+        allSizeAndPrice:this.pizza.prizeWithSize
+
+        
       })
       .subscribe({
         next: (cart: Cart) => {

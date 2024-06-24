@@ -19,10 +19,6 @@
       display: flex;
       &-icon {
         margin-right: 20px;
-        fa-icon {
-          color: #de1f1f;
-          font-size: 20px;
-        }
       }
       &-description {
         &-firstline {
@@ -56,12 +52,13 @@
           input {
             text-align: center;
             width: 4rem;
+            height: 2rem;
           }
         }
       }
       &-updateButton {
         &-btn {
-            float: inline-end;
+          float: inline-end;
           padding: 0.4rem 2rem;
           border-radius: 10px;
           background-color: #de1f1f;
@@ -69,8 +66,21 @@
           color: white;
           font-weight: 700;
           margin: 1rem 0;
-        }
+        &:disabled{
+          cursor: not-allowed;
+          opacity: 0.6;
+        }}
       }
+    }
+  }
+  &-empty-table {
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    border-top: 3px solid #de1f1f;
+    background-color: #f7f6f7;
+    &-content {
+      margin-left: 20px;
+      font-weight: 700;
     }
   }
   &-cart-totals {
@@ -94,3 +104,11 @@
   width: 4rem;
   text-align: center;
 }
+fa-icon {
+  color: #de1f1f;
+  font-size: 20px;
+}
+.pizza-sizes {
+  height: 2rem;
+}
+

@@ -21,4 +21,22 @@ let getUserCart = async (req, res) => {
   }
 };
 
-module.exports = { createNewOrder, getUserCart };
+let updateCart = async (req, res) => {
+  try {
+    await Cart.updateOne(
+      { _id: req.params.cartId },
+      {
+        $set: {
+          quantity: req.body.quantity,
+          sizeAndPrice: req.body.sizeAndPrice,
+        },
+      }
+    );
+    return res.status(200).send({message:'update successfully'});
+  } catch (err) {
+    console.log(err);
+    return res.status(400).send(err);
+  }
+};
+
+module.exports = { createNewOrder, getUserCart, updateCart };

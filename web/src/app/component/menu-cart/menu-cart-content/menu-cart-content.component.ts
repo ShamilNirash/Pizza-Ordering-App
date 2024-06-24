@@ -10,6 +10,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { UserAuthService } from '../../../services/user-auth/user-auth.service';
 import { User } from '../../../interfaces/user';
+import swal from 'sweetalert';
+
 @Component({
   selector: 'app-menu-cart-content',
   standalone: true,
@@ -32,19 +34,29 @@ export class MenuCartContentComponent implements OnInit {
   userAddress!: string;
   N = [1, 2, 3, 4];
   sizes = [{ value: 'S' }, { value: 'M' }, { value: 'L' }];
+  isChangeInput = false;
   constructor(
     private cartService: CartService,
     private userAuthService: UserAuthService
   ) {}
   ngOnInit(): void {
+    this.isChangeInput = false;
     this.cartService.getUserCart().subscribe({
       next: (cart: Cart[]) => {
         this.cartOrder = cart;
         this.cartOrder.forEach(cart => {
-          this.fullAmount += cart.sizeAndPrice.price * cart.quantity;
+          cart.cartAmount = cart.sizeAndPrice.price * cart.quantity;
+          this.fullAmount += cart.cartAmount;
+          cart.smallPrice = cart.allSizeAndPrice.find(
+            unit => unit.size == 'S'
+          )?.price;
+          cart.mediumPrice = cart.allSizeAndPrice.find(
+            unit => unit.size == 'M'
+          )?.price;
+          cart.largePrice = cart.allSizeAndPrice.find(
+            unit => unit.size == 'L'
+          )?.price;
         });
-        /*         this.fullAmount=this.cartOrder.
-         */
       },
       error: err => {
         console.log(err);
@@ -54,6 +66,54 @@ export class MenuCartContentComponent implements OnInit {
       next: (user: User) => {
         this.userAddress = user.address;
       },
+    });
+  }
+  updatePrice(cart: Cart): void {
+    if (cart.sizeAndPrice.size == 'S') {
+      cart.sizeAndPrice.price = cart.smallPrice!;
+    }
+    if (cart.sizeAndPrice.size == 'M') {
+      cart.sizeAndPrice.price = cart.mediumPrice!;
+    }
+    if (cart.sizeAndPrice.size == 'L') {
+      cart.sizeAndPrice.price = cart.largePrice!;
+    }
+    this.isChangeInput = true;
+    cart.cartAmount = cart.sizeAndPrice.price * cart.quantity;
+  }
+  onClickUpdateBtn() {
+    this.cartOrder.forEach(cart => {
+      this.cartService
+        .updateUserCart(cart._id, {
+          quantity: cart.quantity,
+          sizeAndPrice: {
+            size: cart.sizeAndPrice.size,
+            price: cart.sizeAndPrice.price,
+          },
+        })
+        .subscribe({
+          next: res => {
+            console.log(res);
+            if (res.status == 200) {
+              swal({
+                icon: 'success',
+                title: 'Sign up successfully',
+                buttons: [false],
+                timer: 1500,
+              });
+            }
+          },
+          error: err => {
+            console.log(err);
+            swal({
+              title: 'Oops...',
+              text: 'Oops! Something went wrong. Please try again later.!',
+              icon: 'error',
+              buttons: [false],
+              timer: 2000,
+            });
+          },
+        });
     });
   }
 }
