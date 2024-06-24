@@ -25,6 +25,7 @@ export class RequestHeaderSetInterceptor implements HttpInterceptor {
         if (error.status === 401) {
           // Token expired, redirect to login page
           this.userAuthService.deleteCredentials();
+          this.router.navigateByUrl('/');
         }
         return throwError(error);
       })

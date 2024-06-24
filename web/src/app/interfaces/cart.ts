@@ -1,7 +1,13 @@
 export interface Cart {
-  user_id: String;
-  pizza_id: String;
-  pizza_name:String;
+  _id:string;
+  user_id: string;
+  pizza_id: string;
+  pizza_name: string;
   quantity: number;
-  sizeAndPrice: { size: String; price: number };
+  sizeAndPrice: { size: string; price: number };
+  allSizeAndPrice: { size: string; price: number }[];
+  smallPrice?: number;
+  mediumPrice?: number;
+  largePrice?: number;
+  cartAmount?:number;
 }

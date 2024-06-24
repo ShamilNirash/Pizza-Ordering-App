@@ -32,7 +32,17 @@
         </div>
       </div>
     </div>
-    <div class="menu-cart-content-section-content-table">
+    <div
+      class="menu-cart-content-section-empty-table"
+      *ngIf="cartOrder.length == 0">
+      <fa-icon [icon]="noteIcon"></fa-icon>
+      <span class="menu-cart-content-section-empty-table-content">
+        Your cart is currently empty.
+      </span>
+    </div>
+    <div
+      class="menu-cart-content-section-content-table"
+      *ngIf="cartOrder.length">
       <table>
         <tr>
           <th>Product</th>
@@ -45,27 +55,45 @@
         <tr *ngFor="let unit of cartOrder">
           <td class="pizza-name">{{ unit.pizza_name }}</td>
           <td class="pizza-size">
-            <select id="sizes" [(ngModel)]="unit.sizeAndPrice.size">
+            <select
+              class="pizza-sizes"
+              [(ngModel)]="unit.sizeAndPrice.size"
+              (change)="updatePrice(unit)">
               <option value="S">S</option>
               <option value="M">M</option>
               <option value="L">L</option>
             </select>
           </td>
-          <td>LKR. {{ unit.sizeAndPrice.price | number: '1.2-2' }}</td>
-          <td>
-            <input type="number" step="1" min="0" [(ngModel)]="unit.quantity" />
+          <td *ngIf="unit.sizeAndPrice.size == 'S'">
+            LKR. {{ unit.smallPrice | number: '1.2-2' }}
+          </td>
+          <td *ngIf="unit.sizeAndPrice.size == 'M'">
+            LKR. {{ unit.mediumPrice | number: '1.2-2' }}
+          </td>
+          <td *ngIf="unit.sizeAndPrice.size == 'L'">
+            LKR. {{ unit.largePrice | number: '1.2-2' }}
           </td>
           <td>
-            LKR. {{ unit.sizeAndPrice.price * unit.quantity | number: '1.2-2' }}
+            <input
+              type="number"
+              step="1"
+              min="0"
+              [(ngModel)]="unit.quantity"
+              (change)="updatePrice(unit)" />
+          </td>
+          <td>LKR. {{ unit.cartAmount | number: '1.2-2' }}</td>
+        </tr>
+        <tr>
+          <td *ngFor="let num of N"></td>
+          <td>
+            <button
+              class="menu-cart-content-section-content-table-updateButton-btn"
+              (click)="onClickUpdateBtn()"
+              [disabled]="!isChangeInput">
+              Update Cart
+            </button>
           </td>
         </tr>
-        <tr><td *ngFor="let num of N"></td>
-            <td> <button
-                class="menu-cart-content-section-content-table-updateButton-btn">
-                Update Cart
-              </button></td>
-        </tr>
-       
       </table>
       <div class="menu-cart-content-section-cart-totals">
         <div class="menu-cart-content-section-cart-totals-heading">
