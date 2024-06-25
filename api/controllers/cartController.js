@@ -32,11 +32,26 @@ let updateCart = async (req, res) => {
         },
       }
     );
-    return res.status(200).send({message:'update successfully'});
+    return res.status(200).send({ message: "update successfully" });
   } catch (err) {
     console.log(err);
     return res.status(400).send(err);
   }
 };
 
-module.exports = { createNewOrder, getUserCart, updateCart };
+let deleteCart = async (req, res) => {
+  try {
+    const test = await Cart.findOneAndDelete({
+      _id: req.params.cartId,
+    });
+    if (test) {
+      return res.status(200).send({ message: "Delete Successfully" });
+    }
+    return res.status(400).send({ message: "Error Occur" });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).send(error);
+  }
+};
+
+module.exports = { createNewOrder, getUserCart, updateCart, deleteCart };
