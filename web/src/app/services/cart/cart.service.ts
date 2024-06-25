@@ -24,7 +24,15 @@ export class CartService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.patch<Cart>(
       `${this.URL_BASE}/update-cart/${cartId}`,
-      object,{ headers, observe: 'response' }
+      object,
+      { headers, observe: 'response' }
+    );
+  }
+
+  deleteUserCart(cartId: string): Observable<HttpResponse<any>> {
+    return this.http.delete<HttpResponse<any>>(
+      `${this.URL_BASE}/delete-cart/${cartId}`,
+      { observe: 'response' }
     );
   }
 }

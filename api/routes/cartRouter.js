@@ -9,5 +9,5 @@ router.patch(
   middleware.authenticate,
   cartController.updateCart
 );
-
+router.delete("/delete-cart/:cartId", cartController.deleteCart);
 module.exports = router;

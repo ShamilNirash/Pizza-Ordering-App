@@ -66,10 +66,11 @@
           color: white;
           font-weight: 700;
           margin: 1rem 0;
-        &:disabled{
-          cursor: not-allowed;
-          opacity: 0.6;
-        }}
+          &:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+          }
+        }
       }
     }
   }
@@ -94,6 +95,17 @@
       margin-bottom: 10px;
     }
   }
+  &-proceedBtn {
+    width: 80%;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    height: 2.5rem;
+    border-radius: 10px;
+    background-color: #de1f1f;
+    border: none;
+    color: white;
+    font-weight: 700;
+  }
 }
 .pizza-name {
   color: #de1f1f;
@@ -111,4 +123,3 @@ fa-icon {
 .pizza-sizes {
   height: 2rem;
 }
-

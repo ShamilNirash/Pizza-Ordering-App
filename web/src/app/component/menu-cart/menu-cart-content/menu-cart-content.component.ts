@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { UserAuthService } from '../../../services/user-auth/user-auth.service';
 import { User } from '../../../interfaces/user';
 import swal from 'sweetalert';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-cart-content',
@@ -37,7 +38,8 @@ export class MenuCartContentComponent implements OnInit {
   isChangeInput = false;
   constructor(
     private cartService: CartService,
-    private userAuthService: UserAuthService
+    private userAuthService: UserAuthService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.isChangeInput = false;
@@ -83,17 +85,9 @@ export class MenuCartContentComponent implements OnInit {
   }
   onClickUpdateBtn() {
     this.cartOrder.forEach(cart => {
-      this.cartService
-        .updateUserCart(cart._id, {
-          quantity: cart.quantity,
-          sizeAndPrice: {
-            size: cart.sizeAndPrice.size,
-            price: cart.sizeAndPrice.price,
-          },
-        })
-        .subscribe({
+      if (cart.quantity == 0) {
+        this.cartService.deleteUserCart(cart._id).subscribe({
           next: res => {
-            console.log(res);
             if (res.status == 200) {
               swal({
                 icon: 'success',
@@ -101,6 +95,11 @@ export class MenuCartContentComponent implements OnInit {
                 buttons: [false],
                 timer: 1500,
               });
+              this.router.routeReuseStrategy.shouldReuseRoute = function () {
+                return false;
+              };
+              this.router.onSameUrlNavigation = 'reload';
+              this.router.navigate([this.router.url]);
             }
           },
           error: err => {
@@ -114,6 +113,40 @@ export class MenuCartContentComponent implements OnInit {
             });
           },
         });
+      } else {
+        this.cartService
+          .updateUserCart(cart._id, {
+            quantity: cart.quantity,
+            sizeAndPrice: {
+              size: cart.sizeAndPrice.size,
+              price: cart.sizeAndPrice.price,
+            },
+          })
+          .subscribe({
+            next: res => {
+              console.log(res);
+              if (res.status == 200) {
+                swal({
+                  icon: 'success',
+                  title: 'Sign up successfully',
+                  buttons: [false],
+                  timer: 1500,
+                });
+                this.isChangeInput = false;
+              }
+            },
+            error: err => {
+              console.log(err);
+              swal({
+                title: 'Oops...',
+                text: 'Oops! Something went wrong. Please try again later.!',
+                icon: 'error',
+                buttons: [false],
+                timer: 2000,
+              });
+            },
+          });
+      }
     });
   }
 }
