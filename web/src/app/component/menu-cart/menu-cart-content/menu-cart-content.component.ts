@@ -133,6 +133,11 @@ export class MenuCartContentComponent implements OnInit {
                   timer: 1500,
                 });
                 this.isChangeInput = false;
+                this.router.routeReuseStrategy.shouldReuseRoute = function () {
+                  return false;
+                };
+                this.router.onSameUrlNavigation = 'reload';
+                this.router.navigate([this.router.url]);
               }
             },
             error: err => {

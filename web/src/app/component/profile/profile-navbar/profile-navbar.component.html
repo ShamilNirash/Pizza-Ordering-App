@@ -5,6 +5,11 @@
     Account Info
   </button>
   <button
+    (click)="onClick('orders')"
+    [ngClass]="{ active: buttonName === 'orders' }">
+    Orders
+  </button>
+  <button
     (click)="onClick('security')"
     [ngClass]="{ active: buttonName === 'security' }">
     Security
