@@ -43,7 +43,7 @@
     <div
       class="menu-cart-content-section-content-table"
       *ngIf="cartOrder.length">
-      <table>
+      <table class="menu-cart-content-section-content-table-web-view">
         <tr>
           <th>Product</th>
           <th>Size</th>
@@ -95,6 +95,61 @@
           </td>
         </tr>
       </table>
+      <table class="menu-cart-content-section-content-table-mobile-view">
+        <div class="menu-cart-content-section-content-table-mobile-view-table-set" *ngFor="let unit of cartOrder">
+          <tr>
+            <th>Product</th>
+            <td class="pizza-name">{{ unit.pizza_name }}</td>
+          </tr>
+          <tr>
+            <th>Size</th>
+            <td>
+              <select
+                class="pizza-sizes"
+                [(ngModel)]="unit.sizeAndPrice.size"
+                (change)="updatePrice(unit)">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th>Price</th>
+            <td *ngIf="unit.sizeAndPrice.size == 'S'">
+              LKR. {{ unit.smallPrice | number: '1.2-2' }}
+            </td>
+            <td *ngIf="unit.sizeAndPrice.size == 'M'">
+              LKR. {{ unit.mediumPrice | number: '1.2-2' }}
+            </td>
+            <td *ngIf="unit.sizeAndPrice.size == 'L'">
+              LKR. {{ unit.largePrice | number: '1.2-2' }}
+            </td>
+          </tr>
+
+          <tr>
+            <th>Quantity</th>
+            <td>
+              <input
+                type="number"
+                step="1"
+                min="0"
+                [(ngModel)]="unit.quantity"
+                (change)="updatePrice(unit)" />
+            </td>
+          </tr>
+          <tr>
+            <th>Sub Total</th>
+            <td>LKR. {{ unit.cartAmount | number: '1.2-2' }}</td>
+          </tr>
+        </div>
+        <button
+        class="menu-cart-content-section-content-table-updateButton-btn"
+        (click)="onClickUpdateBtn()"
+        [disabled]="!isChangeInput">
+        Update Cart
+      </button>
+      </table>
       <div class="menu-cart-content-section-cart-totals">
         <div class="menu-cart-content-section-cart-totals-heading">
           Cart Totals
@@ -114,7 +169,7 @@
       </div>
     </div>
   </div>
-  <button class="menu-cart-content-section-proceedBtn">
+  <button class="menu-cart-content-section-proceedBtn" [disabled]="cartOrder.length==0">
     PROCEED TO CHECKOUT
   </button>
 </div>

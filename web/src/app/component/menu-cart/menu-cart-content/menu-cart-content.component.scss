@@ -6,17 +6,28 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media (max-width: 700px) {
+    padding: 0 6%;
+  }
 
   &-content {
     width: 80%;
     border: 1px solid #dee2e6;
     padding: 2rem;
     margin-bottom: 2rem;
+    @media (max-width: 700px) {
+      width: 100%;
+      padding: 1rem;
+    }
     &-introduction {
       background-color: #f7f6f7;
       border-top: 3px solid #de1f1f;
       padding: 1rem 2rem;
       display: flex;
+      @media (max-width: 700px) {
+        padding: 1rem 1rem;
+        font-size: 15px;
+      }
       &-icon {
         margin-right: 20px;
       }
@@ -38,9 +49,12 @@
     }
     &-table {
       padding-top: 2rem;
-      table {
+      &-web-view {
         width: 100%;
         padding: 2rem;
+        @media (max-width: 900px) {
+          display: none;
+        }
         tr {
           border: solid 1px #dee2e6;
         }
@@ -53,6 +67,45 @@
             text-align: center;
             width: 4rem;
             height: 2rem;
+          }
+        }
+      }
+      &-mobile-view {
+        display: none;
+        font-size: 15px;
+        @media (max-width: 900px) {
+          display: block;
+          width: 100%;
+        }
+        &-table-set {
+          width: 100%;
+          margin-bottom: 2rem;
+          tr {
+            width: 100%;
+            display: inline-flex;
+            justify-content: space-between;
+            border: 1px solid #dee2e6;
+            height: 2.8rem;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+          }
+          th {
+            padding-left: 10px;
+            width: 40%;
+          }
+          td {
+            padding-left: 10px;
+            width: 70%;
+            input {
+              text-align: center;
+              width: 4rem;
+              height: 2rem;
+            }
+            select {
+              width: 4rem;
+              text-align: center;
+            }
           }
         }
       }
@@ -79,6 +132,9 @@
     margin-top: 2rem;
     border-top: 3px solid #de1f1f;
     background-color: #f7f6f7;
+    @media (max-width: 700px) {
+      font-size: 15px;
+    }
     &-content {
       margin-left: 20px;
       font-weight: 700;
@@ -88,11 +144,36 @@
     float: inline-end;
     width: 25rem;
     margin-top: 4rem;
+    tr {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    td {
+      width: 60%;
+    }
+    th {
+      width: 40%;
+    }
+    table {
+      width: 100%;
+    }
     &-heading {
       font-family: 'Libre Baskerville', serif;
       font-weight: 700;
       font-size: 30px;
       margin-bottom: 10px;
+      @media (max-width: 700px) {
+        font-size: 25px;
+      }
+    }
+    @media (max-width: 900px) {
+      width: 100%;
+     
+    }
+    @media (max-width: 700px) {
+      font-size: 15px;
     }
   }
   &-proceedBtn {
@@ -105,6 +186,14 @@
     border: none;
     color: white;
     font-weight: 700;
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    @media (max-width: 700px) {
+      font-size: 15px;
+      width: 100%;
+    }
   }
 }
 .pizza-name {
