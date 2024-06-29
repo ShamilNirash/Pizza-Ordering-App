@@ -96,7 +96,9 @@
         </tr>
       </table>
       <table class="menu-cart-content-section-content-table-mobile-view">
-        <div class="menu-cart-content-section-content-table-mobile-view-table-set" *ngFor="let unit of cartOrder">
+        <div
+          class="menu-cart-content-section-content-table-mobile-view-table-set"
+          *ngFor="let unit of cartOrder">
           <tr>
             <th>Product</th>
             <td class="pizza-name">{{ unit.pizza_name }}</td>
@@ -144,11 +146,11 @@
           </tr>
         </div>
         <button
-        class="menu-cart-content-section-content-table-updateButton-btn"
-        (click)="onClickUpdateBtn()"
-        [disabled]="!isChangeInput">
-        Update Cart
-      </button>
+          class="menu-cart-content-section-content-table-updateButton-btn"
+          (click)="onClickUpdateBtn()"
+          [disabled]="!isChangeInput">
+          Update Cart
+        </button>
       </table>
       <div class="menu-cart-content-section-cart-totals">
         <div class="menu-cart-content-section-cart-totals-heading">
@@ -169,7 +171,10 @@
       </div>
     </div>
   </div>
-  <button class="menu-cart-content-section-proceedBtn" [disabled]="cartOrder.length==0">
+  <button
+    class="menu-cart-content-section-proceedBtn"
+    [disabled]="cartOrder.length == 0"
+    [routerLink]="'/check-out'">
     PROCEED TO CHECKOUT
   </button>
 </div>

@@ -1,0 +1,73 @@
+.checkout-form-section {
+  width: 100%;
+  padding: 0 6%;
+  &-billing-details {
+    width: 100%;
+    margin-top: 3rem;
+    h1 {
+      text-align: center;
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 3rem;
+    }
+    &-form {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      &-field-double {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+      &-additional-note {
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+    &-my-order {
+      margin-top: 3rem;
+      h1 {
+        font-size: 40px;
+        font-weight: 700;
+        text-align: center;
+      }
+      &-contain {
+        margin-top: 3rem;
+        table {
+          width: 100%;
+          border: 1px solid black;
+          font-size: 16px;
+          th {
+            padding: 5px 10px;
+          }
+          tr {
+            border: 1px solid black;
+          }
+          td {
+            padding: 5px 10px;
+          }
+        }
+        span {
+          font-size: 16px;
+          font-weight: 700;
+        }
+      }
+      &-total {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        font-size: 20px;
+        span {
+          font-size: 20px;
+          margin-left: 3rem;
+        }
+      }
+    }
+  }
+}
+.mat-form-field-half {
+  width: 45%;
+}
+.mat-form-field {
+  width: 100%;
+}

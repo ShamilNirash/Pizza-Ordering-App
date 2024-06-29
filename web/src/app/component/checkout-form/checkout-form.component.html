@@ -1,0 +1,105 @@
+<div class="checkout-form-section">
+  <div class="checkout-form-section-billing-details">
+    <h1>Billing Details</h1>
+    <div class="checkout-form-section-billing-details-form">
+      <mat-form-field class="mat-form-field-half">
+        <mat-label class="mat-label">Enter your first name</mat-label>
+        <input
+          matInput
+          [formControl]="firstName"
+          placeholder="Ex. Sam"
+          (blur)="updateFirstNameErrorMessage()"
+          required />
+        @if (firstName.invalid) {
+          <mat-error>{{ firstNameErrorMessage }}</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field class="mat-form-field-half">
+        <mat-label class="mat-label">Enter your last name</mat-label>
+        <input
+          matInput
+          [formControl]="lastName"
+          placeholder="Ex. Kamaron"
+          (blur)="updateLastNameErrorMessage()"
+          required />
+        @if (lastName.invalid) {
+          <mat-error>{{ lastNameErrorMessage }}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div class="checkout-form-section-billing-details-form-field-single">
+      <mat-form-field class="mat-form-field">
+        <mat-label class="mat-label">Enter your address</mat-label>
+        <input
+          matInput
+          placeholder="Ex. 210/A, Samaghi Mawatha, Kelaniya"
+          [formControl]="address"
+          (blur)="updateAddressErrorMessage()"
+          required />
+        @if (address.invalid) {
+          <mat-error>{{ addressErrorMessage }}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div class="checkout-form-section-billing-details-form-field-double">
+      <mat-form-field class="mat-form-field-half mat-form-field-half-email">
+        <mat-label class="mat-label">Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="Ex. pat@example.com"
+          [formControl]="email"
+          (blur)="updateEmailErrorMessage()"
+          required />
+        @if (email.invalid) {
+          <mat-error>{{ emailErrorMessage }}</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field class="mat-form-field-half mat-form-field-half-contactNo">
+        <mat-label class="mat-label">Enter your contact number</mat-label>
+        <input
+          matInput
+          placeholder="Ex. 077 XXX XXXX"
+          [formControl]="contactNo"
+          (blur)="updateContactNoErrorMessage()"
+          required />
+        @if (contactNo.invalid) {
+          <mat-error>{{ contactNoErrorMessage }}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="checkout-form-section-billing-details-form-additional-note">
+      <p>Order Notes (Optional)</p>
+      <mat-form-field class="example-full-width mat-form-field">
+        <textarea
+          matInput
+          placeholder="Notes about your order. e.g. special notes for delivery."></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="checkout-form-section-billing-details-my-order">
+    <h1>Your Order</h1>
+    <div class="checkout-form-section-billing-details-my-order-contain">
+      <table>
+        <tr>
+          <th>Product</th>
+          <th>Size</th>
+          <th>Quantity</th>
+          <th>Sub Price</th>
+        </tr>
+        <tr *ngFor="let unit of relevantCart">
+          <td>{{unit.pizza_name}}</td>
+          <td>{{unit.sizeAndPrice.size}}</td>
+          <td>{{unit.quantity}}</td>
+          <td>LKR. {{unit.sizeAndPrice.price | number : '1.2-2'}}</td>
+        </tr>
+      </table>
+      <div class="checkout-form-section-billing-details-my-order-total"
+        >Total
+        <span>LKR. {{totalAmount | number:'1.2-2'}}</span
+      ></div>
+    </div>
+  </div>
+</div>

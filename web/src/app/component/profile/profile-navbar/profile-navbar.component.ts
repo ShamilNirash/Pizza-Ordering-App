@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { AccountInfoComponent } from '../account-info/account-info.component';
 import { NgClass } from '@angular/common';
 
 @Component({
