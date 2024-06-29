@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
   isPersonHave = false;
   isClickBarIcon = false;
   userName: string = '';
-  noOfOrdersInCart=0;
+  noOfOrdersInCart = 0;
   routerUrl!: string;
   constructor(
     private router: Router,
@@ -60,11 +60,9 @@ export class NavbarComponent implements OnInit {
     });
     this.cartService.getUserCart().subscribe({
       next: (cart: Cart[]) => {
-        cart.forEach((unit)=>{          
-          this.noOfOrdersInCart= this.noOfOrdersInCart+unit.quantity;
-          console.log(this.noOfOrdersInCart);
-          
-        })
+        cart.forEach(unit => {
+          this.noOfOrdersInCart = this.noOfOrdersInCart + unit.quantity;
+        });
       },
       error: err => {
         console.log(err);

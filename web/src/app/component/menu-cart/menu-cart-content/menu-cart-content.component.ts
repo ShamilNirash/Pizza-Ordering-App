@@ -11,7 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { UserAuthService } from '../../../services/user-auth/user-auth.service';
 import { User } from '../../../interfaces/user';
 import swal from 'sweetalert';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-menu-cart-content',
@@ -24,6 +24,7 @@ import { Router } from '@angular/router';
     MatSelectModule,
     MatInputModule,
     NgFor,
+    RouterModule
   ],
   templateUrl: './menu-cart-content.component.html',
   styleUrl: './menu-cart-content.component.scss',
