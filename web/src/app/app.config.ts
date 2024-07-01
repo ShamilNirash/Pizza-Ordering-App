@@ -9,6 +9,7 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 import { RequestHeaderSetInterceptor } from './interceptors/request-header-set.interceptor';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,6 +19,11 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideAnimationsAsync(),
     provideAnimationsAsync(),
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:LoadingInterceptor,
+      multi:true
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: RequestHeaderSetInterceptor,

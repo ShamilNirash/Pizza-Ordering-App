@@ -1,0 +1,25 @@
+.loading-section{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    background-color: #ffffffea;
+
+    img{
+        width: 200px;
+        height: 200px;
+        border-bottom: 10px solid #DE1F1F;
+        margin-bottom: 2rem;
+        color: #DE1F1F;
+
+    }
+    h1{
+        color: #DE1F1F;
+        font-weight: 600;
+        text-align: center;
+    }
+}
