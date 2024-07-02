@@ -92,7 +92,7 @@ export class MenuCartContentComponent implements OnInit {
             if (res.status == 200) {
               swal({
                 icon: 'success',
-                title: 'Sign up successfully',
+                title: 'Cart Updated Successfully',
                 buttons: [false],
                 timer: 1500,
               });
@@ -129,7 +129,7 @@ export class MenuCartContentComponent implements OnInit {
               if (res.status == 200) {
                 swal({
                   icon: 'success',
-                  title: 'Sign up successfully',
+                  title: 'Cart Updated Successfully',
                   buttons: [false],
                   timer: 1500,
                 });

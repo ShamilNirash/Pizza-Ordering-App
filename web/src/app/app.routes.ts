@@ -9,6 +9,7 @@ import { MenuComponent } from './pages/menu/menu.component';
 import { MenuCardPageComponent } from './pages/menu-card-page/menu-card-page.component';
 import { MenuCartComponent } from './pages/menu-cart/menu-cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,5 +21,6 @@ export const routes: Routes = [
   { path: 'menu', component: MenuComponent },
   { path: 'menu/:cardId', component: MenuCardPageComponent },
   {path:'menu-cart',component:MenuCartComponent},
-  {path:'check-out',component:CheckoutComponent}
+  {path:'check-out',component:CheckoutComponent},
+  {path:'check-out-2',component:PaymentComponent}
 ];

@@ -21,7 +21,6 @@ export class LoadingInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       tap({
         next: res => {
-          console.log(res.type);
           if (res.type === HttpEventType.Response) {
             this.hideLoading();
           }

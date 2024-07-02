@@ -43,19 +43,6 @@
       </mat-form-field>
     </div>
     <div class="checkout-form-section-billing-details-form-field-double">
-      <mat-form-field class="mat-form-field-half mat-form-field-half-email">
-        <mat-label class="mat-label">Enter your email</mat-label>
-        <input
-          matInput
-          placeholder="Ex. pat@example.com"
-          [formControl]="email"
-          (blur)="updateEmailErrorMessage()"
-          required />
-        @if (email.invalid) {
-          <mat-error>{{ emailErrorMessage }}</mat-error>
-        }
-      </mat-form-field>
-
       <mat-form-field class="mat-form-field-half mat-form-field-half-contactNo">
         <mat-label class="mat-label">Enter your contact number</mat-label>
         <input
@@ -75,7 +62,8 @@
       <mat-form-field class="example-full-width mat-form-field">
         <textarea
           matInput
-          placeholder="Notes about your order. e.g. special notes for delivery."></textarea>
+          placeholder="Notes about your order. e.g. special notes for delivery."
+          [formControl]="note"></textarea>
       </mat-form-field>
     </div>
   </div>
@@ -90,16 +78,20 @@
           <th>Sub Price</th>
         </tr>
         <tr *ngFor="let unit of relevantCart">
-          <td>{{unit.pizza_name}}</td>
-          <td>{{unit.sizeAndPrice.size}}</td>
-          <td>{{unit.quantity}}</td>
-          <td>LKR. {{unit.sizeAndPrice.price | number : '1.2-2'}}</td>
+          <td>{{ unit.pizza_name }}</td>
+          <td>{{ unit.sizeAndPrice.size }}</td>
+          <td>{{ unit.quantity }}</td>
+          <td>
+            LKR. {{ unit.sizeAndPrice.price * unit.quantity | number: '1.2-2' }}
+          </td>
         </tr>
       </table>
-      <div class="checkout-form-section-billing-details-my-order-total"
-        >Total
-        <span>LKR. {{totalAmount | number:'1.2-2'}}</span
-      ></div>
+      <div class="checkout-form-section-billing-details-my-order-total">
+        Total <span>LKR. {{ totalAmount | number: '1.2-2' }}</span>
+      </div>
     </div>
+  </div>
+  <div class="checkout-form-section-paymentBtn">
+    <button (click)="clickedOnGoToPaymentBtn()">Go To Payment</button>
   </div>
 </div>
