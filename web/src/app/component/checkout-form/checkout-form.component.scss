@@ -64,6 +64,23 @@
       }
     }
   }
+  &-paymentBtn{
+    width: 100%;
+    margin-top:2rem ;
+    margin-bottom: 2.5rem;  
+    display: flex;
+    justify-content: center;
+    button{
+     width: 100%;
+     height: 2.5rem;
+     background-color:#DE1F1F;
+     color: white;
+     font-size: 18px;
+     font-weight: 700;
+     border: none;
+     border-radius: 10px;
+    }
+  }
 }
 .mat-form-field-half {
   width: 45%;

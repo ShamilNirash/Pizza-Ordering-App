@@ -5,13 +5,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { UserAuthService } from '../../services/user-auth/user-auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { merge } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { User } from '../../interfaces/user';
 import { CartService } from '../../services/cart/cart.service';
 import { Cart } from '../../interfaces/cart';
 import { CommonModule, NgFor } from '@angular/common';
+import { OrderService } from '../../services/order/order.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-checkout-form',
@@ -23,7 +25,7 @@ import { CommonModule, NgFor } from '@angular/common';
     MatSelectModule,
     MatIconModule,
     NgFor,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './checkout-form.component.html',
   styleUrl: './checkout-form.component.scss',
@@ -31,7 +33,7 @@ import { CommonModule, NgFor } from '@angular/common';
 export class CheckoutFormComponent implements OnInit {
   relevantCart!: Cart[];
   totalAmount: number = 0;
-  email = new FormControl('', [Validators.required, Validators.email]);
+  productItems: {}[] = [];
   contactNo = new FormControl('', [
     Validators.required,
     Validators.minLength(10),
@@ -47,7 +49,7 @@ export class CheckoutFormComponent implements OnInit {
     Validators.required,
     Validators.pattern('^[a-zA-Z]*$'),
   ]);
-  emailErrorMessage = '';
+  note = new FormControl('');
   contactNoErrorMessage = '';
   addressErrorMessage = '';
   firstNameErrorMessage = '';
@@ -57,12 +59,9 @@ export class CheckoutFormComponent implements OnInit {
   constructor(
     private userAuthService: UserAuthService,
     private cartService: CartService,
+    private orderService: OrderService,
     private router: Router
   ) {
-    merge(this.email.statusChanges, this.email.valueChanges)
-      .pipe(takeUntilDestroyed())
-      .subscribe(() => this.updateEmailErrorMessage());
-
     merge(this.contactNo.statusChanges, this.contactNo.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateContactNoErrorMessage());
@@ -84,7 +83,6 @@ export class CheckoutFormComponent implements OnInit {
         this.lastName.setValue(user.lastName);
         this.address.setValue(user.address);
         this.contactNo.setValue(user.contactNo);
-        this.email.setValue(user.email);
       },
       error: err => {
         console.log(err);
@@ -94,19 +92,10 @@ export class CheckoutFormComponent implements OnInit {
       next: (cart: Cart[]) => {
         this.relevantCart = cart;
         cart.forEach(unit => {
-          this.totalAmount += unit.sizeAndPrice.price;
+          this.totalAmount += unit.sizeAndPrice.price * unit.quantity;
         });
       },
     });
-  }
-  updateEmailErrorMessage() {
-    if (this.email.hasError('required')) {
-      this.emailErrorMessage = 'This field is required';
-    } else if (this.email.hasError('email')) {
-      this.emailErrorMessage = 'Not a valid email';
-    } else {
-      this.emailErrorMessage = '';
-    }
   }
   updateContactNoErrorMessage() {
     if (this.contactNo.hasError('required')) {
@@ -147,5 +136,45 @@ export class CheckoutFormComponent implements OnInit {
     } else {
       this.lastNameErrorMessage = '';
     }
+  }
+
+  clickedOnGoToPaymentBtn() {
+    this.relevantCart.forEach(unit => {
+      this.productItems.push({
+        name: unit.pizza_name,
+        productSizeAndPrice: {
+          size: unit.sizeAndPrice.size,
+          price: unit.sizeAndPrice.price,
+        },
+        quantity: unit.quantity,
+      });
+    });
+    this.orderService
+      .createNewOrder({
+        name: this.firstName.value + ' ' + this.lastName.value,
+        contactNo: this.contactNo.value,
+        cartItems: this.productItems,
+        totalAmount: this.totalAmount,
+        address: this.address.value,
+        notes: this.note.value,
+        isPayed: false,
+      })
+      .subscribe({
+        next: res => {
+          if (res.status == 200) {
+            this.router.navigateByUrl('/check-out-2');
+          }
+        },
+        error: err => {
+          console.log('error occur', err);
+          swal({
+            title: 'Oops...',
+            text: 'Oops! Something went wrong. Please try again later.!',
+            icon: 'error',
+            buttons: [false],
+            timer: 2000,
+          });
+        },
+      });
   }
 }
