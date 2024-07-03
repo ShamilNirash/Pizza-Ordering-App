@@ -1,6 +1,11 @@
 const router = require("express").Router();
 const orderController = require("../controllers/orderController");
-const middleware =require("../middleware/middleware")
-router.post("/newOrder",middleware.authenticate,orderController.createNewOrder);
+const middleware = require("../middleware/middleware");
 
-module.exports=router;
+router.post(
+  "/newOrder",
+  middleware.authenticate,
+  orderController.createNewOrder
+);
+router.get("/:orderId", middleware.authenticate, orderController.getOrder);
+module.exports = router;

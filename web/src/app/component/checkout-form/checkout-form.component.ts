@@ -162,7 +162,8 @@ export class CheckoutFormComponent implements OnInit {
       .subscribe({
         next: res => {
           if (res.status == 200) {
-            this.router.navigateByUrl('/check-out-2');
+
+            this.router.navigateByUrl(`/${res.body}/check-out-2`);
           }
         },
         error: err => {

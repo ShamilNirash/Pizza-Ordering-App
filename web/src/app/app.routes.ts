@@ -22,5 +22,5 @@ export const routes: Routes = [
   { path: 'menu/:cardId', component: MenuCardPageComponent },
   {path:'menu-cart',component:MenuCartComponent},
   {path:'check-out',component:CheckoutComponent},
-  {path:'check-out-2',component:PaymentComponent}
+  {path:':orderId/check-out-2',component:PaymentComponent}
 ];
