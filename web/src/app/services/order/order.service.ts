@@ -17,4 +17,8 @@ export class OrderService {
       observe: 'response',
     });
   }
+
+  getOrder(orderId: string): Observable<Order> {
+    return this.http.get<Order>(`${this.BASE_URL}/${orderId}`);
+  }
 }
