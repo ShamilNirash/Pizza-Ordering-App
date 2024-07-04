@@ -24,4 +24,27 @@ let getOrder = async (req, res) => {
   }
 };
 
-module.exports = { createNewOrder, getOrder };
+let saveOrder = async (req, res) => {
+  try {
+    const order = await Order.updateOne(
+      { _id: req.params.orderId },
+      {
+        $set: {
+          paymentId: req.body.paymentId,
+          createTime: req.body.createTime,
+          isPayed: true,
+        },
+      }
+    );
+    if (order) {
+      await Order.deleteMany({ userId: req.user_id, isPayed: false });
+      return res.status(200).send({ message: "Successful" });
+    }
+    return res.send(400).send({ message: "Error Occur" });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).send(error);
+  }
+};
+
+module.exports = { createNewOrder, getOrder, saveOrder };

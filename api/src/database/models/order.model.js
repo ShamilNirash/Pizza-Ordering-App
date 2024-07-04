@@ -44,7 +44,18 @@ const orderSchema = mongoose.Schema({
   isPayed: {
     type: Boolean,
     required: true,
+    default:false
   },
+  createTime:{
+    type:String,
+    required:true,
+    default:Date().toString()
+  },
+  paymentId:{
+    type:String,
+    required:true,
+    default:'00'
+  }
 });
 const Order = mongoose.model("Order", orderSchema);
 module.exports = { Order };

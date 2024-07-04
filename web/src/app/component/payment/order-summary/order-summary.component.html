@@ -5,7 +5,7 @@
       <li>Name : {{ activeOrder.name }}</li>
       <li>Address : {{ activeOrder.address }}</li>
       <li>Contact No : {{ activeOrder.contactNo }}</li>
-      <li *ngIf="activeOrder.notes">Special Note: {{activeOrder.notes}}</li>
+      <li *ngIf="activeOrder.notes">Special Note: {{ activeOrder.notes }}</li>
     </div>
     <div class="order-summary-section-order-details-order">
       <h3>Order Items:</h3>
@@ -28,4 +28,7 @@
       </div>
     </div>
   </div>
+</div>
+<div class="order-summary-section-paypal-option">
+  <div class="order-summary-section-paypal-option-paypal" #paymentRef></div>
 </div>
