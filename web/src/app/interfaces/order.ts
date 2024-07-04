@@ -7,4 +7,6 @@ export interface Order {
     address:string,
     notes?:string;
     isPayed:boolean;
+    paymentId:string;
+    createTime:string
 }

@@ -46,4 +46,14 @@
       }
     }
   }
+  &-paypal-option{
+    margin-top: 6rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    &-paypal{
+      width: 50%;
+    }
+  }
 }

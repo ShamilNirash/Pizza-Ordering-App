@@ -8,4 +8,5 @@ router.post(
   orderController.createNewOrder
 );
 router.get("/:orderId", middleware.authenticate, orderController.getOrder);
+router.patch("/:orderId",middleware.authenticate,orderController.saveOrder)
 module.exports = router;

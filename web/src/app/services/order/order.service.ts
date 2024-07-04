@@ -21,4 +21,10 @@ export class OrderService {
   getOrder(orderId: string): Observable<Order> {
     return this.http.get<Order>(`${this.BASE_URL}/${orderId}`);
   }
+  saveOrder(orderId: string, object: Object): Observable<HttpResponse<any>> {
+    console.log('object', object);
+    console.log('id', orderId);
+
+    return this.http.patch<any>(`${this.BASE_URL}/${orderId}`, object);
+  }
 }

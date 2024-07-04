@@ -10,17 +10,32 @@ import { MenuCardPageComponent } from './pages/menu-card-page/menu-card-page.com
 import { MenuCartComponent } from './pages/menu-cart/menu-cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { AuthGuard } from './guard/auth-guard.guard';
+import { OrderSummaryComponent } from './pages/order-summary/order-summary.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'sign-in', component: SigninComponent },
   { path: 'sign-up', component: SignupComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'menu', component: MenuComponent },
-  { path: 'menu/:cardId', component: MenuCardPageComponent },
-  {path:'menu-cart',component:MenuCartComponent},
-  {path:'check-out',component:CheckoutComponent},
-  {path:':orderId/check-out-2',component:PaymentComponent}
+  {
+    path: 'menu/:cardId',
+    component: MenuCardPageComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'menu-cart', component: MenuCartComponent, canActivate: [AuthGuard] },
+  { path: 'check-out', component: CheckoutComponent, canActivate: [AuthGuard] },
+  {
+    path: ':orderId/check-out-2',
+    component: PaymentComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: ':orderId',
+    component: OrderSummaryComponent,
+    canActivate: [AuthGuard],
+  },
 ];
