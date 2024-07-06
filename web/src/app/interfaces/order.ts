@@ -1,5 +1,5 @@
 export interface Order {
-    id:number;
+    _id:number;
     name:string;
     contactNo:string;
     cartItems:{name:string,productSizeAndPrice:{size:string,price:number},quantity:number}[];

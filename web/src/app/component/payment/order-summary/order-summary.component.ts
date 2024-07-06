@@ -54,7 +54,6 @@ export class OrderSummaryComponent implements OnInit {
         },
         onApprove: (data: any, actions: any) => {
           return actions.order.capture().then((details: any) => {
-            console.log(details);
             if (details.status == 'COMPLETED') {
               this.activatedRouter.params.subscribe((params: Params) => {
                 this.orderService
