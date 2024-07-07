@@ -5,55 +5,122 @@
   h1 {
     margin-bottom: 2rem;
     color: #676767;
+    font-size: 30px;
+    @media (max-width: 900px) {
+      font-size: 25px;
+    }
+    @media (max-width: 700px) {
+      font-size: 22px;
+    }
+    @media (max-width: 400px) {
+      font-size: 18px;
+    }
   }
   &-order-details {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    @media (max-width: 900px) {
+      flex-direction: column;
+    }
     &-user-details {
+      width: 43%;
       list-style: none;
-      font-size: 18px;
+      font-size: 16px;
+      @media (max-width: 1000px) {
+        width: 47%;
+      }
+      @media (max-width: 900px) {
+        width: 100%;
+      }
+      @media (max-width: 700px) {
+        font-size: 14px;
+      }
+      @media (max-width: 400px) {
+        font-size: 13px;
+      }
       li {
         margin-bottom: 1rem;
         font-weight: 600;
+        display: flex;
+      }
+      strong {
+        width: 7rem;
       }
     }
     &-order {
-      width: 60%;
+      width: 55%;
       border: 1px solid #d8d8d8;
-      padding: 2rem 3rem;
+      padding: 2rem 1rem;
+      padding-right: 0;
       border-radius: 15px;
-
+      @media (max-width: 1000px) {
+        width: 50%;
+      }
+      @media (max-width: 900px) {
+        width: 100%;
+        margin-top: 2rem;
+      }
       h3 {
-        font-size: 25px;
+        font-size: 30px;
         margin-bottom: 1.8rem;
         color: #676767;
+        @media (max-width: 900px) {
+          font-size: 25px;
+        }
+        @media (max-width: 700px) {
+          font-size: 22px;
+        }
+        @media (max-width: 400px) {
+          font-size: 18px;
+        }
       }
 
       table {
         width: 100%;
-        font-size: 18px;
+        font-size: 15px;
         font-weight: 600;
         margin-bottom: 2rem;
+        @media (max-width: 700px) {
+          font-size: 13px;
+        }
+        @media (max-width: 400px) {
+          font-size: 12px;
+        }
         td {
-          min-width: 5rem;
           padding-bottom: 1rem;
+          padding-right: 1rem;
+          @media (max-width: 700px) {
+            padding-right: 0.8rem;
+          }
         }
       }
       &-total {
         font-size: 20px;
         font-weight: 700;
+        @media (max-width: 900px) {
+          font-size: 18px;
+        }
+        @media (max-width: 700px) {
+          font-size: 16px;
+        }
+        @media (max-width: 400px) {
+          font-size: 13px;
+        }
       }
     }
   }
-  &-paypal-option{
+  &-paypal-option {
     margin-top: 6rem;
     margin-bottom: 3.5rem;
     display: flex;
     width: 100%;
     justify-content: center;
-    &-paypal{
+    &-paypal {
       width: 50%;
+    }
+    @media (max-width: 900px) {
+      margin-top: 4rem;
     }
   }
 }
