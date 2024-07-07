@@ -2,7 +2,7 @@
   <h1>Order # {{ currentOrder._id }}</h1>
   <div class="order-summary-content-section-body">
     <div class="order-summary-content-section-body-content">
-      <ul class="order-summary-content-section-body-order-description">
+      <ul class="order-summary-content-section-body-content-order-description">
         <li>
           <strong>Date </strong>{{ currentOrder.createTime | date: 'medium' }}
         </li>
@@ -11,31 +11,32 @@
         <li><strong>Status </strong>{{ PaymentStatus }}</li>
         <li><strong>Payment ID</strong>{{ currentOrder.paymentId }}</li>
       </ul>
-      <div class="order-summary-content-section-body-order">
-        <h3>Order Items:</h3>
-        <table>
-          <tr *ngFor="let item of currentOrder.cartItems">
-            <td>{{ item.name }}</td>
-            <td>{{ item.productSizeAndPrice.size }}</td>
-            <td>LKR. {{ item.productSizeAndPrice.price | number: '1.2-2' }}</td>
-            <td>{{ item.quantity }}</td>
-            <td>
-              LKR.
-              {{
-                item.productSizeAndPrice.price * item.quantity | number: '1.2-2'
-              }}
-            </td>
-          </tr>
-        </table>
-        <div class="order-summary-content-section-body-order-order-total">
-          Total Amount : LKR. {{ currentOrder.totalAmount | number: '1.2-2' }}
-        </div>
+      <div class="order-summary-content-section-body-content-img">
+        <img
+          src="../../../../assets/images/payment summary page/deliver bike.gif"
+          alt="deliver bike" />
       </div>
     </div>
-    <div class="order-summary-content-section-body-img">
-      <img
-        src="../../../../assets/images/payment summary page/deliver bike.gif"
-        alt="delivery bike" />
+
+    <div class="order-summary-content-section-body-order">
+      <h3>Order Items:</h3>
+      <table>
+        <tr *ngFor="let item of currentOrder.cartItems">
+          <td>{{ item.name }}</td>
+          <td>{{ item.productSizeAndPrice.size }}</td>
+          <td>LKR. {{ item.productSizeAndPrice.price | number: '1.2-2' }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>
+            LKR.
+            {{
+              item.productSizeAndPrice.price * item.quantity | number: '1.2-2'
+            }}
+          </td>
+        </tr>
+      </table>
+      <div class="order-summary-content-section-body-order-order-total">
+        Total Amount : LKR. {{ currentOrder.totalAmount | number: '1.2-2' }}
+      </div>
     </div>
   </div>
 </div>
