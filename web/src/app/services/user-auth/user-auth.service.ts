@@ -48,7 +48,9 @@ export class UserAuthService {
   }
   getUserInformation(): Observable<User> {
     return this.http.get<User>(`${this.URL_BASE}/user/data`);
-    
+  }
+  deleteUser(): Observable<HttpResponse<any>> {
+    return this.http.delete<HttpResponse<any>>(`${this.URL_BASE}/user/delete`);
   }
 
   saveCredentials(token: string, id: string) {

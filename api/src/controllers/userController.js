@@ -56,4 +56,16 @@ const getUserData = async (req, res) => {
   }
 };
 
-module.exports = { userSignIn, userSignUp, getUserData };
+const deleteUser = async (req, res) => {
+  try {
+    const user = await User.findOneAndDelete({ _id: req.user_id });
+    if (!user) {
+      return res.status(400).send({ message: "Error Occur" });
+    }
+    return res.status(200).send({ message: "Delete Successfully" });
+  } catch (err) {
+    return res.status(400).send(err);
+  }
+};
+
+module.exports = { userSignIn, userSignUp, getUserData, deleteUser };
