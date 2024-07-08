@@ -1,4 +1,6 @@
 const { User } = require("../database/models/user.model");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 const userSignIn = async (req, res) => {
   const { email, password } = req.body;
@@ -19,11 +21,25 @@ const userSignIn = async (req, res) => {
 
 const userSignUp = async (req, res) => {
   try {
-    const newUser = new User(req.body);
+    const user = await User.findOne({ email: req.body.email });
+    if (user) {
+      return res.status(400).send({ message: "User Already Exist" });
+    }
+    const encryptPW = await bcrypt.hash(req.body.password, saltRounds);
+    const newBody = {
+      firstName: req.body.firstName.toUpperCase(),
+      lastName: req.body.lastName.toUpperCase(),
+      address: req.body.address.toUpperCase(),
+      email: req.body.email.toLowerCase(),
+      contactNo: req.body.contactNo,
+      password: encryptPW,
+    };
+    const newUser = new User(newBody);
     await newUser.save();
     const token = await newUser.createSession();
     return res.status(200).header("token", token).send(newUser._id);
   } catch (err) {
+    console.log(err);
     return res.status(500).send("Error during user sign up");
   }
 };
