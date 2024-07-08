@@ -53,4 +53,23 @@ let deleteCart = async (req, res) => {
     return res.status(400).send(error);
   }
 };
-module.exports = { createNewOrder, getUserCart, updateCart, deleteCart };
+
+let deleteAllCart = async (req, res) => {
+  try {
+    const cart = await Cart.deleteMany({ user_id: req.user_id });
+    if (cart) {
+      return res.status(200).send({ message: "Delete Successfully" });
+    }
+    return res.status(400).send({ message: "Error Occur" });
+  } catch (err) {
+    console.log(err);
+    return res.status(400).send(err);
+  }
+};
+module.exports = {
+  createNewOrder,
+  getUserCart,
+  updateCart,
+  deleteCart,
+  deleteAllCart,
+};
