@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const _ = require("lodash");
 const jwt = require("jsonwebtoken");
 const jwtSecret = "lOsDKMXBayayFJQNNmUp5KqbwV1U4QfGIvPt4kTO6BEEJyhZoAhtQBqEa";
+const bcrypt = require("bcrypt");
 const userSchema = mongoose.Schema({
   firstName: {
     type: String,
@@ -39,16 +40,15 @@ const userSchema = mongoose.Schema({
     },
   ],
 });
-userSchema.statics.getJwtToken= function(){
+userSchema.statics.getJwtToken = function () {
   return jwtSecret;
-}
+};
 //tojson method
 userSchema.methods.toJSON = function () {
   const user = this;
   const userObject = user.toObject();
   return new _.omit(userObject, ["sessions", "password"]);
 };
-
 //refresh token generator
 userSchema.methods.generateRefreshToken = function () {
   const user = this;
@@ -111,8 +111,8 @@ userSchema.statics.findByEmailAndPassword = async function (email, password) {
     if (!user) {
       throw new Error("User Not Found");
     }
-    if (user.password !== password) {
-      //strick equality (check both value and type)
+    const comparePW = await bcrypt.compare(password, user.password);
+    if (!comparePW) {
       throw new Error("User Not Found");
     }
     return user;

@@ -8,5 +8,6 @@ router.post(
   orderController.createNewOrder
 );
 router.get("/:orderId", middleware.authenticate, orderController.getOrder);
-router.patch("/:orderId",middleware.authenticate,orderController.saveOrder)
+router.patch("/:orderId",middleware.authenticate,orderController.saveOrder);
+router.delete("/delete-all",middleware.authenticate,orderController.deleteAllOrder)
 module.exports = router;

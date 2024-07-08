@@ -46,5 +46,16 @@ let saveOrder = async (req, res) => {
     return res.status(400).send(error);
   }
 };
+deleteAllOrder = async (req, res) => {
+  try {
+    const order = await Order.deleteMany({
+      userId: req.user_id,
+    });
+    if (!order) return res.status(400).send({ message: "Error Occur" });
+    return res.status(200).send({ message: "Successful" });
+  } catch (err) {
+    return res.send(400).send(err);
+  }
+};
 
-module.exports = { createNewOrder, getOrder, saveOrder };
+module.exports = { createNewOrder, getOrder, saveOrder, deleteAllOrder };

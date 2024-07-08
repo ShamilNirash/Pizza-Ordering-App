@@ -170,10 +170,10 @@ export class PersonDataFormComponent {
             }
           },
           error: err => {
-            console.log(err);
+            
             swal({
               title: 'Oops...',
-              text: 'Oops! Something went wrong. Please try again later.!',
+              text: err.error.message,
               icon: 'error',
               buttons: [false],
               timer: 2000,

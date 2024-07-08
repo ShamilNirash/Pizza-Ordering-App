@@ -47,9 +47,6 @@ export class NavbarComponent implements OnInit {
     this.routerUrl = this.router.url;
   }
   ngOnInit(): void {
-    if (this.userAuthService.getId()) {
-      this.isPersonHave = true;
-    }
     this.userAuthService.getUserInformation().subscribe({
       next: (user: User) => {
         this.userName = user.firstName;
@@ -58,6 +55,9 @@ export class NavbarComponent implements OnInit {
         console.log(err);
       },
     });
+    if (this.userAuthService.getId()) {
+      this.isPersonHave = true;
+    }
     this.cartService.getUserCart().subscribe({
       next: (cart: Cart[]) => {
         cart.forEach(unit => {

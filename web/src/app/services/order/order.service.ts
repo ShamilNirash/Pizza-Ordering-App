@@ -27,4 +27,7 @@ export class OrderService {
 
     return this.http.patch<any>(`${this.BASE_URL}/${orderId}`, object);
   }
+  deleteAllOrders() {
+    return this.http.delete(`${this.BASE_URL}/delete-all`);
+  }
 }

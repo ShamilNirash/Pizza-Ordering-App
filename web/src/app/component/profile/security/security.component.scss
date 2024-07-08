@@ -3,7 +3,7 @@
 .security {
   padding: 0rem 2rem;
   font-family: 'Poppins', sans-serif;
-  @media(max-width:700px){
+  @media (max-width: 700px) {
     padding: 0 0 1rem;
   }
   h1 {
@@ -58,15 +58,17 @@
         color: gray;
         font-size: 20px;
         &:hover {
-            cursor: pointer;
-          }
-          @media(max-width:900px){
-            font-size:  18px;
-          } @media(max-width:700px){
-            font-size:  16px;
-          } @media(max-width:350px){
-            font-size:  14px;
-          }
+          cursor: pointer;
+        }
+        @media (max-width: 900px) {
+          font-size: 18px;
+        }
+        @media (max-width: 700px) {
+          font-size: 16px;
+        }
+        @media (max-width: 350px) {
+          font-size: 14px;
+        }
       }
     }
   }
@@ -96,12 +98,9 @@
       @media (max-width: 700px) {
         font-size: 13px;
       }
-      @media (max-width: 370px) {
-        font-size: 11px;
-      }
     }
   }
-  &-logout{
+  &-logout {
     margin-top: 2rem;
     font-size: 1rem;
     font-weight: 600;
@@ -110,5 +109,60 @@
     background-color: $orderNowBtnColor;
     padding: 0.5rem 1rem;
     border-radius: 10px;
+    @media (max-width: 900px) {
+      font-size: 15px;
+    }
+    @media (max-width: 700px) {
+      font-size: 13px;
+    }
+  }
+  &-third-tab {
+    margin-top: 2rem;
+    h3 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      @media (max-width: 900px) {
+        font-size: 1.5rem;
+      }
+      @media (max-width: 700px) {
+        font-size: 1.25rem;
+      }
+      @media (max-width: 370px) {
+        font-size: 1rem;
+      }
+    }
+    &-body {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 2vh;
+      div {
+        font-size: 1rem;
+        color: rgb(75, 75, 75);
+        @media (max-width: 900px) {
+          font-size: 15px;
+        }
+        @media (max-width: 700px) {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  &-delete {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $themeColor;
+    border: none;
+    background-color: $orderNowBtnColor;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    @media (max-width: 900px) {
+      font-size: 15px;
+    }
+    @media (max-width: 700px) {
+      font-size: 13px;
+    }
   }
 }
