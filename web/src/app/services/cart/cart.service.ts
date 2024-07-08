@@ -35,4 +35,7 @@ export class CartService {
       { observe: 'response' }
     );
   }
+  deleteAllUserCart(): Observable<HttpResponse<any>> {
+    return this.http.delete<HttpResponse<any>>(`${this.URL_BASE}/delete-cart`);
+  }
 }

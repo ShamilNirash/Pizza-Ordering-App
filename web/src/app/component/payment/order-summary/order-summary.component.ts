@@ -1,15 +1,9 @@
-import {
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-  viewChild,
-} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { OrderService } from '../../../services/order/order.service';
 import { Order } from '../../../interfaces/order';
 import { CommonModule, NgFor } from '@angular/common';
-
+import { CartService } from '../../../services/cart/cart.service';
 @Component({
   selector: 'app-order-summary',
   standalone: true,
@@ -24,6 +18,7 @@ export class OrderSummaryComponent implements OnInit {
   constructor(
     private activatedRouter: ActivatedRoute,
     private orderService: OrderService,
+    private cartService: CartService,
     private router: Router
   ) {}
   ngOnInit(): void {
@@ -63,7 +58,15 @@ export class OrderSummaryComponent implements OnInit {
                   })
                   .subscribe({
                     next: res => {
-                      this.router.navigateByUrl(`/${this.activeOrderId}`);
+                      this.cartService.deleteAllUserCart().subscribe({
+                        next: cart => {
+                          if (!cart) return;
+                          this.router.navigateByUrl(`/${this.activeOrderId}`);
+                        },
+                        error: err => {
+                          console.log(err);
+                        },
+                      });
                     },
                     error: err => {
                       console.log(err);
