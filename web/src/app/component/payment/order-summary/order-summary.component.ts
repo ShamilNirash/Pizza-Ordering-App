@@ -4,6 +4,7 @@ import { OrderService } from '../../../services/order/order.service';
 import { Order } from '../../../interfaces/order';
 import { CommonModule, NgFor } from '@angular/common';
 import { CartService } from '../../../services/cart/cart.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-order-summary',
   standalone: true,
@@ -19,7 +20,8 @@ export class OrderSummaryComponent implements OnInit {
     private activatedRouter: ActivatedRoute,
     private orderService: OrderService,
     private cartService: CartService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
   ngOnInit(): void {
     this.activatedRouter.params.subscribe((params: Params) => {
@@ -61,14 +63,17 @@ export class OrderSummaryComponent implements OnInit {
                       this.cartService.deleteAllUserCart().subscribe({
                         next: cart => {
                           if (!cart) return;
+                          this.toastr.success('Order Placed Successfully');
                           this.router.navigateByUrl(`/${this.activeOrderId}`);
                         },
                         error: err => {
+                          this.toastr.error(err);
                           console.log(err);
                         },
                       });
                     },
                     error: err => {
+                      this.toastr.error(err);
                       console.log(err);
                     },
                   });
@@ -78,10 +83,9 @@ export class OrderSummaryComponent implements OnInit {
         },
         onError: (error: any) => {
           console.log(error);
+          this.toastr.error(error);
         },
       })
       .render(this.paymentRef.nativeElement);
-
-    console.log('Hi', this.activeOrder.totalAmount);
   }
 }

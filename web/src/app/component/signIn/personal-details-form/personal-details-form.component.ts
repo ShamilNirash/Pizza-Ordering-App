@@ -7,8 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { merge } from 'rxjs';
 import { UserAuthService } from '../../../services/user-auth/user-auth.service';
-import swal from 'sweetalert';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-personal-details-form',
   standalone: true,
@@ -28,7 +28,11 @@ export class PersonalDetailsFormComponent {
   hide = true;
   emailField: string = '';
   passwordField: string = '';
-  constructor(private userAuthService: UserAuthService, private router:Router) {
+  constructor(
+    private userAuthService: UserAuthService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateErrorMessage());
@@ -44,49 +48,27 @@ export class PersonalDetailsFormComponent {
     }
   }
   onClickSignInBtn() {
-    if (
-      !this.email.invalid &&
-      !this.password.invalid
-    ) {
+    if (!this.email.invalid && !this.password.invalid) {
       this.userAuthService
         .signInPost(this.email.value!, this.password.value!)
         .subscribe({
           next: res => {
+            this.toastr.success('Login Successful');
             this.router.navigateByUrl('/');
-  },
+          },
           error: err => {
             if (err.status == 404) {
-              swal({
-                title: 'Oops...',
-                text: 'User Not Found!',
-                icon: 'error',
-                buttons: [false],
-                timer: 2000,
-              });
+              this.toastr.error('User Not Found!');
             } else {
-              swal({
-                title: 'Oops...',
-                text: 'An unexpected error occurred. Please try again later.!',
-                icon: 'error',
-                buttons: [false],
-                timer: 2000,
-              });
+              this.toastr.error(
+                'An unexpected error occurred. Please try again later.!'
+              );
             }
             console.error('Sign in failed', err);
-            this.email.reset();
-            this.password.reset();
           },
         });
     } else {
-      swal({
-        title: 'Oops...',
-        text: 'sign in failed!',
-        icon: 'error',
-        buttons: [false],
-        timer: 2000,
-      });
-      this.email.reset();
-      this.password.reset();
+      this.toastr.error('sign in failed!');
     }
   }
 }
