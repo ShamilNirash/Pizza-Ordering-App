@@ -1,27 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuCardComponent } from './menu-card/menu-card.component';
 import { Pizza } from '../../../interfaces/pizza';
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { PizzaService } from '../../../services/pizza/pizza.service';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { MenuNotFoundComponent } from './menu-not-found/menu-not-found.component';
 
 @Component({
   selector: 'app-menu-body',
   standalone: true,
-  imports: [MenuCardComponent, NgFor,RouterModule],
+  imports: [
+    MenuCardComponent,
+    NgFor,
+    RouterModule,
+    MenuNotFoundComponent,
+    CommonModule,
+  ],
   templateUrl: './menu-body.component.html',
   styleUrl: './menu-body.component.scss',
 })
 export class MenuBodyComponent implements OnInit {
   pizzaList!: Pizza[];
   pizzaListUpdate!: Pizza[];
-  constructor(private pizzaService: PizzaService,) {}
+  constructor(private pizzaService: PizzaService) {}
   ngOnInit(): void {
     this.pizzaService.getPizzaList().subscribe({
       next: (res: Pizza[]) => {
         this.pizzaList = res;
         this.pizzaListUpdate = res;
-        console.log(res)
+        console.log(res);
       },
       error: err => {
         console.log(err);
