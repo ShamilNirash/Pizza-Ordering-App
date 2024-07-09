@@ -12,6 +12,7 @@ import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons';
 import { UserAuthService } from '../../../services/user-auth/user-auth.service';
 import { CartService } from '../../../services/cart/cart.service';
 import { Cart } from '../../../interfaces/cart';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-menu-card-page-body',
@@ -35,7 +36,8 @@ export class MenuCardPageBodyComponent implements OnInit {
     private pizzaService: PizzaService,
     private userAuthService: UserAuthService,
     private router: Router,
-    private cartService: CartService
+    private cartService: CartService,
+    private toastr: ToastrService
   ) {}
   ngOnInit(): void {
     this.activatedRouter.params.subscribe({
@@ -71,12 +73,11 @@ export class MenuCardPageBodyComponent implements OnInit {
           size: 'M',
           price: this.relatedPriceForMediumPizza.price,
         },
-        allSizeAndPrice:this.pizza.prizeWithSize
-
-        
+        allSizeAndPrice: this.pizza.prizeWithSize,
       })
       .subscribe({
         next: (cart: Cart) => {
+          this.toastr.success('Cart Update Successfully');
           //refresh activated route path
           this.router.routeReuseStrategy.shouldReuseRoute = function () {
             return false;
@@ -86,7 +87,7 @@ export class MenuCardPageBodyComponent implements OnInit {
         },
         error: err => {
           console.log(err);
-          this.router.navigateByUrl('/sign-in');
+          this.toastr.error('Error Occur');
         },
       });
   }

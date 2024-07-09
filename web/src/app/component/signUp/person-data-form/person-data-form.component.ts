@@ -7,8 +7,8 @@ import { merge } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatIconModule } from '@angular/material/icon';
 import { UserAuthService } from '../../../services/user-auth/user-auth.service';
-import swal from 'sweetalert';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-person-data-form',
@@ -54,7 +54,8 @@ export class PersonDataFormComponent {
 
   constructor(
     private userAuthService: UserAuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
@@ -158,36 +159,18 @@ export class PersonDataFormComponent {
         .subscribe({
           next: res => {
             if (res.status == 200) {
-              swal({
-                icon: 'success',
-                title: 'Sign up successfully',
-                buttons: [false],
-                timer: 1500,
-              });
-              setTimeout(() => {
-                this.router.navigateByUrl('/');
-              }, 2000);
+              this.router.navigateByUrl('/');
+              this.toastr.success(
+                'Sign up successfully'
+              );
             }
           },
           error: err => {
-            
-            swal({
-              title: 'Oops...',
-              text: err.error.message,
-              icon: 'error',
-              buttons: [false],
-              timer: 2000,
-            });
+            this.toastr.error(err.error.message);
           },
         });
     } else {
-      swal({
-        title: 'Oops...',
-        text: 'please correct errors and resubmit!',
-        icon: 'error',
-        buttons: [false],
-        timer: 2000,
-      });
+      this.toastr.error('please correct errors and resubmit!');
     }
   }
 }

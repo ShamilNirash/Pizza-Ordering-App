@@ -12,6 +12,7 @@ import { UserAuthService } from '../../../services/user-auth/user-auth.service';
 import { User } from '../../../interfaces/user';
 import swal from 'sweetalert';
 import { Router, RouterModule } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-menu-cart-content',
@@ -24,7 +25,7 @@ import { Router, RouterModule } from '@angular/router';
     MatSelectModule,
     MatInputModule,
     NgFor,
-    RouterModule
+    RouterModule,
   ],
   templateUrl: './menu-cart-content.component.html',
   styleUrl: './menu-cart-content.component.scss',
@@ -40,7 +41,8 @@ export class MenuCartContentComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private userAuthService: UserAuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
   ngOnInit(): void {
     this.isChangeInput = false;
@@ -90,12 +92,7 @@ export class MenuCartContentComponent implements OnInit {
         this.cartService.deleteUserCart(cart._id).subscribe({
           next: res => {
             if (res.status == 200) {
-              swal({
-                icon: 'success',
-                title: 'Cart Updated Successfully',
-                buttons: [false],
-                timer: 1500,
-              });
+              this.toastr.success('Cart Update Successfully');
               this.router.routeReuseStrategy.shouldReuseRoute = function () {
                 return false;
               };
@@ -105,13 +102,9 @@ export class MenuCartContentComponent implements OnInit {
           },
           error: err => {
             console.log(err);
-            swal({
-              title: 'Oops...',
-              text: 'Oops! Something went wrong. Please try again later.!',
-              icon: 'error',
-              buttons: [false],
-              timer: 2000,
-            });
+            this.toastr.error(
+              'Oops! Something went wrong. Please try again later.!'
+            );
           },
         });
       } else {
@@ -127,12 +120,7 @@ export class MenuCartContentComponent implements OnInit {
             next: res => {
               console.log(res);
               if (res.status == 200) {
-                swal({
-                  icon: 'success',
-                  title: 'Cart Updated Successfully',
-                  buttons: [false],
-                  timer: 1500,
-                });
+                this.toastr.success('Cart Update Successfully');
                 this.isChangeInput = false;
                 this.router.routeReuseStrategy.shouldReuseRoute = function () {
                   return false;
@@ -143,13 +131,9 @@ export class MenuCartContentComponent implements OnInit {
             },
             error: err => {
               console.log(err);
-              swal({
-                title: 'Oops...',
-                text: 'Oops! Something went wrong. Please try again later.!',
-                icon: 'error',
-                buttons: [false],
-                timer: 2000,
-              });
+              this.toastr.error(
+                'Oops! Something went wrong. Please try again later.!'
+              );
             },
           });
       }
