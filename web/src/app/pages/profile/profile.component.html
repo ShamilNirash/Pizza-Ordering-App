@@ -1,5 +1,5 @@
 <div class="profile">
-    <app-header></app-header>
+  <app-header></app-header>
   <div class="profile-body">
     <div class="left-side">
       <app-profile-navbar
@@ -8,6 +8,7 @@
     <div class="right-side">
       <app-account-info
         *ngIf="navbarClickedBtn == 'accountInfo'"></app-account-info>
+      <app-order *ngIf="navbarClickedBtn == 'orders'"></app-order>
       <app-security *ngIf="navbarClickedBtn == 'security'"></app-security>
       <app-privacy-and-data
         *ngIf="navbarClickedBtn == 'privacy'"></app-privacy-and-data>

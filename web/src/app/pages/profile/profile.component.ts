@@ -5,11 +5,12 @@ import { NgIf } from '@angular/common';
 import { SecurityComponent } from '../../component/profile/security/security.component';
 import { PrivacyAndDataComponent } from '../../component/profile/privacy-and-data/privacy-and-data.component';
 import { HeaderComponent } from '../../component/profile/header/header.component';
+import { OrderComponent } from '../../component/profile/order/order.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [ProfileNavbarComponent,AccountInfoComponent,NgIf,SecurityComponent,PrivacyAndDataComponent,HeaderComponent],
+  imports: [ProfileNavbarComponent,AccountInfoComponent,NgIf,SecurityComponent,PrivacyAndDataComponent,HeaderComponent,OrderComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })

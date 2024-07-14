@@ -24,6 +24,19 @@ let getOrder = async (req, res) => {
   }
 };
 
+let getAllOrders = async (req, res) => {
+  try {
+    const orders = await Order.find({ userId: req.user_id, isPayed:true });
+    if (!orders) {
+      return res.status(404).send({ message: "Not Found" });
+    }
+    return res.status(200).send({message:orders});
+  } catch (err) {
+    console.log(err);
+    return res.status(400).send(err);
+  }
+};
+
 let saveOrder = async (req, res) => {
   try {
     const order = await Order.updateOne(
@@ -58,4 +71,10 @@ deleteAllOrder = async (req, res) => {
   }
 };
 
-module.exports = { createNewOrder, getOrder, saveOrder, deleteAllOrder };
+module.exports = {
+  createNewOrder,
+  getOrder,
+  saveOrder,
+  deleteAllOrder,
+  getAllOrders,
+};
