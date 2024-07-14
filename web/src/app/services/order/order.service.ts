@@ -21,6 +21,11 @@ export class OrderService {
   getOrder(orderId: string): Observable<Order> {
     return this.http.get<Order>(`${this.BASE_URL}/${orderId}`);
   }
+  getUserAllOrders(): Observable<any> {
+    return this.http.get<any>(`${this.BASE_URL}/orderAll`, {
+      observe: 'response',
+    });
+  }
   saveOrder(orderId: string, object: Object): Observable<HttpResponse<any>> {
     console.log('object', object);
     console.log('id', orderId);

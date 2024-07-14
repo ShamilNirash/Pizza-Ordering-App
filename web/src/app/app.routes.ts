@@ -38,4 +38,9 @@ export const routes: Routes = [
     component: OrderSummaryComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path:'profile/:orderId',
+    component:OrderSummaryComponent,
+    canActivate:[AuthGuard]
+  }
 ];

@@ -7,7 +7,12 @@ router.post(
   middleware.authenticate,
   orderController.createNewOrder
 );
+router.get("/orderAll", middleware.authenticate, orderController.getAllOrders);
 router.get("/:orderId", middleware.authenticate, orderController.getOrder);
-router.patch("/:orderId",middleware.authenticate,orderController.saveOrder);
-router.delete("/delete-all",middleware.authenticate,orderController.deleteAllOrder)
+router.patch("/:orderId", middleware.authenticate, orderController.saveOrder);
+router.delete(
+  "/delete-all",
+  middleware.authenticate,
+  orderController.deleteAllOrder
+);
 module.exports = router;

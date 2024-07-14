@@ -1,0 +1,11 @@
+<div class="order-section">
+  <h1>Orders</h1>
+  <div class="order-section-body">
+    <div class="order-section-body-order-card" *ngFor="let order of orders" [routerLink]="'order._id'">
+      <div class="order-section-body-order-id">
+       <strong>Order Id : </strong>{{order._id}}
+      </div>
+      <div class="order-section-body-order-date"><strong>Date : </strong>{{order.createTime | date:'medium'}}</div>
+    </div>
+  </div>
+</div>
