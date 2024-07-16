@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { OrderService } from '../../../services/order/order.service';
 import { ActivatedRoute, Params, } from '@angular/router';
 import { Order } from '../../../interfaces/order';
@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './order-summary-content.component.scss',
 })
 export class OrderSummaryContentComponent implements OnInit {
+  @Input() imgUrl:string='';
   currentOrder!: Order;
   PaymentStatus!: string;
   constructor(
