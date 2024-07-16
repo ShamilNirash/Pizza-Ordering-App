@@ -12,6 +12,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { AuthGuard } from './guard/auth-guard.guard';
 import { OrderSummaryComponent } from './pages/order-summary/order-summary.component';
+import { AllOrderSummaryComponent } from './pages/all-order-summary/all-order-summary.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,7 +41,7 @@ export const routes: Routes = [
   },
   {
     path:'profile/:orderId',
-    component:OrderSummaryComponent,
+    component:AllOrderSummaryComponent,
     canActivate:[AuthGuard]
   }
 ];

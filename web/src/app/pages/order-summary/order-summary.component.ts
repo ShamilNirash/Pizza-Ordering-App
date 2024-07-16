@@ -10,4 +10,6 @@ import { OrderSummaryContentComponent } from '../../component/order-summary/orde
   templateUrl: './order-summary.component.html',
   styleUrl: './order-summary.component.scss',
 })
-export class OrderSummaryComponent {}
+export class OrderSummaryComponent {
+  photoUrl="../../../../assets/images/payment summary page/deliver bike.gif";
+}
