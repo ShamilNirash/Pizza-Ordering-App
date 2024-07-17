@@ -9,7 +9,9 @@
       <label for="name" class="account-info-basicInfo-field-label">
         Name
       </label>
-      <div class="account-info-basicInfo-field-label-value">{{userObject.firstName+" "+userObject.lastName}}</div>
+      <div class="account-info-basicInfo-field-label-value">
+        {{ userObject.firstName + ' ' + userObject.lastName }}
+      </div>
     </div>
     <div class="account-info-basicInfo-field-right">
       <fa-icon [icon]="nextIcon"></fa-icon>
@@ -21,7 +23,9 @@
       <label for="address" class="account-info-basicInfo-field-label">
         Address
       </label>
-      <div class="account-info-basicInfo-field-label-value">{{userObject.address}}</div>
+      <div class="account-info-basicInfo-field-label-value">
+        {{ userObject.address }}
+      </div>
     </div>
     <div class="account-info-basicInfo-field-right">
       <fa-icon [icon]="nextIcon"></fa-icon>
@@ -33,7 +37,9 @@
       <label for="email" class="account-info-basicInfo-field-label">
         Email
       </label>
-      <div class="account-info-basicInfo-field-label-value">{{userObject.email}}</div>
+      <div class="account-info-basicInfo-field-label-value">
+        {{ userObject.email }}
+      </div>
     </div>
     <div class="account-info-basicInfo-field-right">
       <fa-icon [icon]="nextIcon"></fa-icon>
@@ -45,10 +51,17 @@
       <label for="contactNo" class="account-info-basicInfo-field-label">
         Contact Number
       </label>
-      <div class="account-info-basicInfo-field-label-value">{{userObject.contactNo}}</div>
+      <div class="account-info-basicInfo-field-label-value">
+        {{ userObject.contactNo }}
+      </div>
     </div>
     <div class="account-info-basicInfo-field-right">
       <fa-icon [icon]="nextIcon"></fa-icon>
     </div>
   </div>
+  <button
+    class="account-info-updateBtn mt-4 mb-4"
+    [routerLink]="'edit'">
+    Update Info
+  </button>
 </div>
