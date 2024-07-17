@@ -124,4 +124,21 @@
       }
     }
   }
+  &-updateBtn{
+    background-color: black;
+    border: none;
+    padding: 0.7rem 1.3rem;
+    color: white;
+    border-radius: 15px;
+    font-weight: 600;
+    float: right;
+    @media(max-width:900px){
+      padding: 0.7rem 1.1rem;
+      font-size: 15px;
+    }
+    @media(max-width:700px){
+      padding: 0.5rem 1rem;
+      font-size: 13px;
+    }
+  }
 }

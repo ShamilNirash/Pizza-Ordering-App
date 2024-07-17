@@ -1,0 +1,63 @@
+<div class="info-body">
+  <h1>Edit Person Info</h1>
+  <div class="info-body-content">
+    <label for="firstname">First Name</label>
+    <mat-form-field>
+      <input
+        matInput
+        [formControl]="firstName"
+        placeholder="Ex. Sam"
+        (blur)="updateFirstNameErrorMessage()"
+        required
+        (change)="changeTheText()" />
+      @if (firstName.invalid) {
+        <mat-error>{{ firstNameErrorMessage }}</mat-error>
+      }
+    </mat-form-field>
+    <label for="lastname">Last Name</label>
+    <mat-form-field>
+      <input
+        matInput
+        [formControl]="lastName"
+        placeholder="Ex. Kamaron"
+        (blur)="updateLastNameErrorMessage()"
+        required
+        (change)="changeTheText()" />
+      @if (lastName.invalid) {
+        <mat-error>{{ lastNameErrorMessage }}</mat-error>
+      }
+    </mat-form-field>
+    <label for="address">Address</label>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Ex. 210/A, Samaghi Mawatha, Kelaniya"
+        [formControl]="address"
+        (blur)="updateAddressErrorMessage()"
+        required
+        (change)="changeTheText()" />
+      @if (address.invalid) {
+        <mat-error>{{ addressErrorMessage }}</mat-error>
+      }
+    </mat-form-field>
+    <label for="contactNo">Contact No</label>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Ex. 077 XXX XXXX"
+        [formControl]="contactNo"
+        (blur)="updateContactNoErrorMessage()"
+        required
+        (change)="changeTheText()" />
+      @if (contactNo.invalid) {
+        <mat-error>{{ contactNoErrorMessage }}</mat-error>
+      }
+    </mat-form-field>
+    <button
+      class="info-body-content-updateBtn"
+      [disabled]="isEnableBtn"
+      (click)="updateBtnClick()">
+      Update Info
+    </button>
+  </div>
+</div>

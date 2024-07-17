@@ -6,5 +6,5 @@ router.get("/data", middleware.authenticate, userController.getUserData);
 router.post("/signIn", userController.userSignIn);
 router.post("/signUp", userController.userSignUp);
 router.delete("/delete", middleware.authenticate, userController.deleteUser);
-
+router.patch("/update",middleware.authenticate,userController.updateUserDetails)
 module.exports = router;

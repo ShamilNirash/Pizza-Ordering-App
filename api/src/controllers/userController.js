@@ -68,4 +68,32 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { userSignIn, userSignUp, getUserData, deleteUser };
+let updateUserDetails = async (req, res) => {
+  try {
+    const user = await User.updateOne(
+      { _id: req.user_id },
+      {
+        $set: {
+          firstName: req.body.firstName.toUpperCase(),
+          lastName: req.body.lastName.toUpperCase(),
+          address: req.body.address.toUpperCase(),
+          contactNo: req.body.contactNo,
+        },
+      }
+    );
+    if (user) {
+      return res.status(200).send({ message: "OK" });
+    }
+    return res.status(400).send({ message: "Error Occur" });
+  } catch (err) {
+    return res.status(400).send(err);
+  }
+};
+
+module.exports = {
+  userSignIn,
+  userSignUp,
+  getUserData,
+  deleteUser,
+  updateUserDetails,
+};
