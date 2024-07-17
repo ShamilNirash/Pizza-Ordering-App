@@ -138,6 +138,7 @@ export class InfoBodyComponent implements OnInit {
           },
           error: err => {
             console.log(err);
+            this.toastr.error('Error Occur');
           },
         });
     }
