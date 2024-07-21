@@ -14,6 +14,7 @@ import { AuthGuard } from './guard/auth-guard.guard';
 import { OrderSummaryComponent } from './pages/order-summary/order-summary.component';
 import { AllOrderSummaryComponent } from './pages/all-order-summary/all-order-summary.component';
 import { UpdateUserInfoComponent } from './pages/update-user-info/update-user-info.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -46,8 +47,17 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'profile/pwChange',
+    component: ChangePasswordComponent,
+    canActivate: [AuthGuard],
+    pathMatch:'full'
+  },
+  {
     path: 'profile/:orderId',
     component: AllOrderSummaryComponent,
     canActivate: [AuthGuard],
+    pathMatch:'full'
+    
   },
+ 
 ];

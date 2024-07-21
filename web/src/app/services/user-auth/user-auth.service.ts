@@ -51,9 +51,16 @@ export class UserAuthService {
   }
   deleteUser(): Observable<HttpResponse<any>> {
     return this.http.delete<HttpResponse<any>>(`${this.URL_BASE}/user/delete`);
-  }
+  } 
   updateUserDetails(object: Object) {
-   return this.http.patch(`${this.URL_BASE}/user/update`, object, { observe: 'response' });
+    return this.http.patch(`${this.URL_BASE}/user/update`, object, {
+      observe: 'response',
+    });
+  }
+  updateUserPassword(object: Object) {
+    return this.http.patch(`${this.URL_BASE}/user/update-pw`, object, {
+      observe: 'response',
+    });
   }
   saveCredentials(token: string, id: string) {
     localStorage.setItem('token', token);
