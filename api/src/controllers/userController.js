@@ -5,7 +5,8 @@ const saltRounds = 10;
 const userSignIn = async (req, res) => {
   const { email, password } = req.body;
   try {
-    const user = await User.findByEmailAndPassword(email, password);
+    const simpleEmail = email.toLowerCase();
+    const user = await User.findByEmailAndPassword(simpleEmail, password);
     if (!user) {
       return res.sendStatus(404);
     }
@@ -21,7 +22,8 @@ const userSignIn = async (req, res) => {
 
 const userSignUp = async (req, res) => {
   try {
-    const user = await User.findOne({ email: req.body.email });
+    const simpleEmail = email.toLowerCase();
+    const user = await User.findOne({ email: simpleEmail });
     if (user) {
       return res.status(400).send({ message: "User Already Exist" });
     }
@@ -30,7 +32,7 @@ const userSignUp = async (req, res) => {
       firstName: req.body.firstName.toUpperCase(),
       lastName: req.body.lastName.toUpperCase(),
       address: req.body.address.toUpperCase(),
-      email: req.body.email.toLowerCase(),
+      email: simpleEmail,
       contactNo: req.body.contactNo,
       password: encryptPW,
     };
@@ -90,10 +92,43 @@ let updateUserDetails = async (req, res) => {
   }
 };
 
+let updateUserPassword = async (req, res) => {
+  try {
+    let user = await User.findOne({ _id: req.user_id });
+    if (!user) {
+      return res.status(404).send({ message: "User Not Found" });
+    }
+    const isCurrentPW = await bcrypt.compare(req.body.currentPW, user.password);
+    console.log(isCurrentPW);
+    console.log("Hi");
+    if (!isCurrentPW) {
+      return res.status(400).send({ message: "Current Password is Invalid" });
+    }
+    if (req.body.newPassword !== req.body.reNewPassword) {
+      return res.status(400).send({
+        message: "New password and re-entered new password do not match",
+      });
+    }
+    if (req.body.currentPW == req.body.newPassword) {
+      return res
+        .status(400)
+        .send({ message: "New Password is not be same as Current Password" });
+    }
+    let newEncryptUserPW = await bcrypt.hash(req.body.newPassword, saltRounds);
+    user.password = newEncryptUserPW;
+    await user.save();
+    return res.status(200).send({ message: "OK" });
+  } catch (err) {
+    console.log(err);
+    return res.send(500).send(err);
+  }
+};
+
 module.exports = {
   userSignIn,
   userSignUp,
   getUserData,
   deleteUser,
   updateUserDetails,
+  updateUserPassword,
 };

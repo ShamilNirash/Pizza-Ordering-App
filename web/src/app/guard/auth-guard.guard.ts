@@ -3,7 +3,6 @@ import { UserAuthService } from '../services/user-auth/user-auth.service';
 import { inject } from '@angular/core';
 
 export const AuthGuard: CanActivateFn = (route, state) => {
-  let isPerson: boolean = false;
   const userService = inject(UserAuthService);
   const router = inject(Router);
   userService.getUserInformation().subscribe({

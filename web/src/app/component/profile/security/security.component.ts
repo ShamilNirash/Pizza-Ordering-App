@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { UserAuthService } from '../../../services/user-auth/user-auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { OrderService } from '../../../services/order/order.service';
 import { CartService } from '../../../services/cart/cart.service';
 import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-security',
   standalone: true,
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule,RouterModule],
   templateUrl: './security.component.html',
   styleUrl: './security.component.scss',
 })
