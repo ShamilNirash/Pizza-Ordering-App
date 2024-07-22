@@ -22,7 +22,7 @@ const userSignIn = async (req, res) => {
 
 const userSignUp = async (req, res) => {
   try {
-    const simpleEmail = email.toLowerCase();
+    const simpleEmail = req.body.email.toLowerCase();
     const user = await User.findOne({ email: simpleEmail });
     if (user) {
       return res.status(400).send({ message: "User Already Exist" });

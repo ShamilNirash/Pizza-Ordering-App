@@ -9,7 +9,7 @@
         placeholder="Ex. Sam"
         (blur)="updateFirstNameErrorMessage()"
         required
-        (change)="changeTheText()" />
+        (input)="changeTheText()" />
       @if (firstName.invalid) {
         <mat-error>{{ firstNameErrorMessage }}</mat-error>
       }
@@ -22,7 +22,7 @@
         placeholder="Ex. Kamaron"
         (blur)="updateLastNameErrorMessage()"
         required
-        (change)="changeTheText()" />
+        (input)="changeTheText()" />
       @if (lastName.invalid) {
         <mat-error>{{ lastNameErrorMessage }}</mat-error>
       }
@@ -35,7 +35,7 @@
         [formControl]="address"
         (blur)="updateAddressErrorMessage()"
         required
-        (change)="changeTheText()" />
+        (input)="changeTheText()" />
       @if (address.invalid) {
         <mat-error>{{ addressErrorMessage }}</mat-error>
       }
@@ -48,7 +48,7 @@
         [formControl]="contactNo"
         (blur)="updateContactNoErrorMessage()"
         required
-        (change)="changeTheText()" />
+        (input)="changeTheText()" />
       @if (contactNo.invalid) {
         <mat-error>{{ contactNoErrorMessage }}</mat-error>
       }
