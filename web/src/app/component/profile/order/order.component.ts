@@ -3,11 +3,12 @@ import { OrderService } from '../../../services/order/order.service';
 import { Order } from '../../../interfaces/order';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { MenuNotFoundComponent } from '../../menu/menu-body/menu-not-found/menu-not-found.component';
 
 @Component({
   selector: 'app-order',
   standalone: true,
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule,RouterModule,MenuNotFoundComponent],
   templateUrl: './order.component.html',
   styleUrl: './order.component.scss',
 })
