@@ -58,6 +58,6 @@ npm install
 
 ### Start the application
 
-    ```bash
+```bash
     npm run start
-    ```
+```
