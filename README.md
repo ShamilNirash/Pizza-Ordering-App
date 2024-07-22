@@ -32,9 +32,9 @@ Ensure you have the following installed on your local machine:
 
 1. Clone the repository:
 
-   ```bash
+```bash
    git clone https://github.com/ShamilNirash/Pizza-Ordering-App.git
-   ```
+```
 
 2. Install backend dependencies:
 
@@ -46,9 +46,9 @@ npm install
 
 1. Navigate to the frontend directory:
 
-   ```bash
-    cd ..web
-   ```
+```bash
+  cd web
+```
 
 2. Install frontend dependencies:
 
