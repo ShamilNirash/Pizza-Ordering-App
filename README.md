@@ -47,7 +47,7 @@ npm install
 1. Navigate to the frontend directory:
 
    ```bash
-    cd ../frontend
+    cd ..web
    ```
 
 2. Install frontend dependencies:
