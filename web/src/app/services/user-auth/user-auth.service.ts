@@ -9,14 +9,14 @@ import { User } from '../../interfaces/user';
 export class UserAuthService {
   readonly URL_BASE: string;
   constructor(private http: HttpClient) {
-    this.URL_BASE = 'http://localhost:3000';
+    this.URL_BASE = 'http://localhost:3000/user';
   }
 
   //already user post method
   signInPost(email: string, password: string) {
     return this.http
       .post(
-        `${this.URL_BASE}/user/signIn`,
+        `${this.URL_BASE}/signIn`,
         { email, password },
         { observe: 'response' }
       )
@@ -36,7 +36,7 @@ export class UserAuthService {
   ) {
     return this.http
       .post(
-        `${this.URL_BASE}/user/signUp`,
+        `${this.URL_BASE}/signUp`,
         { firstName, lastName, address, email, contactNo, password },
         { observe: 'response' }
       )
@@ -47,18 +47,18 @@ export class UserAuthService {
       );
   }
   getUserInformation(): Observable<User> {
-    return this.http.get<User>(`${this.URL_BASE}/user/data`);
+    return this.http.get<User>(`${this.URL_BASE}/data`);
   }
   deleteUser(): Observable<HttpResponse<any>> {
-    return this.http.delete<HttpResponse<any>>(`${this.URL_BASE}/user/delete`);
-  } 
+    return this.http.delete<HttpResponse<any>>(`${this.URL_BASE}/delete`);
+  }
   updateUserDetails(object: Object) {
-    return this.http.patch(`${this.URL_BASE}/user/update`, object, {
+    return this.http.patch(`${this.URL_BASE}/update`, object, {
       observe: 'response',
     });
   }
   updateUserPassword(object: Object) {
-    return this.http.patch(`${this.URL_BASE}/user/update-pw`, object, {
+    return this.http.patch(`${this.URL_BASE}/update-pw`, object, {
       observe: 'response',
     });
   }
